@@ -1,0 +1,23 @@
+.layoutContainer {
+  width: 95%;
+  margin: auto;
+  height: auto;
+  padding: 10px 0 90px 0;
+}
+
+.appBarLayout {
+  width: 95%;
+  margin: auto;
+}
+
+@media screen and (min-width: 992px) {
+  .layoutContainer {
+    width: 992px;
+    padding: 10px;
+  }
+
+  .appBarLayout {
+    width: 992px;
+  }
+}
+

@@ -1,0 +1,99 @@
+@import "../variables/mixins";
+
+.loginContainer {
+  width: auto;
+  border-radius: 5px;
+  display: flex;
+  gap: 150px;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.loginFormContainer {
+  @include borderStyle;
+  padding: 30px;
+  width: 400px;
+}
+
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.loginForm input {
+  padding: 18px 10px;
+  font-size: 18px;
+  font-family: 'Poppins', sans-serif;
+  @include borderStyle;
+  border-radius: 5px;
+}
+
+.loginForm input:focus {
+  outline: none;
+}
+
+.logupContainer, .logupFlex {
+  display: flex;
+}
+
+.logupFlex {
+  gap: $gap;
+}
+
+.smallInput {
+  width: 30% !important;
+}
+
+.largeInput {
+  width: 70% !important;
+}
+
+
+.imageContainer {
+  width: 280px;
+  height: 280px;
+  margin: auto;
+}
+
+.mobileLoginPage .imageContainer {
+  width: 220px;
+  height: 220px;
+  margin: auto;
+}
+
+.submitButton {
+  @include buttonStyle;
+  background-color: orange;
+  border: none;
+  cursor: pointer;
+}
+
+.submitButton:hover {
+  @include buttonHover;
+}
+
+@media screen AND (min-width: 611px) {
+  .mobileLoginPage {
+    display: none;
+  }
+}
+
+@media screen AND (max-width: 610px) {
+  .loginContainer {
+    display: none;
+  }
+
+  .logupContainer {
+    display: none;
+  }
+  .mobileLoginContainer {
+    margin: auto;
+    width: 95%;
+    padding: 10px;
+    @include borderStyle;
+  }
+}
