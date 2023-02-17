@@ -1,0 +1,42 @@
+@import "../variables/mixins";
+@import "../variables/variables";
+
+.modalBody {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.modalBodyContentContainer {
+  background: transparent;
+  margin: auto;
+  width: inherit;
+  height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include borderStyle;
+  border-radius: 5px;
+}
+
+.modalBodyContent {
+  background: $white;
+  padding: 25px;
+  @include borderStyle;
+  border-radius: 5px;
+}
+
+
+
+@media screen and (max-width: 991px) {
+.modalBodyContent{
+    width: 80%;
+}
+}

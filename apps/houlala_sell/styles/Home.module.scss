@@ -1,0 +1,51 @@
+.main {
+  width: 992px;
+}
+
+.rightSideBar {
+  width: 490px;
+}
+
+.cardContainer {
+  display: flex;
+}
+
+.boxContainer{
+  width: 25%;
+  min-height: 160px;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.line {
+  border: 0.5px solid #d3d3d3;
+}
+
+.cardHeader {
+  border-bottom: 1px solid #d3d3d3;
+  padding-bottom: 1.2rem;
+}
+
+.leftCol{
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem ;
+}
+
+.rightCol{
+  width: 35%;
+}
+
+.boxContainerHeader{
+  display: flex;
+  gap: 10px;
+}
+
+.boxContainer p {
+  font-size: 24px;
+  font-weight: bold;
+}

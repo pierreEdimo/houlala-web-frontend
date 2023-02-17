@@ -1,0 +1,108 @@
+@import "./variables";
+// category style
+@mixin categoryStyle {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  @include columnflex;
+}
+
+@mixin columnflex {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin imageSize {
+  position: relative;
+  height: 190px;
+  width: 190px;
+}
+
+@mixin standardGrid {
+  display: grid;
+  gap: 20px;
+  @include standardContainerPadding;
+}
+
+@mixin min220Grid {
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  @include standardGrid;
+}
+
+@mixin mobileGrid {
+  grid-template-columns: 1fr 1fr;
+}
+
+@mixin standardTitle {
+  font-size: 19px;
+  font-weight: bolder;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin horizontalFlex {
+  display: flex;
+  overflow: auto;
+  white-space: nowrap;
+  @include standardContainerPadding;
+  gap: 10px;
+}
+
+@mixin standardContainerPadding {
+  padding: 10px 0 10px 0;
+}
+
+// appbar style
+
+@mixin standardHeaderContent {
+  @include standardFlexOption;
+  justify-content: space-between;
+  width: 100%;
+}
+
+@mixin borderStyle {
+  border: $border-value;
+}
+
+// search style
+@mixin searchButtonStyle {
+  background: $white;
+  @include borderStyle;
+  border-left-style: none;
+  cursor: pointer;
+}
+
+// button style
+@mixin buttonStyle {
+  @include borderStyle;
+  background: $white;
+  border-radius: 5px;
+  padding: 15px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+}
+
+@mixin buttonHover {
+  background: orange;
+  text-decoration: underline;
+}
+
+
+// flex design
+@mixin standardFlexOption {
+  display: flex;
+  align-items: center;
+}
+
+@mixin standardFlexSpaceBetween {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin standardFlexDirectionColumn {
+  display: flex;
+  flex-direction: column;
+}

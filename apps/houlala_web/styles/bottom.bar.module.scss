@@ -1,0 +1,32 @@
+.bottomBar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #ffffff;
+  overflow: hidden;
+  height: 90px;
+}
+
+.bottomBarContent {
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+@media screen and (min-width: 992px) {
+  .bottomBar {
+    display: none;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  .bottomBar{
+    height: 60px;
+  }
+
+  .bottomBarContent{
+    height: 60px;
+  }
+}

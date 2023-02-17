@@ -1,0 +1,36 @@
+.cardHeader {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #d3d3d3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.listContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.title{
+  color: #d3d3d3;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.textContent{
+  text-align: center;
+  font-size: 13.5px;
+}
+
+.productTable th{
+  color: #d4d4d4;
+}
+
+.productTable td{
+  cursor: pointer;
+}
+
+.productRow:hover{
+  background-color: orange;
+}
+

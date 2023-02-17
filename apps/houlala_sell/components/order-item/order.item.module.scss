@@ -1,0 +1,23 @@
+.orderContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 0.5rem 5px 0.5rem 5PX;
+}
+
+.orderContainer:hover {
+  background-color: orange;
+}
+
+.orderContainer p{
+  font-size: 13.5px;
+}
+
+.statusButton{
+  display: flex;
+  gap: 0.5rem;
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+  padding: 2px;
+}

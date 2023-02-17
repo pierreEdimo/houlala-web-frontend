@@ -1,0 +1,11 @@
+@import "../variables/mixins";
+
+.gridContainer {
+  @include min220Grid;
+}
+
+@media screen and (max-width: 600px) {
+  .gridContainer {
+    @include mobileGrid;
+  }
+}

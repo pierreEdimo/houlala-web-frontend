@@ -1,0 +1,6 @@
+@import "../../variables/variables";
+@import "../../variables/mixins";
+
+.card {
+  @include borderStyle;
+}
