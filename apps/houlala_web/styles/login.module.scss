@@ -17,6 +17,12 @@
   width: 400px;
 }
 
+.errorMessage {
+  background: rgba(255, 0, 0, 0.5);
+  padding: 1rem;
+  border-radius: 5px;
+}
+
 
 .loginForm {
   display: flex;

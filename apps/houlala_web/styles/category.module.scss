@@ -26,6 +26,14 @@
 
 .homeCategoryContainer {
   @include horizontalFlex;
+
+}
+
+.homeCategoryItem{
+    width: 190px;
+    height: 210px;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
 .categoryContainer {
@@ -80,6 +88,13 @@
 
   .categoryContainer {
     height: 180px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .homeCategoryItem{
+      height: 180px;
+      width: 140px;
   }
 }
 
