@@ -36,7 +36,7 @@ const NotificationDropdown = () => {
     return (
         <>
             <div className={styles.dropdownContainer}>
-                <div onClick={openDropdown}>
+                <div title={"Notifications"} onClick={openDropdown}>
                     <ButtonContainer imageSrc={bell}/>
                 </div>
                 <div className={styles.notificationDropdownContainer} id={"dropdown"}>
