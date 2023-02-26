@@ -14,14 +14,10 @@ const AvatarCategoryContainer: React.FC<AvatarCategoryContainerProps> = ({catego
         <>
             <Container>
                 <Link href={`/category/${category._id}`}>
-                    <div style={{
+                    <div className={styles.homeCategoryItem} style={{
                         backgroundImage: `url(${category.imageUrl})`,
-                        height: "170px",
-                        width: "140px",
                         backgroundSize: "cover",
                         backgroundPosition: "center",
-                        borderRadius: "5px",
-                        cursor: "pointer"
                     }}>
                         <div style={{
                             backgroundColor: "rgba(0,0,0,0.5)",
