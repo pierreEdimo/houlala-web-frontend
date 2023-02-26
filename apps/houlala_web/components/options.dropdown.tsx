@@ -39,7 +39,7 @@ const OptionsDropdown = () => {
     return (
         <>
             <div className={styles.optionContainer}>
-                <div onClick={openOptions}>
+                <div title={"Options"} onClick={openOptions}>
                     <ButtonContainer imageSrc={user}/>
                 </div>
                 <div className={styles.optionsDropdownContent} id={"options"}>
