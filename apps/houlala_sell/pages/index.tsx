@@ -123,12 +123,6 @@ const Home: NextPage = () => {
             />
           </div>
           <div className={styles.rightCol}>
-            <BorderedCard style={{ padding: "1rem" }}>
-              <div className={styles.cardHeader}>
-                <h3>Appercu</h3>
-              </div>
-            </BorderedCard>
-            <br />
             <TopProductListCard
               url={`${PRODUCT_URL}`}
               title={"Top Produits"} />
