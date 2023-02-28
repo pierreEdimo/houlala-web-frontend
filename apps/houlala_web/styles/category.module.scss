@@ -37,9 +37,9 @@
 }
 
 .categoryContainer {
-  height: 220px;
   @include categoryStyle;
   z-index: 1;
+  height: 240px;
 }
 
 .avCategoryContainer {
@@ -87,14 +87,14 @@
   }
 
   .categoryContainer {
-    height: 180px;
+    height: 190px;
   }
 }
 
 @media screen and (max-width: 767px) {
   .homeCategoryItem{
-      height: 180px;
-      width: 140px;
+      height: 190px;
+      width: 165px;
   }
 }
 
@@ -114,8 +114,10 @@
   .gridContainer{
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
+}
 
-  .categoryContainer{
-    height: 170px;
-  }
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .categoryContainer{
+        height: 180px;
+    }
 }

@@ -20,7 +20,7 @@
 
 @mixin standardGrid {
   display: grid;
-  gap: 20px;
+  gap: 10px;
   @include standardContainerPadding;
 }
 

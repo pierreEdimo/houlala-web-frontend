@@ -32,7 +32,7 @@ const LoginPage: NextPage = () => {
     event.preventDefault();
     const data: Login = {
       email: event.target.email.value,
-      password: event.target.password.value
+      passWord: event.target.passWord.value
     };
 
     const response = await authService.login(`${AUTH_URL}/users/login`, data);
@@ -67,7 +67,7 @@ const LoginPage: NextPage = () => {
           <form onSubmit={login} className={styles.loginForm}>
             {
               errorMessage ?
-                <div className={styles.errorMessage}>
+                <div className="error-message">
                   {errorMessage}
                 </div> :
                 <div></div>
@@ -82,8 +82,8 @@ const LoginPage: NextPage = () => {
               type={"password"}
               placeholder={"Mot de passe"}
               required
-              value={formData.password}
-              name={"password"}
+              value={formData.passWord}
+              name={"passWord"}
             />
             <Link href={"/reset"}>
               <p style={{ fontWeight: "bold", margin: "20px 0 20px 0", cursor: "pointer" }}>Mot de passe oublie? /
@@ -105,6 +105,13 @@ const LoginPage: NextPage = () => {
         <div className={styles.mobileLoginContainer}>
           <div className={styles.mobileFormContainer}>
             <form onSubmit={login} className={styles.loginForm}>
+              {
+                errorMessage ?
+                  <div className="error-message">
+                    {errorMessage}
+                  </div> :
+                  <div></div>
+              }
               <input type={"text"}
                      placeholder={"E-mail"}
                      name={"email"}
@@ -115,7 +122,7 @@ const LoginPage: NextPage = () => {
                 type={"password"}
                 placeholder={"Mot de passe"}
                 required
-                value={formData.password}
+                value={formData.passWord}
                 name={"password"}
               />
               <Link href={"/reset"}>

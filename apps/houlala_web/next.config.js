@@ -5,7 +5,6 @@ const path = require("path");
 
 
 const runtimeCaching = require("next-pwa/cache");
-const withTM = require("next-transpile-modules")(["ui"]);
 const withPWA = require("next-pwa")({
   dest: "public",
   register: true,
