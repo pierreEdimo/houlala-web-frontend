@@ -12,4 +12,5 @@ export type Order = {
   userInformation: UserInformation;
   cartItems: Array<CartItem>;
   deliveryDate?: Date;
+  payMentMode: string; 
 }

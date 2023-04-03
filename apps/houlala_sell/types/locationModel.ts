@@ -18,4 +18,5 @@ export type LocationModel = {
   category: Category;
   country: Country;
   imageUrl: string;
+  shortDescription:string; 
 }
