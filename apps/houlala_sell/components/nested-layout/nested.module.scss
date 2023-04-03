@@ -1,10 +1,45 @@
-.main{
-  padding-left: 300px;
-  width: 100%;
-  overflow: hidden;
+@import "../../variables/variable.scss";
+@import "../../variables/mixin.scss"; 
+
+.main {
+    padding-left: 300px;
+    width: 100%;
+    overflow: hidden;
 }
 
-.mainBody{
-  width: 93%;
-  overflow-y: auto;
+.mainBody {
+    width: 93%;
+    overflow-y: auto;
+}
+
+.bottomItem {
+    width: 35px;
+    height: 35px;
+    background: transparent;
+    cursor: pointer;
+    @include rounded-center; 
+}
+
+.bottomItem:hover{
+    background: orange;
+}
+
+
+
+@media screen and (max-width: 767px) {
+    .main {
+        width: 100%;
+        padding: 0;
+    }
+    .mainBody {
+        width: 95%;
+        margin: auto;
+        padding-bottom: 80px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px){
+    .main{
+        padding-left: 100px;
+    }
 }
