@@ -1,0 +1,9 @@
+@import "../../variables/variable.scss";
+@import "../../variables/mixin.scss";
+
+.noNotification{
+    @include absolute-center;
+    @include relative-flex-center;
+    gap: $standard-gap;
+    flex-direction: column;
+}
