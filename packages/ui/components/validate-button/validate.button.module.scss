@@ -1,0 +1,18 @@
+@import "../../variables/mixins.scss";
+@import "../../variables/variables.scss";
+
+.validateButton {
+    background: orange;
+    font-size: 16px;
+    padding: 0.8rem 2rem;
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    border-radius: $standard-radius;
+    @include absolute-flex-cent;
+    gap: $standard-value;
+    cursor: pointer;
+}
+
+.validateButton:hover {
+    text-decoration: underline;
+}
