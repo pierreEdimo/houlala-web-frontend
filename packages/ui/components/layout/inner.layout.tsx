@@ -7,7 +7,7 @@ type Props = {
 const InnerLayout: React.FC<Props> = ({ children }) => {
   return (
     <div style={{
-      padding: "1rem 0 1rem 0",
+      padding: "1rem 0 1rem 0", 
       width: "100%",
       height: "100%"
     }}>
