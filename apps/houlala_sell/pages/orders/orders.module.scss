@@ -1,58 +1,7 @@
-.colLeft{
-  width: 65%;
-}
-
-.colRight{
-  width: 35%;
-}
-
-.cardHeader{
-  border-bottom: 1px solid #d3d3d3;
-  padding-bottom: 1rem;
-}
-
-.selection{
-  width: 250px;
-  cursor: pointer;
-  font-size: 18px;
-  font-family: 'Poppins', sans-serif;
-  padding: 0.5rem;
-  position: relative;
-  -webkit-appearance: none;
-  appearance: none;
-  background-color: #ffffff;
-  border-radius: 5px;
-  border: 1px solid #d3d3d3;
-}
-
-.selection:focus{
-  outline: none;
-}
-
-.selectWrapper{
-  width: 250px;
-  position: relative;
-}
-
-.selectWrapper::after{
-  content: "⌄";
-  font-size: 2rem;
-  top: -8px;
-  right: 10px;
-  position: absolute;
-}
-
-.orderContainer{
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.noOrder{
-  height: 350px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 1rem;
+.customItem {
+    height:60px;
+    display: flex;
+    font-weight: 600;
+    cursor: pointer;
+    align-items: center;
 }

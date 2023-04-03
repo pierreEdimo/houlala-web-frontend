@@ -1,102 +1,93 @@
 import { NextPage } from "next";
 import { useRouter } from "next/router";
-import { BorderedCard, Container, Row } from "ui";
-import style from "./orders.module.scss";
-import OrderListCard from "../../components/order-list/order.list.card";
+import { BorderedCard, Container, TabView, TabHeader, TabBody, TabItem } from "ui";
 import { useRecoilState } from "recoil";
 import StatusState from "../../state/status.state";
 import { useOrderList } from "../../hooks/order.hooks";
-import OrderItem from "../../components/order-item/order.item";
-import noOrder from "../../public/images/no-trolley.png";
-import IconImage from "../../components/icon-image/icon.image";
+import NestedLayout from "../../components/nested-layout/nested.layout";
+import AuthState from "../../state/auth.state";
+import "../../styles/Home.module.scss";
+import { IndexState } from "../../state/index.state";
+import OrderListCard from "../../components/order-list/order.list.card";
+import styles from "./orders.module.scss";
+import DetailedOrderList from "../../components/order-list/detailed.order.list";
+import { OrderEnum } from "../../types/order.status";
+
 
 const Orders: NextPage = () => {
-  const router = useRouter();
-  const { uid } = router.query;
-  const ORDER_URL = process.env.NEXT_PUBLIC_ORDER_URL;
-  const [status, setStatus] = useRecoilState(StatusState);
+    const router = useRouter();
+    const { uid } = router.query;
+    const ORDER_URL = process.env.NEXT_PUBLIC_ORDER_URL;
+    const [currentIndex, setIndex] = useRecoilState(IndexState);
+    const menusItems = ["Toutes", "En Attente", "En Traitement", "En Route", "Delivre", "Annule"];
 
-  function showValue() {
-    console.log(status);
-  }
-
-  const { orders, error, isLoading } = useOrderList(`${ORDER_URL}/location/${uid}/status/${status}`);
-
-  if (error) {
     return (
-      <div>
-        ...Error
-      </div>
+        <NestedLayout>
+            <Container>
+                <h2 style={{ margin: "none" }}>Commandes</h2>
+                <div className={"mainContainer"}>
+                    <div>
+                        <TabView>
+                            <TabHeader style={{borderBottom: "1px solid #d3d3d3"}}>
+                                {
+                                    menusItems.map((item, index) => (
+                                        <TabItem className={styles.customItem} style={{
+                                            borderBottom: currentIndex === index ? "2px solid orange" : "",
+                                        }} key={index}>
+                                            <div onClick={() => setIndex(index)}>
+                                                <p style={{
+                                                    whiteSpace: "nowrap",
+                                                    overflow: "hidden"
+                                                }}>{item}</p>
+                                            </div>
+                                        </TabItem>
+                                    ))
+                                }
+                            </TabHeader>
+                            <TabBody currentIndex={currentIndex}>
+                                <TabItem>
+                                    <BorderedCard style={{ padding: "1rem" }}>
+                                        <DetailedOrderList url={`${ORDER_URL}/location/filter?locationId=${uid}`} />
+                                    </BorderedCard>
+                                </TabItem>
+                                <TabItem>
+                                    <BorderedCard style={{ padding: "1rem" }}>
+                                        <DetailedOrderList
+                                            url={`${ORDER_URL}/location/filter?locationId=${uid}&status=${OrderEnum.attente}`} />
+                                    </BorderedCard>
+                                </TabItem>
+                                <TabItem>
+                                    <BorderedCard style={{ padding: "1rem" }}>
+                                        <DetailedOrderList
+                                            url={`${ORDER_URL}/location/filter?locationId=${uid}&status=${OrderEnum.traitement}`} />
+                                    </BorderedCard>
+                                </TabItem>
+                                <TabItem>
+                                    <BorderedCard style={{ padding: "1rem" }}>
+                                        <DetailedOrderList
+                                            url={`${ORDER_URL}/location/filter?locationId=${uid}&status=${OrderEnum.route}`} />
+                                    </BorderedCard>
+                                </TabItem>
+                                <TabItem>
+                                    <BorderedCard style={{ padding: "1rem" }}>
+                                        <DetailedOrderList
+                                            url={`${ORDER_URL}/location/filter?locationId=${uid}&status=${OrderEnum.delivre}`} />
+                                    </BorderedCard>
+                                </TabItem>
+                                <TabItem>
+                                    <BorderedCard style={{ padding: "1rem" }}>
+                                        <DetailedOrderList
+                                            url={`${ORDER_URL}/location/filter?locationId=${uid}&status=${OrderEnum.annule}`} />
+                                    </BorderedCard>
+                                </TabItem>
+                            </TabBody>
+                        </TabView>
+                    </div>
+                </div>
+            </Container>
+        </NestedLayout>
     );
-  }
-
-
-  return (
-    <Container>
-      <h2 style={{ margin: "none" }}>Commandes</h2>
-      <br />
-      <div className={style.selectWrapper}>
-        <select value={status} onChange={(e) => {
-          setStatus(e.target.value);
-          showValue();
-        }} className={style.selection}>
-          <option value={"all"}>toutes</option>
-          <option value={"Attente"}>Attente</option>
-          <option value={"Traitement"}>Traitement</option>
-          <option value={"Route"}>Route</option>
-          <option value={"Delivre"}>Delivre</option>
-          <option value={"Annule"}>Annulle</option>
-        </select>
-      </div>
-      <br />
-      <Row>
-        <div className={style.colLeft}>
-          {
-            status === "all" ?
-              <OrderListCard url={`${ORDER_URL}/${status}/${uid}`}
-                             title={"Mes Commandes"} /> :
-              <div>
-                <BorderedCard style={{ padding: "1rem" }}>
-                  {
-                    isLoading ?
-                      <div>
-                        ...Loading
-                      </div> :
-                      <>
-                        <div className={style.cardHeader}>
-                          <h3>{status}</h3>
-                        </div>
-                        <br />
-                        <div>{
-                          orders?.length! < 1 ?
-                            <div className={style.noOrder}>
-                              <IconImage icon={noOrder} width={80} height={80} />
-                              <p>Vous n'avez aucunes commandes en {status}</p>
-                            </div> :
-                            <div className={style.orderContainer}>
-                              {
-                                orders?.map((order) => (
-                                  <OrderItem key={order._id} order={order} />
-                                ))
-                              }
-                            </div>
-                        }</div>
-                      </>
-                  }
-                </BorderedCard>
-              </div>
-          }
-        </div>
-        <div className={style.colRight}>
-          <BorderedCard style={{ padding: "1rem" }}>
-            <div className={style.cardHeader}>
-              <h3>Appercu des commandes</h3>
-            </div>
-          </BorderedCard>
-        </div>
-      </Row>
-    </Container>
-  );
 };
 
 export default Orders;
+
