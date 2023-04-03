@@ -1,0 +1,33 @@
+@import "../../variables/mixin.scss";
+@import "../../variables/variable.scss";
+
+.loginContainer {
+    @include absolute-center;
+}
+
+.loginContainerContent {
+    padding: $standard-gap;
+    gap: $standard-gap;
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+}
+
+.loginContainerContent input {
+    padding: $standard-input-padding;
+    border: $border-value;
+    border-radius: $standard-radius;
+    font-family: $font-family;
+}
+
+.errorContainer{
+    padding: 1rem;
+    border-radius: $standard-radius;
+    background: $danger;
+}
+
+@media screen and (max-width: 450px) {
+    .loginContainerContent {
+        width: 85vw;
+    }
+}
