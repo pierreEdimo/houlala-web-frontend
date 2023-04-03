@@ -1,0 +1,40 @@
+@import "../../variables/mixin.scss" ;
+@import "../../variables//variable.scss"; 
+
+.helpForm{
+    width: 400px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: $standard-gap;
+
+    input, textarea{
+        padding: $standard-input-padding; 
+        font-family: $font-family;
+        border: $border-value;
+        border-radius: $standard-radius;
+    }
+
+    input:focus, textarea:focus{
+        outline: none;
+    }
+
+    textarea{
+        resize: none;
+        height: 180px;
+    }
+}
+
+.helpModalFooter{
+    display: flex;
+    justify-content: flex-end;
+    gap: $standard-gap;
+    
+}
+
+@media screen and (max-width: 463px) {
+    .helpForm{
+        width: 85vw;
+    }
+}
+
