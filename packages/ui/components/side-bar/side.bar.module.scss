@@ -3,5 +3,17 @@
   height: 100%;
   width: 280px;
   position: fixed;
-  z-index: 1;
+}
+
+@media screen and (max-width: 767px) {
+  .sidebar{
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .sidebar{
+    width: 80px;
+    position: fixed;
+  }
 }
