@@ -1,51 +1,113 @@
-.main {
-  width: 992px;
-}
+@import "../variables/mixin.scss";
+@import "../variables//variable.scss"; 
 
 .rightSideBar {
-  width: 490px;
+    width: 490px;
 }
 
 .cardContainer {
-  display: flex;
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+    gap: $standard-gap;
 }
 
-.boxContainer{
-  width: 25%;
-  min-height: 160px;
-  padding: 0.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
+.boxContainer {
+    gap: 0.8rem;
 }
 
 .line {
-  border: 0.5px solid #d3d3d3;
+    border: $border-value;
 }
 
 .cardHeader {
-  border-bottom: 1px solid #d3d3d3;
-  padding-bottom: 1.2rem;
+    border-bottom: $border-value;
+    padding-bottom: $standard-gap;
 }
 
-.leftCol{
-  width: 65%;
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem ;
+.leftCol {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
 }
 
-.rightCol{
-  width: 35%;
+.rightCol {
+    width: 35%;
 }
 
-.boxContainerHeader{
-  display: flex;
-  gap: 10px;
+.boxContainerHeader {
+    display: flex;
+    gap: $standard-gap;
 }
 
 .boxContainer p {
-  font-size: 24px;
-  font-weight: bold;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.mainContainer{
+    width: 100%;
+}
+
+.innerheader{
+    height: 80px;
+    width: 100%;
+}
+
+.innerheaderContent{
+    height: inherit;
+    width: 95%;
+    margin: auto;
+    @include relative-flex-center; 
+    justify-content: flex-start;
+}
+
+.homeMain{
+    height: $absolute-full-heith;
+    width: $absolute-full-with;
+    background-color: $standard-grey;
+}
+
+.welComeMessage{
+    @include absolute-center; 
+}
+
+.locationContainer{
+    padding: $standard-gap;
+    gap: $standard-gap;
+    display: flex;
+    cursor: pointer;
+}
+
+.locationContainer:hover{
+    background-color: orange;
+}
+
+.validateButton{
+    @include validateBUtton; 
+}
+
+.validateButton:hover{
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 767px) {
+    .cardContainer {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .boxContainer {
+        width: 100%;
+    }
+
+    .rightCol, .leftCol {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 520px){
+    .welComeMessage{
+        width: 80%;
+    }
 }
