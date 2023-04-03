@@ -1,0 +1,16 @@
+.roundedButton{
+    width: 35px;
+    height: 35px;
+    vertical-align: middle;
+    border: none;
+    cursor: pointer;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.roundedButton:hover{
+    background-color: orange;
+}
