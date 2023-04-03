@@ -12,4 +12,14 @@ function useProductList(productUrl: string) {
   };
 }
 
-export { useProductList };
+function useProduct(productUrl:string){
+  const fetcher = async (url:string) => await axios.get<Product>(url).then((res) => res.data);
+  const {data, error, isLoading} = useSWR<Product>(productUrl, fetcher);
+  return {
+    product: data,
+    isLoading,
+    error
+  }
+}
+
+export { useProductList, useProduct };
