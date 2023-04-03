@@ -1,0 +1,60 @@
+@import "../../variables/variable.scss";
+@import "../../variables/mixin.scss";
+
+.row {
+    width: 100%;
+    display: flex;
+    gap: $standard-gap;
+}
+
+.imageContainer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background: rgba(211, 211, 211, 0.4);
+    border-radius: $standard-radius;
+    width: 40%;
+}
+
+.imageContent {
+    position: relative;
+    width: 100%;
+    height: 500px;
+}
+
+.thumbnail {
+    object-fit: contain;
+}
+
+.editButton {
+    @include validateBUtton;
+}
+
+.editButton:hover {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 767px) {
+    .row {
+        flex-direction: column;
+    }
+
+    .imageContainer {
+        width: 100%;
+    }
+
+    .imageContent {
+        height: 400px;
+    }
+
+    .editButton {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .imageContainer {
+        width: 60%;
+    }
+
+}
