@@ -10,29 +10,33 @@ import OrderListCard from "../../components/order-list/order.list.card";
 import ProductListCard from "../../components/product-list/product.list.card";
 import NestedLayout from "../../components/nested-layout/nested.layout";
 import InfoProductListCard from "../../components/product-list/info.product.list.card";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { UserToken } from "../../types/user.token";
 
 
 const Dashboard = () => {
+    const [userId, setUserId] = useState<string>();
     const {
         location,
         error,
         isLoading
-    } = useLocation(`${process.env.NEXT_PUBLIC_LOCATION_URL}/users/27d54546-5c23-40b3-be65-6701f89e4d9b`);
+    } = useLocation(`${process.env.NEXT_PUBLIC_LOCATION_URL}/users/${userId}`);
     const ORDER_URL = process.env.NEXT_PUBLIC_ORDER_URL;
     const PRODUCT_URL = process.env.NEXT_PUBLIC_PRODUCT_URL;
 
     useEffect(() => {
-
+        const userToken: UserToken = JSON.parse(localStorage!.getItem("userToken")!);
+        if (userToken) {
+            setUserId(userToken.userId);
+        }
     });
-
 
     if (isLoading) {
         return (
             <div>
                 ....Loading
             </div>
-            );
+        );
     }
 
     if (error) {
@@ -40,7 +44,7 @@ const Dashboard = () => {
             <div>
                 ...Errors
             </div>
-            );
+        );
     }
 
     return (
@@ -150,7 +154,7 @@ const Dashboard = () => {
                 </Container>
             </div>
         </NestedLayout>
-        );
+    );
 }
 
 export default Dashboard; 
