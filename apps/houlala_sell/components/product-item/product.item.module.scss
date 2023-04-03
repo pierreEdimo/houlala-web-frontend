@@ -1,0 +1,17 @@
+@import "../../variables/variable.scss";
+@import "../../variables/mixin.scss";
+
+.productItem{
+    cursor: pointer;
+    width: 100%;
+    border-radius: $standard-radius;
+}
+
+.productItem:hover{
+    background: orange;
+}
+
+.productRow{
+    display: flex;
+    gap: $small-gap;
+}
