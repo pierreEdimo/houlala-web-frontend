@@ -1,23 +1,42 @@
+@import "../../variables/mixin.scss"; 
+@import "../../variables/variable.scss"; 
+
 .orderContainer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
-  padding: 0.5rem 5px 0.5rem 5PX;
+    @include relative-flex-center; 
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 0.5rem 0 0.5rem 0;
 }
 
 .orderContainer:hover {
-  background-color: orange;
+    background-color: orange;
 }
 
-.orderContainer p{
-  font-size: 13.5px;
+.orderContainer p {
+    font-size: 13px;
 }
 
-.statusButton{
-  display: flex;
-  gap: 0.5rem;
-  border: 1px solid #d3d3d3;
-  border-radius: 5px;
-  padding: 2px;
+.orderContainerItem {
+    @include relative-flex-center; 
+    gap: $small-gap;
+    justify-content: flex-end;
+}
+
+.statusButton {
+    display: flex;
+    gap: $small-gap;
+    border: $border-value;
+    border-radius: $border-value;
+    padding: $small-gap;
+}
+
+#nameId {
+    @include ellipsis; 
+    -webkit-line-clamp: 1;
+}
+
+@media screen and (max-width: 450px) {
+    #priceContainer {
+        display: none;
+    }
 }
