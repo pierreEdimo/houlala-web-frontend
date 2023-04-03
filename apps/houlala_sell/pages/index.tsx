@@ -1,139 +1,76 @@
 import type { NextPage } from "next";
-import styles from "../styles/Home.module.scss";
-import { BorderedCard, Container, Row } from "ui";
+import { UserToken } from "../types/user.token";
 import { useLocation } from "../hooks/location.hooks";
-import products from "../public/images/box.png";
+import styles from "../styles/Home.module.scss";
+import { Avatar, BorderedCard } from "ui";
 import Image from "next/image";
-import checklst from "../public/images/checklist.png";
-import checkout from "../public/images/check-out.png";
-import cancel from "../public/images/cancel.png";
-import OrderListCard from "../components/order-list/order.list.card";
-import ProductListCard from "../components/product-list/product.list.card";
-import TopProductListCard from "../components/product-list/top.product.list.card";
-import UnavailableProductListCard from "../components/product-list/unavailable.product.list.card";
-import RevenueChart from "../components/charts/revenue.chart";
+import logo from "../public/images/houlala1.png"
+import { useRouter } from "next/router";
+import store from "../public/images/outline_store.png";
+
 
 const Home: NextPage = () => {
-  const {
-    location,
-    error,
-    isLoading
-  } = useLocation(`${process.env.NEXT_PUBLIC_LOCATION_URL}/users/27d54546-5c23-40b3-be65-6701f89e4d9b`);
-  const ORDER_URL = process.env.NEXT_PUBLIC_ORDER_URL;
-  const PRODUCT_URL = process.env.NEXT_PUBLIC_PRODUCT_URL;
+    const userToken: UserToken = JSON.parse(localStorage!.getItem("userToken")!);
+    const userId: string = userToken!.userId!;
+    const LOCATION_URL = process.env.NEXT_PUBLIC_LOCATION_URL;
+    const { location, isLoading, error } = useLocation(`${LOCATION_URL}/users/${userId}`);
+    const router = useRouter();
 
+    if (isLoading) return (<div>...Loading</div>);
 
-  if (isLoading) {
     return (
-      <div>
-        ....Loading
-      </div>
+        <div className={styles.homeMain}>
+            <div className={styles.innerheader}>
+                <div className={styles.innerheaderContent}>
+                    <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
+                        <Avatar style={{ width: "80px", height: "80px" }}>
+                            <Image src={logo}
+                                fill
+                                style={{ objectFit: "cover" }}
+                                alt={"product-image"}
+                            />
+                        </Avatar>
+                        <h2>Houla la pour vendeur</h2>
+                    </div>
+                </div>
+            </div>
+            <div className={styles.welComeMessage}>
+                {
+                    location ?
+                        <div>
+                            <h3 style={{ textAlign: "center" }}>Bienvenu sur Houla la pour vendeur</h3>
+                            <p style={{ textAlign: "center", fontSize: "14px", color: "grey" }}>Selectionnez votre Commerce</p>
+                            <br />
+                            <BorderedCard>
+                                <div onClick={() => router.push(`/dashboard/${location?.uniqueIdentifier}`)} className={styles.locationContainer}>
+                                    <Avatar>
+                                        <Image src={location?.imageUrl!} alt="logo-image" fill style={{ objectFit: "cover", borderRadius: "50%" }} />
+                                    </Avatar>
+                                    <div>
+                                        <p><b>{location?.name!}</b></p>
+                                        <p style={{ fontSize: "16px", color: "grey" }}>{location?.address.city + ', ' + location?.country.name}</p>
+                                    </div>
+                                </div>
+                            </BorderedCard>
+                        </div> :
+                        <div>
+                            <h3 style={{ textAlign: "center" }}>Bienvenu sur Houla la pour vendeur</h3>
+                            <p style={{ textAlign: "center", fontSize: "16px", color: "grey" }}>Vous n'avez de Commerce sur Houla la</p>
+                            <br />
+                            <button style={{ display: "flex", gap: "1rem", margin: "auto" }} className={styles.validateButton}>
+                                <Image
+                                    alt="store-image"
+                                    src={store}
+                                    width={15}
+                                    height={15}
+                                />
+                                Creer un Commerce
+                            </button>
+                        </div>
+                }
+            </div>
+        </div>
     );
-  }
-
-  if (error) {
-    return (
-      <div>
-        ...Errors
-      </div>
-    );
-  }
-
-  return (
-    <div className={styles.container}>
-      <Container>
-        <h2>Dashboard</h2>
-        <br />
-        <BorderedCard>
-          <div className={styles.cardContainer}>
-            <div className={styles.boxContainer}>
-              <Image src={products}
-                     alt={"product-image"}
-                     width={50}
-                     height={50} />
-
-              <div>
-                <h4>Total des produits</h4>
-                <p>{location?.productTotalCount}</p>
-              </div>
-            </div>
-            <hr className={styles.line} />
-            <div className={styles.boxContainer}>
-              <Image src={checklst}
-                     alt={"product-image"}
-                     width={50}
-                     height={50} />
-
-              <div>
-                <h4> Total des Commandes recues</h4>
-                <p>{location?.orderTotalCount}</p>
-              </div>
-            </div>
-            <hr className={styles.line} />
-            <div className={styles.boxContainer}>
-              <Image src={checkout}
-                     alt={"product-image"}
-                     width={50}
-                     height={50} />
-              <div>
-                <h4> Total des ventes realisees</h4>
-                <p>{location?.orderSoldCount}</p>
-              </div>
-            </div>
-            <hr className={styles.line} />
-            <div className={styles.boxContainer}>
-              <Image src={cancel}
-                     alt={"product-image"}
-                     width={50}
-                     height={50} />
-
-              <br />
-              <div>
-                <h4>Commandes annulees</h4>
-                <p>{location?.orderCanceledCount}</p>
-              </div>
-            </div>
-          </div>
-        </BorderedCard>
-        <br />
-        <Row>
-          <div className={styles.leftCol}>
-            <OrderListCard
-              url={`${ORDER_URL}/location/${location?.uniqueIdentifier}`}
-              title={"Les commandes du jour"}
-              position={"home"}
-              locationId={`${location?.uniqueIdentifier}`}
-            />
-            <BorderedCard style={{ padding: "1rem" }}>
-              <div className={styles.cardHeader}>
-                <h3>Revenues vs commandes</h3>
-              </div>
-              <RevenueChart/>
-            </BorderedCard>
-            <ProductListCard title={"Appercu des produits"}
-                             url={`${PRODUCT_URL}/random/location/${location?.uniqueIdentifier}?size=25`}
-                             locationId={location?.uniqueIdentifier}
-                             position={"home"}
-            />
-            <OrderListCard
-              url={`${ORDER_URL}/all/${location?.uniqueIdentifier}`}
-              title={"Commandes recentes"}
-              position={"home"}
-              locationId={`${location?.uniqueIdentifier}`}
-            />
-          </div>
-          <div className={styles.rightCol}>
-            <TopProductListCard
-              url={`${PRODUCT_URL}`}
-              title={"Top Produits"} />
-            <br />
-            <UnavailableProductListCard url={`${PRODUCT_URL}`}
-                                        title={"Bientot en rupture de stock"} />
-          </div>
-        </Row>
-      </Container>
-    </div>
-  );
 };
 
 export default Home;
