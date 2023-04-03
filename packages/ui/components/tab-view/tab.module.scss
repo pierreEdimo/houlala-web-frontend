@@ -1,0 +1,13 @@
+.column{
+    display: flex;
+    flex-direction: column;
+}
+
+.tabHeader{
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    overflow: auto;
+    height: auto;
+;
+}
