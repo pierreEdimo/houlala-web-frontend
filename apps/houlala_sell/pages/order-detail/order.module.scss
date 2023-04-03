@@ -1,0 +1,18 @@
+@import "../../variables/variable.scss";
+@import "../../variables/mixin.scss";
+
+.row {
+    @include row;
+}
+
+.mainCol {
+    width: 65%;
+}
+
+.rightCol {
+    width: 35%;
+}
+
+.insideCard{
+    padding: 1rem;
+}
