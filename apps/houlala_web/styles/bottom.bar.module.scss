@@ -2,13 +2,16 @@
   position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: #ffffff;
+  background-color: white;
   overflow: hidden;
   height: 90px;
+
 }
 
 .bottomBarContent {
-  height: 90px;
+  height: inherit;
+  width: 95%;
+  margin: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
