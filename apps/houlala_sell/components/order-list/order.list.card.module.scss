@@ -1,11 +1,19 @@
-.cardHeader{
-  padding-bottom: 1rem;
-  border-bottom: 1px solid #d3d3d3;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+@import "../../variables/variable.scss";
+@import "../../variables/mixin.scss";
+
+
+.cardHeader {
+  @include cardHeaderMixin;
 }
 
-.orderContainer{
+.orderContainer {
   display: flex;
+}
+
+.noOrder {
+  display: -moz-flex;
+  flex-direction: column;
+  @include absolute-flex-center;
+  padding: $standard-gap 0 $standard-gap 0;
+  gap: $standard-gap;
 }
