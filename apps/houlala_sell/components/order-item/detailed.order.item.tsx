@@ -8,14 +8,17 @@ import StatusButton from "./status.button";
 import moneyBag from "../../public/images/money-bag.png";
 import cash from "../../public/images/cash.png";
 import boxes from "../../public/images/boxes.png";
+import { useRouter } from "next/router";
 
 type Props = {
     order: Order;
 }
 
 const DetailedOrderItem: React.FC<Props> = ({ order }) => {
+    const router = useRouter();
+
     return (
-        <div className={styles.orderContainer}>
+        <div onClick={() => router.push(`/order-detail/${order._id}`)} className={styles.orderContainer}>
             <div className={styles.orderContainerItem}>
                 <IconImage icon={successOrder} width={15} height={15} />
                 <p id={styles.nameId}>{order.userInformation.lastName} {order.userInformation.firstName}</p>

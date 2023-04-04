@@ -9,6 +9,9 @@ import * as React from "react";
 import { useRecoilState } from "recoil";
 import AuthState from "../../state/auth.state";
 import { useRouter } from "next/router";
+import { EditLocation } from "../../types/edit.location";
+import { Address } from "../../types/address";
+import LocationService from "../../service/location.service";
 
 type Props = {
     location?: LocationModel
@@ -17,7 +20,9 @@ type Props = {
 const SettingsModal: React.FC<Props> = ({ location }) => {
     const [view, setView] = useState(0);
     const [isLoggedIn, setIsLoggin] = useRecoilState(AuthState);
+    const service = new LocationService();
     const router = useRouter();
+    const LOCATION_URL = process.env.NEXT_PUBLIC_LOCATION_URL;
     const closeModal = () => {
         const modal = document.getElementById(ModalIsEnum.settings);
         modal!.style.display = "none";
@@ -29,6 +34,27 @@ const SettingsModal: React.FC<Props> = ({ location }) => {
             router.push("/");
             setIsLoggin(false);
         }
+    }
+
+    const onUpdateLocation = async (event: any) => {
+        const addressData: Address = {
+            city: event.target.city.value,
+            poBox: event.target.poBox.value,
+            streetName: event.target.streetName.value
+        };
+        const data: EditLocation = {
+            name: event.target.name.value,
+            email: event.target.email.value,
+            website: event.target.website.value,
+            telephoneNumber: event.target.telephoneNumber.value,
+            shortDescription: event.target.shortDescription.value,
+            countryId: location?.country.id!,
+            categoryId: location?.category.id!,
+            address: addressData,
+            description: event.target.description.value
+        }
+        const response = await service.editLocation(`${LOCATION_URL}/${location?.id}`, data);
+        event.target.reset();
     }
 
     const SwitchView = () => {
@@ -67,7 +93,9 @@ const SettingsModal: React.FC<Props> = ({ location }) => {
                                     <OutlinedButton onClick={closeModal}>
                                         Annuler
                                     </OutlinedButton>
-                                    <SubmitButton>Enregistrer</SubmitButton>
+                                    <SubmitButton>
+                                        Enregistrer
+                                    </SubmitButton>
                                 </div>
                             </form>
                         </div>
@@ -78,9 +106,9 @@ const SettingsModal: React.FC<Props> = ({ location }) => {
                 return (
                     <div className={styles.accountContainer}>
                         <div className={styles.accountContainerContent}>
-                            <form className={styles.formContainer}>
+                            <form onSubmit={onUpdateLocation} id="location-input" className={styles.formContainer}>
                                 <h3>Mon Commerce</h3>
-                                <br/>
+                                <br />
                                 <div className={styles.busInputContainer}>
                                     <div className={styles.gridInputContainer}>
                                         <input
@@ -96,11 +124,11 @@ const SettingsModal: React.FC<Props> = ({ location }) => {
                                             defaultValue={location?.email}
                                             required />
                                         <input
-                                            type={"number"}
+                                            type={"text"}
                                             name={"telephoneNumber"}
                                             placeholder={"Numero de telephone"}
-                                            defaultValue={Number(location?.telephoneNumber)}
-                                            required />
+                                            defaultValue={location?.telephoneNumber}
+                                        />
 
                                         <input
                                             type={"url"}
@@ -141,6 +169,7 @@ const SettingsModal: React.FC<Props> = ({ location }) => {
                                             required
                                         />
                                         <textarea
+                                            name={"description"}
                                             defaultValue={location?.description}
                                             placeholder={"Description"} ></textarea>
                                     </div>
@@ -149,7 +178,9 @@ const SettingsModal: React.FC<Props> = ({ location }) => {
                                     <OutlinedButton onClick={closeModal}>
                                         Annuler
                                     </OutlinedButton>
-                                    <SubmitButton>Enregistrer</SubmitButton>
+                                    <SubmitButton>
+                                        Enregistrer
+                                    </SubmitButton>
                                 </div>
                             </form>
                         </div>
@@ -166,7 +197,7 @@ const SettingsModal: React.FC<Props> = ({ location }) => {
                     <div className={styles.settingsContainer}>
                         <div className={styles.innerRow}>
                             <div className={styles.leftCol}>
-                                <div  style={{ padding: "1rem" }}>
+                                <div style={{ padding: "1rem" }}>
                                     <div onClick={() => setView(0)} style={{ backgroundColor: view === 0 ? 'orange' : '' }} className={styles.menuItem}>
                                         <IconImage src={user} />
                                         <p className={styles.menuName}>Mon Compte</p>

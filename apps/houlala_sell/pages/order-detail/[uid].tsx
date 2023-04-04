@@ -18,21 +18,17 @@ const OrderDetail: NextPage = () => {
         </div>
     );
 
+    if (error) return (
+        <NestedLayout>
+            {error.message}
+        </NestedLayout>
+    )
+
     return (
         <NestedLayout>
             <InsideHeader />
             <div style={{ height: "1rem" }}></div>
-            <div className={styles.row}>
-                <div className={styles.mainCol}>
-                    <BorderedCard style={{ borderRadius: "0.3rem" }}>
-                        <div className={styles.insideCard}>
-                            <h3>Détails du client et de la commande</h3>
-                            <hr />
-                        </div>
-                    </BorderedCard>
-                </div>
-                <div className={styles.rightCol}></div>
-            </div>
+            <p>{order?.userInformation.firstName}</p>
         </NestedLayout>
     );
 };
