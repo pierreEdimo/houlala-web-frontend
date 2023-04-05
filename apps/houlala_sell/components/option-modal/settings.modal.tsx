@@ -12,6 +12,8 @@ import { useRouter } from "next/router";
 import { EditLocation } from "../../types/edit.location";
 import { Address } from "../../types/address";
 import LocationService from "../../service/location.service";
+import { useSWRConfig } from "swr";
+import { UserIdState } from "../../state/user.id.state";
 
 type Props = {
     location?: LocationModel
@@ -22,11 +24,14 @@ const SettingsModal: React.FC<Props> = ({ location }) => {
     const [isLoggedIn, setIsLoggin] = useRecoilState(AuthState);
     const service = new LocationService();
     const router = useRouter();
+    const [userId] = useRecoilState(UserIdState);
+    const [editMessage, setEditErrorMessage] = useState<string>()
     const LOCATION_URL = process.env.NEXT_PUBLIC_LOCATION_URL;
     const closeModal = () => {
         const modal = document.getElementById(ModalIsEnum.settings);
         modal!.style.display = "none";
     }
+    const { mutate } = useSWRConfig();
 
     const logout = () => {
         if (isLoggedIn) {
@@ -37,6 +42,7 @@ const SettingsModal: React.FC<Props> = ({ location }) => {
     }
 
     const onUpdateLocation = async (event: any) => {
+        event.preventDefault();
         const addressData: Address = {
             city: event.target.city.value,
             poBox: event.target.poBox.value,
@@ -54,7 +60,16 @@ const SettingsModal: React.FC<Props> = ({ location }) => {
             description: event.target.description.value
         }
         const response = await service.editLocation(`${LOCATION_URL}/${location?.id}`, data);
-        event.target.reset();
+        if (response.status === 200) {
+            mutate(`${process.env.NEXT_PUBLIC_LOCATION_URL}/users/${userId}`);
+            closeModal();
+        }
+        if (response !== 200) {
+            setEditErrorMessage("Un probleme est survenu au moment de votre requete. " +
+                "Veuillez reessayer plutard. Si le probleme persiste, vous pouvez remplire notre formulaire de contacte");
+            return;
+        }
+
     }
 
     const SwitchView = () => {
