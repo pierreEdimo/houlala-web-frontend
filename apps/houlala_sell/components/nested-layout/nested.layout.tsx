@@ -12,6 +12,8 @@ import { useRouter } from "next/router";
 import options from "../../public/images/settings.png";
 import SettingsModal from "../option-modal/settings.modal";
 import { ModalIsEnum } from "../../types/modal.ids";
+import { useRecoilState } from "recoil";
+import { UserIdState } from "../../state/user.id.state";
 
 
 type Props = {
@@ -21,15 +23,16 @@ type Props = {
 
 const NestedLayout: React.FC<Props> = ({ children }) => {
     const router = useRouter();
+    const [userId, setUserId] = useRecoilState(UserIdState);
     const openModal = () => {
-        const modal = document.getElementById(ModalIsEnum.settings); 
-        modal!.style.display = "block"; 
+        const modal = document.getElementById(ModalIsEnum.settings);
+        modal!.style.display = "block";
     }
     const {
         location,
         error,
         isLoading
-    } = useLocation(`${process.env.NEXT_PUBLIC_LOCATION_URL}/users/27d54546-5c23-40b3-be65-6701f89e4d9b`);
+    } = useLocation(`${process.env.NEXT_PUBLIC_LOCATION_URL}/users/${userId}`);
 
     if (isLoading) {
         return (
