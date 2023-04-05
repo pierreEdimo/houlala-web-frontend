@@ -7,11 +7,12 @@ import Image from "next/image";
 import logo from "../public/images/houlala1.png"
 import { useRouter } from "next/router";
 import store from "../public/images/outline_store.png";
+import { useRecoilState } from "recoil";
+import { UserIdState } from "../state/user.id.state";
 
 
 const Home: NextPage = () => {
-    const userToken: UserToken = JSON.parse(localStorage!.getItem("userToken")!);
-    const userId: string = userToken!.userId!;
+    const [userId] = useRecoilState(UserIdState); 
     const LOCATION_URL = process.env.NEXT_PUBLIC_LOCATION_URL;
     const { location, isLoading, error } = useLocation(`${LOCATION_URL}/users/${userId}`);
     const router = useRouter();
