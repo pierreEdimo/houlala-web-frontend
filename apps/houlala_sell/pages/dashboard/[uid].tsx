@@ -1,5 +1,5 @@
 import styles from "../../styles/Home.module.scss";
-import { BorderedCard, Container, Row, IconImage } from "ui";
+import { BorderedCard, Container, Row } from "ui";
 import { useLocation } from "../../hooks/location.hooks";
 import products from "../../public/images/box.png";
 import Image from "next/image";
@@ -10,12 +10,12 @@ import OrderListCard from "../../components/order-list/order.list.card";
 import ProductListCard from "../../components/product-list/product.list.card";
 import NestedLayout from "../../components/nested-layout/nested.layout";
 import InfoProductListCard from "../../components/product-list/info.product.list.card";
-import { useEffect, useState } from "react";
-import { UserToken } from "../../types/user.token";
+import { useRecoilState } from "recoil";
+import { UserIdState } from "../../state/user.id.state";
 
 
 const Dashboard = () => {
-    const [userId, setUserId] = useState<string>();
+    const [userId, setUserId] = useRecoilState(UserIdState);
     const {
         location,
         error,
@@ -23,13 +23,6 @@ const Dashboard = () => {
     } = useLocation(`${process.env.NEXT_PUBLIC_LOCATION_URL}/users/${userId}`);
     const ORDER_URL = process.env.NEXT_PUBLIC_ORDER_URL;
     const PRODUCT_URL = process.env.NEXT_PUBLIC_PRODUCT_URL;
-
-    useEffect(() => {
-        const userToken: UserToken = JSON.parse(localStorage!.getItem("userToken")!);
-        if (userToken) {
-            setUserId(userToken.userId);
-        }
-    });
 
     if (isLoading) {
         return (
