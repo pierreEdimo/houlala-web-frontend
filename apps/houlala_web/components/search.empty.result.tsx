@@ -38,7 +38,7 @@ const SearchEmptyResult: React.FC<SearchEmptyResultProps> = ({productUrl, locati
                         <div className={styles.emptyResult}>
                             <p style={{
                                 fontWeight: "bolder",
-                                fontSize: "120px"
+                                fontSize: "4rem"
                             }}>0</p>
                             <p>Aucuns resultats trouvees pour votre recherche. <br/> Svp reessayez plutard.</p>
                         </div> :
