@@ -13,9 +13,7 @@ const Home: NextPage = () => {
                     <HomeCategoryList/>
                     <br/>
                     <br/>
-                    <br/>
                     <HomeProductList/>
-                    <br/>
                     <br/>
                     <br/>
                     <HomeLocationList/>
