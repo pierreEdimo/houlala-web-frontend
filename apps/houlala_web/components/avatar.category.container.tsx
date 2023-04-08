@@ -22,8 +22,8 @@ const AvatarCategoryContainer: React.FC<AvatarCategoryContainerProps> = ({catego
                         <div style={{
                             backgroundColor: "rgba(0,0,0,0.5)",
                             width: "130px",
-                            borderTopLeftRadius: "5px",
-                            borderBottomRightRadius: "5px"
+                            borderTopLeftRadius: "0.3rem",
+                            borderBottomRightRadius: "0.3rem"
                         }}>
                             <h3 className={styles.title}>{category.name}</h3>
                         </div>
