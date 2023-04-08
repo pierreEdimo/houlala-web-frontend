@@ -13,15 +13,15 @@ const LocationHome: React.FC<LocationHomeProps> = ({location}) => {
 
     return (
         <>
-            <div style={{height: "10px"}}></div>
+            <div style={{height: "1rem"}}></div>
             <h2>A Propos</h2>
-            <div style={{height: "10px"}}></div>
+            <div style={{height: "1rem"}}></div>
             <ReactMarkdown>
                 {location?.shortDescription!}
             </ReactMarkdown>
-            <div style={{height: "20px"}}></div>
+            <div style={{height: "1rem"}}></div>
             <h2>{`Quelques produit par ${location.name}`}</h2>
-            <ProductGrid url={`${PRODUCT_URL}/random/location/${location?.uniqueIdentifier}?size=20`}/>
+            <ProductGrid url={`${PRODUCT_URL}/location/${location?.uniqueIdentifier}?limit=20`}/>
         </>
     )
 }
