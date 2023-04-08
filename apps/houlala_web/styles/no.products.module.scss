@@ -1,8 +1,9 @@
+@import "../variables/mixins.scss"; 
+@import "../variables/variables.scss";
+
 .noProductContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
+  @include absoleFLexCenter; 
+  gap: $space;
   height: 70vh;
   flex-direction: column;
 }

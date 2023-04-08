@@ -1,3 +1,6 @@
+@import "../variables/mixins.scss";
+@import "../variables/variables.scss"; 
+
 .tabHeaderContainer{
     display: flex;
     align-items: center;
@@ -12,7 +15,7 @@
   padding: 10px 0 10px 0;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: $space;
 }
 
 .descriptionText {
@@ -27,7 +30,7 @@
 
 .verticalLocation {
   display: flex;
-  gap: 20px;
+  gap: $space;
   align-items: flex-start;
   cursor: pointer;
 }
@@ -39,7 +42,7 @@
 .horizontalList {
   padding: 10px 0 10px 0;
   display: flex;
-  gap: 20px;
+  gap: $space;
   overflow: auto;
   white-space: nowrap;
 }
@@ -79,7 +82,7 @@
 
 .contactContainer{
     display: flex;
-    gap: 15px;
+    gap: $space;
 }
 
 .contactContainer a{
@@ -91,16 +94,16 @@
 
 .locationHeaderContainer{
     margin: 10px 0 10px 0;
-    padding: 20px;
-    background: rgb(236, 236, 236);
-    border-radius: 5px;
+    padding: $space;
+    background: $lightgrey;
+    border-radius: $standard-radius;
     display: flex;
-    gap: 20px;
+    gap: $space;
 }
 
 .keyFigures{
     display: flex;
-    gap: 30px;
+    gap: $space;
     margin-top: 10px;
 }
 
@@ -112,7 +115,7 @@
 .contactInfoContainer{
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 0.3rem;
 }
 
 @media screen and (max-width: 767px) {
@@ -139,7 +142,7 @@
 
 .tabHeaderContainer{
       flex-direction: column-reverse;
-      gap: 10px;
+      gap: $space;
       justify-content: flex-start;
       align-items: flex-start;
       margin: 10px 0 10px 0;

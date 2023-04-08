@@ -1,14 +1,12 @@
 @import "../variables/mixins";
+@import "../variables/variables.scss";
 
 .loginContainer {
   width: auto;
-  border-radius: 5px;
+  border-radius: $standard-radius;
   display: flex;
-  gap: 150px;
-  top: 50%;
-  left: 50%;
-  position: absolute;
-  transform: translate(-50%, -50%);
+  gap: $space;
+  @include absoluteCenter; 
 }
 
 .loginFormContainer {
@@ -20,22 +18,22 @@
 .loginForm {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: $space;
 }
 
 .loginForm input {
-  padding: 18px 10px;
+  padding: $input-padding;
   font-size: 18px;
-  font-family: 'Poppins', sans-serif;
+  font-family: $fontfamily;
   @include borderStyle;
-  border-radius: 5px;
+  border-radius: $standard-radius;
 }
 
 .loginForm input:focus {
   outline: none;
 }
 
-.logupContainer, .logupFlex {
+.logupFlex {
   display: flex;
 }
 
@@ -51,19 +49,6 @@
   width: 70% !important;
 }
 
-
-.imageContainer {
-  width: 280px;
-  height: 280px;
-  margin: auto;
-}
-
-.mobileLoginPage .imageContainer {
-  width: 220px;
-  height: 220px;
-  margin: auto;
-}
-
 .submitButton {
   @include buttonStyle;
   background-color: orange;
@@ -75,24 +60,19 @@
   @include buttonHover;
 }
 
-@media screen AND (min-width: 611px) {
-  .mobileLoginPage {
-    display: none;
-  }
-}
 
 @media screen AND (max-width: 610px) {
-  .loginContainer {
-    display: none;
+  #__next{
+    overflow: hidden;
   }
 
-  .logupContainer {
-    display: none;
+  .loginContainer{
+    width: 100%;
   }
-  .mobileLoginContainer {
+
+  .loginFormContainer{
+    width: 80%;
     margin: auto;
-    width: 95%;
-    padding: 10px;
-    @include borderStyle;
   }
-}
+
+}   

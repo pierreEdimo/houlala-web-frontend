@@ -6,7 +6,7 @@
 
 .row {
   display: flex;
-  gap: 20px;
+  gap: $space;
 }
 
 .smallTitle {
@@ -18,7 +18,7 @@
 .colLeft,.colRight{
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: $space;
 }
 
 .colLeft  {
@@ -28,7 +28,7 @@
   width:50%;
 }
 .infoHeader{
-  border-bottom: 1px solid $grey;
+  border-bottom: $border-value; 
   padding-bottom: 10px;
 }
 

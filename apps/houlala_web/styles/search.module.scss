@@ -2,7 +2,7 @@
 @import "../variables/mixins";
 
 .textSearch {
-  padding: 10px;
+  padding: $input-padding;
   width: 90%;
   font-family: 'Poppins', sans-serif;
   border-top-left-radius: 25px;
@@ -15,7 +15,7 @@
 
 .searchButton {
   width: 10%;
-  padding: 12px;
+  padding: $input-padding;
   @include searchButtonStyle;
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
@@ -32,7 +32,7 @@
 
 .appBarForm input {
   width: 80%;
-  padding: 18px 10px;
+  padding: $input-padding;
   @include borderStyle;
   border-right-style: none;
 }
@@ -43,6 +43,6 @@
 
 .appBarForm button {
   width: 20%;
-  padding: 18px 10px;
+  padding: $input-padding;
   @include searchButtonStyle
 }

@@ -1,11 +1,15 @@
+@import "../variables/variables.scss"; 
+@import "../variables/mixins.scss"; 
+
 .emptyResult {
-  height: 70vh;
-  display: flex;
-  align-items: center;
+  @include absoleFLexCenter; 
+  @include absoluteCenter; 
   flex-direction: column;
-  justify-content: center;
+  width: 90%;
+ 
 }
 
 .emptyResult p {
   text-align: center;
 }
+

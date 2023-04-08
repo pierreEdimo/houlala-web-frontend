@@ -7,6 +7,13 @@
   @include columnflex;
 }
 
+@mixin absoluteCenter {
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+}
+
 @mixin columnflex {
   display: flex;
   flex-direction: column;
@@ -78,10 +85,10 @@
   @include borderStyle;
   background: $white;
   border-radius: 5px;
-  padding: 15px 20px;
+  padding: 0.8rem 1rem;
   cursor: pointer;
   font-size: 16px;
-  font-family: 'Poppins', sans-serif;
+  font-family: $fontfamily;
 }
 
 @mixin buttonHover {
@@ -105,4 +112,10 @@
 @mixin standardFlexDirectionColumn {
   display: flex;
   flex-direction: column;
+}
+
+@mixin absoleFLexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

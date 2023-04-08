@@ -1,3 +1,6 @@
+@import "../variables/mixins.scss"; 
+@import "../variables/variables.scss";
+
 .optionContainer {
   position: relative;
   display: inline-block;
@@ -11,8 +14,7 @@
   background-color: #ffffff;
   padding: 10px;
   z-index: 1;
-  border: 2px solid #f9f9f9;
-  border-radius: 5px;
-  right: 0;
+  border: $border-value;
+  border-radius: $standard-radius; 
   display: none;
 }

@@ -2,15 +2,21 @@
 @import "../variables/variables";
 
 .appHeader {
-  height: 110px;
+  height: 90px;
   width: 100%;
-  background-color: $backgroundrey;
+  background-color: $lightgrey;
 }
 
 .appHeaderContent {
   @include standardHeaderContent;
-  height: 110px;
+  height: inherit;
+}
 
+.searchboxContainer{
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .titleContainer {
@@ -21,7 +27,7 @@
 
 .desktopAppHeaderContent {
   @include standardHeaderContent;
-  height: 110px;
+  height: 90px;
 }
 
 .searchPreview {

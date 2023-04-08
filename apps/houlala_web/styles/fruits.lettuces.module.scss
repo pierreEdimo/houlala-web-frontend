@@ -1,6 +1,9 @@
+@import "../variables/mixins.scss";
+@import "../variables/variables.scss"; 
+
 .subCategoryList{
     display: flex;
-    gap: 10px;
+    gap: $space;
     padding: 10px 0 10px 0;
     overflow: auto;
     white-space: nowrap; 

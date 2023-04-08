@@ -1,11 +1,12 @@
-@import "../variables/mixins";
+@import "../variables/mixins.scss";
+@import "../variables/variables.scss"; 
 
 .productCount {
   width: 120px;
   @include standardFlexSpaceBetween;
   padding: 0 10px 0 10px;
   @include borderStyle;
-  border-radius: 5px;
+  border-radius: $standard-radius;
 
 }
 

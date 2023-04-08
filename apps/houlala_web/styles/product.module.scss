@@ -5,15 +5,15 @@
   width: 370px;
   display: flex;
   margin: 20px 0 20px 0;
-  gap: 20px;
+  gap: $space;
 }
 
 .productGrid {
   padding: 10px 0 10px 0;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  row-gap: $gap;
-  column-gap: 10px;
+  row-gap: $space;
+  column-gap: $space;
 }
 
 .priceAndQuantity {
@@ -27,7 +27,7 @@
   height: 190px;
   position: relative;
   background-color: $backgroundrey;
-  border-radius: 5px;
+  border-radius: $standard-radius;
 }
 
 .productContainer {
@@ -35,7 +35,7 @@
   background-color: $backgroundrey;
   position: relative;
   height: 210px;
-  border-radius: 5px;
+  border-radius: $standard-radius;
 }
 
 .faInfoContainer {
@@ -56,7 +56,7 @@
 }
 
 .favoriteProductContainer:hover {
-  background-color: rgba(211, 211, 211, 0.2);
+  background-color: $lightgrey;
 }
 
 .faButtonContainer {
@@ -74,7 +74,7 @@
 .productPage {
   display: flex;
   width: 100%;
-  gap: $gap;
+  gap: $space;
 }
 
 .sellingPrice {
@@ -84,14 +84,14 @@
 
 .infoProductContainer {
   @include standardFlexDirectionColumn;
-  gap: $gap;
+  gap: $space;
 }
 
 .buttonContainer {
   display: flex;
   flex-direction: column;
   width: 65%;
-  gap: $gap;
+  gap: $space;
 }
 
 .buttonContainer button {
@@ -120,13 +120,13 @@
 .productPageContainer {
   display: flex;
   flex-direction: column;
-  gap: $gap;
+  gap: $space;
 }
 
 .productImageContainer {
   width: 60%;
   background-color: $backgroundrey;
-  border-radius: 5px;
+  border-radius: $standard-radius;
 }
 
 .productImage {
@@ -177,7 +177,7 @@
 
   .homeProductListContainer {
     display: flex;
-    gap: 10px;
+    gap: $space;
     padding: 10px;
     overflow: auto;
     white-space: nowrap;
@@ -203,7 +203,7 @@
 
   .mobileInfoProductContainer {
     @include standardFlexDirectionColumn;
-    gap: $gap;
+    gap: $space;
   }
 
   .buttonContainer {

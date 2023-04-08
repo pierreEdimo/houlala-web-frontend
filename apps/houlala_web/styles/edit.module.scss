@@ -11,8 +11,8 @@
 }
 
 .editFormHeader {
-  border-bottom: 1px solid #d3d3d3;
-  padding-bottom: 10px;
+  border-bottom: $border-value;
+  padding-bottom: $space;
 }
 
 .editForm {
@@ -22,7 +22,7 @@
 .editFormbody {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: $space;
 }
 
 .editFormFooter button {
@@ -32,9 +32,9 @@
 .editForm input {
   padding: 15px 10px;
   @include borderStyle;
-  border-radius: 5px;
+  border-radius: $standard-radius;
   font-size: 18px;
-  font-family: "Poppins", sans-serif;
+  font-family: $fontfamily;
 }
 
 .editForm input:focus {
@@ -43,7 +43,7 @@
 
 .editFormFooter {
   display: flex;
-  gap: 20px;
+  gap: $space;
   justify-content: flex-end;
 }
 

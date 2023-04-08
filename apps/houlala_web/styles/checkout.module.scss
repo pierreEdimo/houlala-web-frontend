@@ -3,14 +3,15 @@
 
 .flexContainer {
   display: flex;
-  gap: 20px;
+  gap: $space;
   width: 100%;
 }
 
-.colLeft, .colRight {
+.colLeft,
+.colRight {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: $space;
 }
 
 .colLeft {
@@ -22,36 +23,34 @@
 }
 
 .infoHeader {
-  border-bottom: solid 1px #d3d3d3;
+  border-bottom: $border-value;
   padding-bottom: 10px;
 }
 
 .imageContainer {
   width: 140px;
   height: 170px;
-  background-color: rgb(236, 236, 236);
+  background-color: $backgroundrey;
   position: relative;
   border-radius: 5px;
 }
 
 .infoFooter {
   display: flex;
-  gap: 20px;
+  gap: $space;
   justify-content: flex-end;
 }
 
 .payMentMode {
-  padding: 20px;
-  background: rgb(236, 236, 236);
-  border-radius: 5px;
+  padding: $space;
+  background: $backgroundrey;
+  border-radius: $standard-radius;
   display: flex;
   align-items: center;
 }
 
 .centerFooter {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include absoleFLexCenter;
 }
 
 .validateButton {
@@ -63,19 +62,17 @@
 }
 
 .successfull {
-  background-color: rgba(127, 255, 0, 0.2);
-  border-radius: 5px;
-  display: flex;
+  background-color: rgba(127, 255, 0, 0.5);
+  border-radius: $standard-radius;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  @include absoleFLexCenter; 
   width: 450px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 20px;
-  gap: 20px;
+  padding: $space;
+  gap: $space;
 }
 
 @media screen and (max-width: 600px) {
@@ -83,7 +80,8 @@
     flex-direction: column;
   }
 
-  .colLeft, .colRight {
+  .colLeft,
+  .colRight {
     width: 100%;
   }
 }

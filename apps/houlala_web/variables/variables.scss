@@ -4,8 +4,12 @@ $lightgrey: #f3f3f3;
 $grey: #d3d3d3;
 $dark: #000000;
 $backgroundrey: rgb(236, 236, 236);
-$gap: 20px;
-
+$lightgrey: rgba(236,236,236,0.4); 
+$standard-radius:0.3rem; 
+$gap: 1rem;
+$fontfamily: 'Poppons', sans-serif; 
 
 //border-value:
 $border-value: 1px solid $grey; 
+$space: 1rem;
+$input-padding: 0.8rem 0.5rem; 

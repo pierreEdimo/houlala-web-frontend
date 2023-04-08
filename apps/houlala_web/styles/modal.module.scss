@@ -19,18 +19,16 @@
   margin: auto;
   width: inherit;
   height: inherit;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include absoleFLexCenter; 
   @include borderStyle;
-  border-radius: 5px;
+  border-radius: $standard-radius;
 }
 
 .modalBodyContent {
   background: $white;
   padding: 25px;
   @include borderStyle;
-  border-radius: 5px;
+  border-radius: $standard-radius;
 }
 
 
