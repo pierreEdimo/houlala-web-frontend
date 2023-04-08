@@ -18,7 +18,7 @@ const ButtonContainer: React.FC<ButtonContainerProps> = ({imageSrc, onClick, tit
         <>
             <div style={{background: router.pathname == `${url}` ? "orange": "" }} title={title} onClick={onClick}
                  className={styles.roundedButtonContainer}>
-                <Image src={imageSrc} alt={"icon-image"} width={25} height={25}/>
+                <Image src={imageSrc} alt={"icon-image"} width={20} height={20}/>
             </div>
         </>
     )
