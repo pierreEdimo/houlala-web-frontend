@@ -22,22 +22,22 @@ const BottomBar = () => {
       <div className={styles.bottomBarContent}>
         <Link href="/">
           <div className={router.pathname === "/" ? styles.activeIcon : styles.iconContainer}>
-            <Image src={house} width={25} height={25} alt="house-image" />
+            <Image src={house} width={20} height={20} alt="house-image" />
           </div>
         </Link>
         <Link href="/discover">
           <div className={router.pathname === "/discover" ? styles.activeIcon : styles.iconContainer}>
-            <Image src={category} width={25} height={25} alt="category-image" />
+            <Image src={category} width={20} height={20} alt="category-image" />
           </div>
         </Link>
         <Link href="/cart">
           <div className={router.pathname === "/cart" ? styles.activeIcon : styles.iconContainer}>
-            <Image src={cart} width={25} height={25} alt="corbeille-image" />
+            <Image src={cart} width={20} height={20} alt="corbeille-image" />
           </div>
         </Link>
         <div onClick={openModal}>
           <div className={styles.iconContainer}>
-            <Image src={user} width={25} height={25} alt="user-image" />
+            <Image src={user} width={20} height={20} alt="user-image" />
           </div>
         </div>
       </div>
