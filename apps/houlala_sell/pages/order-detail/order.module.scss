@@ -13,6 +13,55 @@
     width: 35%;
 }
 
-.insideCard{
-    padding: 1rem;
+.mainCol, .rightCol{
+    display: flex;
+    flex-direction: column;
+    gap: $standard-gap;
+}
+
+.addressFlex{
+    display: flex;
+    gap: $standard-gap;
+}
+
+.ellipsis{
+    @include ellipsis; 
+    -webkit-line-clamp: 1;
+}
+
+.productTable{
+    tbody th{
+        text-align: start;
+    }
+    
+    td p {
+        text-align: center;
+    }
+}
+
+.cartItem{
+    cursor: pointer;
+}
+
+.cartItem:hover{
+    background-color: orange;
+}
+
+.verticalInfo{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; 
+}
+
+.statusButton{
+    background-color: white;
+    font-family: $font-family;
+    border: $border-value;
+    border-radius: $standard-radius;
+    cursor: pointer;
+}
+
+.statusButton:hover{
+    background: orange;
+    text-decoration: underline;
 }

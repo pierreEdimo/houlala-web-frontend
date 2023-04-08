@@ -1,10 +1,11 @@
 @import "../../variables/mixin.scss"; 
 @import "../../variables/variable.scss"; 
 
-.orderContainer {
-    @include relative-flex-center; 
-    justify-content: space-between;
+.orderContainer{
     cursor: pointer;
+}
+
+.orderContainer td{
     padding: 0.5rem 0 0.5rem 0;
 }
 
@@ -16,19 +17,6 @@
     font-size: 13px;
 }
 
-.orderContainerItem {
-    @include relative-flex-center; 
-    gap: $small-gap;
-    justify-content: flex-end;
-}
-
-.statusButton {
-    display: flex;
-    gap: $small-gap;
-    border: $border-value;
-    border-radius: $border-value;
-    padding: $small-gap;
-}
 
 #nameId {
     @include ellipsis; 
