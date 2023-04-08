@@ -60,9 +60,6 @@ const LoginPage: NextPage = () => {
   return (
     <NestedLayout>
       <div className={styles.loginContainer}>
-        <div className={styles.imageContainer}>
-          <Avatar imageUrl={houlala} type={"avatar"} />
-        </div>
         <div className={styles.loginFormContainer}>
           <form onSubmit={login} className={styles.loginForm}>
             {
@@ -73,10 +70,10 @@ const LoginPage: NextPage = () => {
                 <div></div>
             }
             <input type={"text"}
-                   placeholder={"E-mail"}
-                   name={"email"}
-                   required
-                   value={formData.email}
+              placeholder={"E-mail"}
+              name={"email"}
+              required
+              value={formData.email}
             />
             <input
               type={"password"}
@@ -94,47 +91,7 @@ const LoginPage: NextPage = () => {
           </form>
           <div style={{ marginTop: "30px" }}>
             <p>Vous etes nouveau ? <Link href={"/logup"}
-                                         style={{ cursor: "pointer" }}>Enregistrer</Link></p>
-          </div>
-        </div>
-      </div>
-      <div className={styles.mobileLoginPage}>
-        <div className={styles.imageContainer}>
-          <Avatar imageUrl={houlala} type={"avatar"} />
-        </div>
-        <div className={styles.mobileLoginContainer}>
-          <div className={styles.mobileFormContainer}>
-            <form onSubmit={login} className={styles.loginForm}>
-              {
-                errorMessage ?
-                  <div className="error-message">
-                    {errorMessage}
-                  </div> :
-                  <div></div>
-              }
-              <input type={"text"}
-                     placeholder={"E-mail"}
-                     name={"email"}
-                     required
-                     value={formData.email}
-              />
-              <input
-                type={"password"}
-                placeholder={"Mot de passe"}
-                required
-                value={formData.passWord}
-                name={"password"}
-              />
-              <Link href={"/reset"}>
-                <p style={{ fontWeight: "bold", margin: "20px 0 20px 0" }}>Mot de passe oublie? / Probleme de
-                  connexion?</p>
-              </Link>
-              <button className={styles.submitButton} type={"submit"}>se connecter</button>
-            </form>
-            <div style={{ marginTop: "30px" }}>
-              <div>Vous etes nouveau ? <Link href={"/logup"}
-                                             style={{ cursor: "pointer" }}>S&apos;enregistrer</Link></div>
-            </div>
+              style={{ cursor: "pointer" }}>Enregistrer</Link></p>
           </div>
         </div>
       </div>

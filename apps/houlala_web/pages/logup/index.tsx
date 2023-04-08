@@ -6,8 +6,6 @@ import {useEffect} from "react";
 import {useRouter} from "next/router";
 import BackButton from "../../components/back.button";
 import styles from "../../styles/login.module.scss";
-import Avatar from "../../components/avatar";
-import houlala from "../../public/images/houlala.png";
 import Link from "next/link";
 import {Register} from "../../types/register";
 import {RegisterFormState} from "../../state/register.atoms";
@@ -62,12 +60,9 @@ const LogupPage: NextPage = () => {
     return (
         <NestedLayout>
             <BackButton title={"Nouveau compte"}/>
-            <div style={{height: "10px"}}></div>
+            <div style={{height: "1rem"}}></div>
             <div className={styles.logupContainer}>
-                <div className={styles.imageContainer}>
-                    <Avatar imageUrl={houlala} type={"avatar"}/>
-                </div>
-                <div className={styles.loginFormContainer}>
+                <div style={{margin: "auto"}} className={styles.loginFormContainer}>
                     <form onSubmit={register} className={styles.loginForm}>
                         <input type={"email"}
                                placeholder={"E-mail"}
@@ -156,104 +151,6 @@ const LogupPage: NextPage = () => {
                     <div style={{marginTop: "30px"}}>
                         <div>Vous avez deja un compte ? <Link href={"/login"}
                                                               style={{cursor: "pointer"}}>Se connecter</Link></div>
-                    </div>
-                </div>
-            </div>
-            <div className={styles.mobileLoginPage}>
-                <div className={styles.imageContainer}>
-                    <Avatar imageUrl={houlala} type={"avatar"}/>
-                </div>
-                <div className={styles.mobileLoginContainer}>
-                    <div className={styles.mobileFormContainer}>
-                        <form onSubmit={register} className={styles.loginForm}>
-                            <input type={"email"}
-                                   placeholder={"E-mail"}
-                                   name={"email"}
-                                   value={formData.email}
-                                   required
-                            />
-                            <input type={"password"}
-                                   placeholder={"mot de passe"}
-                                   value={formData.passWord}
-                                   name={"passWord"}
-                                   required
-                            />
-                            <div className={styles.logupFlex}>
-                                <input
-                                    className={styles.smallInput}
-                                    type={"number"}
-                                    placeholder={"+237"}
-                                    disabled
-                                />
-                                <input
-                                    className={styles.largeInput}
-                                    type={"number"}
-                                    placeholder={"numero de telephone"}
-                                    value={formData.phoneNumber}
-                                    name={"phoneNumber"}
-                                />
-                            </div>
-                            <input type={"text"}
-                                   placeholder={"Nom"}
-                                   value={formData.lastName}
-                                   required
-                                   name={"lastName"}
-                            />
-                            <input type={"text"}
-                                   placeholder={"Prenom"}
-                                   required
-                                   value={formData.firstName}
-                                   name={"firstName"}
-                            />
-                            <input type={"text"}
-                                   placeholder={"surnom"}
-                                   required
-                                   value={formData.userName}
-                                   name={"userName"}
-                            />
-                            <div className={styles.logupFlex}>
-                                <input type={"text"}
-                                       placeholder={"Quartier"}
-                                       className={styles.largeInput}
-                                       value={formData.streetName}
-                                       name={"streetName"}
-                                />
-                                <input
-                                    className={styles.smallInput}
-                                    type={"text"}
-                                    placeholder={"N.r"}
-                                    value={formData.houseNumber}
-                                    name={"houseNumber"}
-                                />
-                            </div>
-                            <input type={"text"}
-                                   placeholder={"Pays"}
-                                   defaultValue={"Cameroun"}
-                                   value={formData.country}
-                                   name={"country"}
-                                   disabled
-                            />
-                            <div className={styles.logupFlex}>
-                                <input type={"text"}
-                                       placeholder={"Ville"}
-                                       className={styles.largeInput}
-                                       required
-                                       value={formData.city}
-                                       name={"city"}
-                                />
-                                <input type={"text"}
-                                       placeholder={"B.P"}
-                                       className={styles.smallInput}
-                                       value={formData.poBox}
-                                       name={"poBox"}
-                                />
-                            </div>
-                            <button className={styles.submitButton} type={"submit"}>Creer un compte</button>
-                        </form>
-                        <div style={{marginTop: "30px"}}>
-                            <div>Vous avez deja un compte ? <Link href={"/login"}
-                                                                  style={{cursor: "pointer"}}>Se connecter</Link></div>
-                        </div>
                     </div>
                 </div>
             </div>
