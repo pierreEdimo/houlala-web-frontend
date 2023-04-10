@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import AuthService from "../../service/auth.service";
 import { Login } from "../../types/login";
+import { HttpStatusCode } from "axios";
 
 const Reset: NextPage = () => {
   const [isLoggin, setLoggin] = useRecoilState(AuthAtomState);
@@ -31,9 +32,9 @@ const Reset: NextPage = () => {
     };
 
     const response = await authService.renew(`${AUTH_URL}/users/renewPassword`, data);
-    if (response.status != 200) {
+    if (response.status != HttpStatusCode.Ok) {
       switch (response.response.status) {
-        case 404:
+        case HttpStatusCode.NotFound:
           setErrorMessage("Votre E-mail n'a pas ete retrouve. Svp reessayez plutard. Si" +
             "le probleme persiste, contactez nous");
       }
@@ -60,42 +61,15 @@ const Reset: NextPage = () => {
                 <div></div>
             }
             <input type={"email"}
-                   placeholder={"E-mail"}
-                   name={"email"}
-                   required />
+              placeholder={"E-mail"}
+              name={"email"}
+              required />
             <input type={"password"}
-                   placeholder={"Nouveau mot de passe"}
-                   name={"passWord"}
-                   required />
+              placeholder={"Nouveau mot de passe"}
+              name={"passWord"}
+              required />
             <button className={styles.submitButton} type={"submit"}>Valider</button>
           </form>
-        </div>
-      </div>
-      <div className={styles.mobileLoginPage}>
-        <div className={styles.imageContainer}>
-          <Avatar imageUrl={houlala} type={"avatar"} />
-        </div>
-        <div className={styles.mobileLoginContainer}>
-          <div className={styles.mobileFormContainer}>
-            <form onSubmit={reset} className={styles.loginForm}>
-              {
-                errorMessage ?
-                  <div className="error-message">
-                    {errorMessage}
-                  </div> :
-                  <div></div>
-              }
-              <input type={"email"}
-                     placeholder={"E-mail"}
-                     name={"email"}
-                     required />
-              <input type={"password"}
-                     placeholder={"Nouveau mot de passe"}
-                     name={"passWord"}
-                     required />
-              <button className={styles.submitButton} type={"submit"}>Valider</button>
-            </form>
-          </div>
         </div>
       </div>
     </NestedLayout>
