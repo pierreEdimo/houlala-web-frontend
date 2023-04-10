@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import { useProduct } from "../../hooks/product.hooks";
 import styles from "./product.detail.module.scss";
 import Image from "next/image";
-import edit from "../../public/images/editing.png";
 import ReactMarkdown from "react-markdown";
 import NestedLayout from "../../components/nested-layout/nested.layout";
 import InsideHeader from "../../components/inside-header/inside.header";

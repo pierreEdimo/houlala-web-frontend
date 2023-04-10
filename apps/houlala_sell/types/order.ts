@@ -1,5 +1,6 @@
 import { UserInformation } from "./user.information";
 import { CartItem } from "./cart.item";
+import { Address } from "./address";
 
 export type Order = {
   _id: string;
@@ -13,4 +14,5 @@ export type Order = {
   cartItems: Array<CartItem>;
   deliveryDate?: Date;
   payMentMode: string; 
+  address: Address; 
 }

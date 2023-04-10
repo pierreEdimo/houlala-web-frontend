@@ -46,10 +46,7 @@ const OrderListCard: React.FC<Props> = ({ url, title, locationId, position }) =>
                             }
                         </div>
                         <br />
-                        <div style={{
-                            display: "flex",
-                            flexDirection: "column",
-                        }}>
+                        <table style={{width: "100%"}}>
                             {
                                 orders?.map((order) => (
                                     <>
@@ -57,7 +54,7 @@ const OrderListCard: React.FC<Props> = ({ url, title, locationId, position }) =>
                                     </>
                                 ))
                             }
-                        </div>
+                        </table>
                     </BorderedCard>
             }
         </>

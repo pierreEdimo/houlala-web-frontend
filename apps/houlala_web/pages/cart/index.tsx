@@ -25,7 +25,7 @@ const Index: NextPage = () => {
                 <div className={styles.backButtonContainer}>
                     <BackButton title={"Mon panier"}/>
                 </div>
-                <div style={{height: "10px"}}></div>
+                <div style={{height: "1rem"}}></div>
                 <div>
                     {
                         isLoggedIn ?

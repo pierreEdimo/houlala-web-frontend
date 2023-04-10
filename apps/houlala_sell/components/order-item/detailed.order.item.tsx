@@ -18,31 +18,27 @@ const DetailedOrderItem: React.FC<Props> = ({ order }) => {
     const router = useRouter();
 
     return (
-        <div onClick={() => router.push(`/order-detail/${order._id}`)} className={styles.orderContainer}>
-            <div className={styles.orderContainerItem}>
+        <tr onClick={() => router.push(`/order-detail/${order._id}`)} className={styles.orderContainer}>
+            <td style={{display:"flex", gap:"1rem"}} className={styles.orderContainerItem}>
                 <IconImage icon={successOrder} width={15} height={15} />
                 <p id={styles.nameId}>{order.userInformation.lastName} {order.userInformation.firstName}</p>
-            </div>
-            <div className={styles.orderContainerItem}>
-                <IconImage icon={calendar} width={15} height={15} />
+            </td>
+            <td className={styles.orderContainerItem}>
                 <p>{new Date(order.createdAt).toLocaleDateString()}</p>
-            </div>
-            <div className={styles.orderContainerItem}>
-                <StatusButton status={order.status} />
-            </div>
-            <div id={styles.priceContainer} className={styles.orderContainerItem}>
-                <IconImage icon={moneyBag} width={15} height={15} />
+            </td>
+            <td className={styles.orderContainerItem}>
+                <p>{order.status}</p>
+            </td>
+            <td id={styles.priceContainer} className={styles.orderContainerItem}>
                 <p>{order.totalPrice} XAF</p>
-            </div>
-            <div id={styles.priceContainer} className={styles.orderContainerItem}>
-                <IconImage icon={boxes} width={15} height={15} />
-                <p>{order.totalQuantity}</p>
-            </div>
-            <div id={styles.priceContainer} className={styles.orderContainerItem}>
-                <IconImage icon={cash} width={15} height={15} />
+            </td>
+            <td id={styles.priceContainer} className={styles.orderContainerItem}>
+                <p>X{order.totalQuantity}</p>
+            </td>
+            <td id={styles.priceContainer} className={styles.orderContainerItem}>
                 <p>{order.payMentMode}</p>
-            </div>
-        </div>
+            </td>
+        </tr>
     );
 };
 

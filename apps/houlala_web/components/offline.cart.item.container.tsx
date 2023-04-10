@@ -70,7 +70,7 @@ const OfflineCartItemContainer: React.FC<Props> = ({order}) => {
                     ))
                 }
             </div>
-            <div style={{height: "20px"}}></div>
+            <div style={{height: "1rem"}}></div>
             <hr/>
             <div className={styles.itemButtonContainer}>
                 <p><b>Quantite: </b>{order.totalQuantity} </p>

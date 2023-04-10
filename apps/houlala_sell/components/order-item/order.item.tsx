@@ -16,24 +16,21 @@ const OrderItem: React.FC<Props> = ({ order }) => {
     const router = useRouter();
 
     return (
-        <div onClick={() => router.push(`/order-detail/${order._id}`)} className={styles.orderContainer}>
-            <div className={styles.orderContainerItem}>
+        <tr onClick={() => router.push(`/order-detail/${order._id}`)} className={styles.orderContainer}>
+            <td style={{ display: "flex", gap: "1rem" }}>
                 <IconImage icon={successOrder} width={15} height={15} />
-                <p id={styles.nameId}>{order.userInformation.lastName} {order.userInformation.firstName} </p>
-            </div>
-            <div className={styles.orderContainerItem} >
-                <IconImage icon={calendar} width={15} height={15} />
+                <p id={styles.nameId}>{order.userInformation.lastName} {order.userInformation.firstName}</p>
+            </td>
+            <td className={styles.orderContainerItem}>
                 <p>{new Date(order.createdAt).toLocaleDateString()}</p>
-            </div>
-            <div className={styles.orderContainerItem}>
-                <StatusButton status={order.status} />
-            </div>
-            <div id={styles.priceContainer} className={styles.orderContainerItem}>
-                <IconImage icon={moneyBag} width={15} height={15} />
-                <p id={styles.nameId}>{order.totalPrice} XAF</p>
-            </div
-            >
-        </div>
+            </td>
+            <td className={styles.orderContainerItem}>
+                <p>{order.status}</p>
+            </td>
+            <td id={styles.priceContainer} className={styles.orderContainerItem}>
+                <p>{order.totalPrice}XAF</p>
+            </td>
+        </tr>
     );
 };
 

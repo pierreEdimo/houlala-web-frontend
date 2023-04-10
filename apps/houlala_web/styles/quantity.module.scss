@@ -4,8 +4,7 @@
 .productCount {
   width: 120px;
   @include standardFlexSpaceBetween;
-  padding: 0 10px 0 10px;
-  @include borderStyle;
+  padding: 0 1rem 0 1rem;
   border-radius: $standard-radius;
 
 }

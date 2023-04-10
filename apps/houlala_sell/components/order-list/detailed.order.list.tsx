@@ -22,13 +22,13 @@ const DetailedOrderList: React.FC<Props> = ({ url }) => {
                         <Image src={noOrders} alt={'no order image'} width={80} height={80} />
                         Pas de Commandes
                     </div> :
-                    <div>
+                    <table style={{width: "100%"}}>
                         {
                             orders?.map((order) => (
                                 <DetailedOrderItem key={order._id} order={order}/>
                             ))
                         }
-                    </div>
+                    </table>
             }
         </div>
     );

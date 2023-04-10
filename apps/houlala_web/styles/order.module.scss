@@ -2,89 +2,97 @@
 @import "../variables/variables";
 
 .itemsHeader {
-  border-bottom: $border-value;
-  padding-bottom: 10px;
+    border-bottom: $border-value;
+    padding-bottom: 1rem
+;
 }
 
 .itemImageContainer {
-  height: 210px;
-  width: 180px;
-  position: relative;
-  background: $backgroundrey;
-  border-radius: $standard-radius;
+    height: 210px;
+    width: 180px;
+    position: relative;
+    background: $backgroundrey;
+    border-radius: $standard-radius;
 }
 
 .itemContainerList {
-  @include standardFlexDirectionColumn;
-  gap: $gap;
+    @include standardFlexDirectionColumn;
+    gap: $gap;
 }
 
 .cartItemContainer {
-  display: flex;
-  gap: $gap;
-  cursor: pointer;
-  border-radius: $standard-radius;
+    display: flex;
+    gap: $gap;
+    cursor: pointer;
+    border-radius: $standard-radius;
 }
 
 .cartItemContainer:hover {
-  background-color: $lightgrey;
+    background-color: $lightgrey;
 }
 
 .cardFooter {
-  display: flex;
-  gap: $standard-radius;
-  justify-content: flex-end;
-  border-top: $border-value;
-  padding-top: 10px;
+    display: flex;
+    gap: $standard-radius;
+    justify-content: flex-end;
+    border-top: $border-value;
+    padding-top: 10px;
 }
 
 .orderContainer {
-  display: flex;
-  align-items: center;
-  gap: $gap;
+    display: flex;
+    align-items: center;
+    gap: $gap;
 }
 
 .itemButtonContainer {
-  display: flex;
-  gap: $gap;
-  align-items: center;
-  justify-content: flex-end;
+    display: flex;
+    gap: $gap;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 .quantityContainer {
-  margin-top: 20px;
-  display: flex;
-  align-items: center;
-  width: 140px;
-  @include standardFlexSpaceBetween;
-  @include borderStyle;
-  padding: 0 5px 0 5px;
+    display: flex;
+    align-items: center;
+    width: 150px;
+    @include standardFlexSpaceBetween;
 }
 
 .counter {
-  width: 90px;
-  @include standardFlexSpaceBetween;
-  border-radius: $standard-radius;
+    width: 90px;
+    @include standardFlexSpaceBetween;
+    border-radius: $standard-radius;
 }
 
 .counter span {
-  font-weight: bolder;
-  font-size: 28px;
-  cursor: pointer;
+    font-weight: bolder;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.validateButtonContainer {
+    width: 270px;
 }
 
 @media screen and (max-width: 600px) {
-  .counter {
-    width: auto;
-    gap: $space;
-  }
+    .counter {
+        width: auto;
+        gap: $space;
+    }
 
-  .quantityContainer {
-    width: auto;
-    gap: $space;
-  }
+    .quantityContainer {
+        width: auto;
+        gap: $space;
+    }
 
-  .cartItemContainer {
-    gap: $space;
-  }
+    .cartItemContainer {
+        gap: $space;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .validateButtonContainer {
+        width: 100%;
+    }
 }
