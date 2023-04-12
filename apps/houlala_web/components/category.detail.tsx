@@ -30,7 +30,7 @@ const CategoryDetail: React.FC<CategoryDetailProps> = ({categoryId}: { categoryI
                     <FruitsLettuces categoryId={category?._id} name={category?.name}/>
                 </>
             )
-        case "magasins":
+        case "boutique":
             return (
                 <>
                     <StoreContainer categoryId={`${category?._id}`} categoryName={`${category?.name}`}/>
