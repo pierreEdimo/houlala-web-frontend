@@ -21,7 +21,7 @@ const LocationHome: React.FC<LocationHomeProps> = ({location}) => {
             </ReactMarkdown>
             <div style={{height: "1rem"}}></div>
             <h2>{`Quelques produits par ${location.name}`}</h2>
-            <ProductGrid url={`${PRODUCT_URL}/location/${location?.uniqueIdentifier}?limit=20`}/>
+            <ProductGrid url={`${PRODUCT_URL}/location/${location?.uniqueIdentifier}?limit=6`}/>
         </>
     )
 }
