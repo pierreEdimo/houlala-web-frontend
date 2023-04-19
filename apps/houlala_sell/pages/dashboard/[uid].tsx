@@ -15,7 +15,7 @@ import { UserIdState } from "../../state/user.id.state";
 
 
 const Dashboard = () => { 
-    const [userId, setUserId] = useRecoilState(UserIdState);
+    const [userId] = useRecoilState(UserIdState);
     const {
         location,
         error,

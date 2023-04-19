@@ -65,3 +65,10 @@
     background: orange;
     text-decoration: underline;
 }
+
+
+@media screen and (max-width: 767px) {
+    .mainCol, .rightCol{
+        width: 100% ;
+    }
+}

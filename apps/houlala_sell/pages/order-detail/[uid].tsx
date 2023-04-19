@@ -6,7 +6,6 @@ import { Avatar, BorderedCard, Row } from "ui";
 import { useRouter } from "next/router";
 import { useOrder } from "../../hooks/order.hooks";
 import Image from "next/image";
-import { OrderEnum } from "../../types/order.status";
 import OrderService from "../../service/order.service";
 import { useSWRConfig } from "swr";
 

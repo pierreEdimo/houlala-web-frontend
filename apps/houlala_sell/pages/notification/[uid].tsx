@@ -1,17 +1,12 @@
 import { NextPage } from "next";
-import { useRouter } from "next/router";
 import { useEffect } from "react";
-import { useRecoilState } from "recoil";
 import NestedLayout from "../../components/nested-layout/nested.layout";
-import AuthState from "../../state/auth.state";
 import noBell from "../../public/images/sound-off.png";
 import Image from "next/image";
 import styles from "./notification.module.scss";
 import { Container } from "ui";
 
 const Notification: NextPage = () => {
-    const [isLoggedIn] = useRecoilState(AuthState);
-    const router = useRouter();
 
     useEffect(() => {
 

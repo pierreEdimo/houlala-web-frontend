@@ -3,7 +3,7 @@ import { ModalIsEnum } from "../../types/modal.ids";
 import styles from "./settings.modal.module.scss";
 import building from "../../public/images/outline_store.png";
 import user from "../../public/images/user.png";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { LocationModel } from "../../types/locationModel";
 import * as React from "react";
 import { useRecoilState } from "recoil";
@@ -33,16 +33,15 @@ const SettingsModal: React.FC<Props> = ({ location }) => {
     const AUTH_URL = process.env.NEXT_PUBLIC_AUTH_URL;
     const [email, setUserEmail] = useState<string>();
     const [token, setToken] = useState<string>();
+    const { userInfo, isLoading, error } = useUserInfo(`${AUTH_URL}/users/${email}`, token!);
 
-    React.useEffect(() => {
+    useEffect(() => {
         const userToken: UserToken = JSON.parse(localStorage.getItem("userToken")!);
         if (userToken) {
             setUserEmail(userToken.email);
             setToken(userToken.token);
         }
     })
-
-    const { userInfo, isLoading, error } = useUserInfo(`${AUTH_URL}/users/${email}`, token!);
 
     if (isLoading) return <div></div>
 
