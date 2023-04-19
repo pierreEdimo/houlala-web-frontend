@@ -1,0 +1,41 @@
+@import "../../variables/mixin.scss";
+@import "../../variables/variable.scss";
+
+.centerContainer {
+    @include absolute-center;
+}
+
+.insideHeader{
+    width: 95%;
+    margin: auto;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.formContainer {
+    padding: $standard-gap;
+    gap: $standard-gap;
+    display: flex;
+    flex-direction: column;
+    width: 340px;
+}
+
+.formContainer input {
+    padding: $standard-input-padding;
+    border: $border-value;
+    border-radius: $standard-radius;
+    font-family: $font-family;
+}
+
+.errorContainer{
+    padding: 1rem;
+    border-radius: $standard-radius;
+    background: $danger;
+}
+
+@media screen and (max-width:450px) {
+    .formContainer {
+        width: 85vw;
+    }
+}

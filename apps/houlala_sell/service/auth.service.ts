@@ -10,15 +10,22 @@ class AuthService {
             .catch((err) => err);
     };
 
+    renew = async (url: string, userInfo: LoginModel) => {
+        return await axios.post(url, userInfo)
+            .then((res) => res)
+            .catch((err) => err);
+    };
+
     editInfo = async (url: string, info: SellerInfo, userToken: string) => {
-        return await axios.put<UserToken>(url, info, {
+        return axios.put<UserToken>(url, info, {
             headers: {
-                Authorization: `${userToken}`
+                Authorization: `Bearer ${userToken}`
             }
         })
             .then((res) => res)
             .catch((err) => err);
-    }
+    };
+
 }
 
 export default AuthService

@@ -1,6 +1,14 @@
 @import "../../variables/mixin.scss";
 @import "../../variables/variable.scss"; 
 
+.validatebutton{
+    @include validateBUtton; 
+}
+
+.validatebutton:hover{
+    text-decoration: underline;
+}
+
 .settingsContainer{
     width: 850px;
     height: auto;
@@ -40,11 +48,10 @@
         flex: 1;
         display: flex;
         flex-direction: column;
-        margin: auto;
-        gap: $standard-gap;
+        margin: auto; 
 
-        input{
-            width: 290px;
+        p{
+            text-align: center;
         }
     }
 

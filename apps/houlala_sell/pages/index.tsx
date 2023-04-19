@@ -1,5 +1,4 @@
 import type { NextPage } from "next";
-import { UserToken } from "../types/user.token";
 import { useLocation } from "../hooks/location.hooks";
 import styles from "../styles/Home.module.scss";
 import { Avatar, BorderedCard } from "ui";
@@ -7,20 +6,32 @@ import Image from "next/image";
 import logo from "../public/images/houlala1.png"
 import { useRouter } from "next/router";
 import store from "../public/images/outline_store.png";
+import CreateLocationModal from "../components/create-modal/create.modal";
+import { ModalIsEnum } from "../types/modal.ids";
+import { useEffect, useState } from "react";
+import { UserToken } from "../types/user.token";
 import { useRecoilState } from "recoil";
 import { UserIdState } from "../state/user.id.state";
 
 
+
 const Home: NextPage = () => {
-    const [userId] = useRecoilState(UserIdState); 
+    const [userId, setUserId] = useRecoilState(UserIdState);
     const LOCATION_URL = process.env.NEXT_PUBLIC_LOCATION_URL;
     const { location, isLoading, error } = useLocation(`${LOCATION_URL}/users/${userId}`);
     const router = useRouter();
 
+    const openModal = () => {
+        document.getElementById(ModalIsEnum.createLocationModal)!.style.display = "block";
+    }
+
     if (isLoading) return (<div>...Loading</div>);
+
+    if (error) return (<div>...Error</div>)
 
     return (
         <div className={styles.homeMain}>
+            <CreateLocationModal />
             <div className={styles.innerheader}>
                 <div className={styles.innerheaderContent}>
                     <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
@@ -58,7 +69,7 @@ const Home: NextPage = () => {
                             <h3 style={{ textAlign: "center" }}>Bienvenu sur Houla la pour vendeur</h3>
                             <p style={{ textAlign: "center", fontSize: "16px", color: "grey" }}>Vous n'avez de Commerce sur Houla la</p>
                             <br />
-                            <button style={{ display: "flex", gap: "1rem", margin: "auto" }} className={styles.validateButton}>
+                            <button onClick={openModal} style={{ display: "flex", gap: "1rem", margin: "auto" }} className={styles.validateButton}>
                                 <Image
                                     alt="store-image"
                                     src={store}

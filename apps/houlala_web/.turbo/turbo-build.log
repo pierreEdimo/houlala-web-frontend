@@ -1,0 +1,72 @@
+yarn run v1.22.19
+$ next build
+info  - Loaded env from /home/pierre/workspace/houlala-frontend-web/apps/houlala_web/.env
+info  - Linting and checking validity of types...
+error - ESLint: Plugin "@next/next" was conflicted between ".eslintrc.json » eslint-config-next/core-web-vitals » plugin:@next/next/core-web-vitals" and "../../.eslintrc.js » eslint-config-custom » eslint-config-next » plugin:@next/next/recommended".
+info  - Creating an optimized production build...
+> [PWA] Compile client (static)
+> [PWA] Auto register service worker with: /home/pierre/workspace/houlala-frontend-web/node_modules/next-pwa/register.js
+> [PWA] Service worker: /home/pierre/workspace/houlala-frontend-web/apps/houlala_web/public/sw.js
+> [PWA]   url: /sw.js
+> [PWA]   scope: /
+> [PWA] Compile server
+> [PWA] Compile server
+info  - Compiled successfully
+info  - Collecting page data...
+info  - Generating static pages (0/23)
+info  - Generating static pages (5/23)
+info  - Generating static pages (11/23)
+info  - Generating static pages (17/23)
+info  - Generating static pages (23/23)
+info  - Finalizing page optimization...
+
+Route (pages)                              Size     First Load JS
+┌ ○ /                                      3.39 kB         161 kB
+├   └ css/30890cec2ddcd9a1.css             2.21 kB
+├   /_app                                  0 B             136 kB
+├ ○ /404                                   182 B           136 kB
+├ ○ /about                                 3.46 kB         139 kB
+├   └ css/25a52e5859b31328.css             427 B
+├ ○ /cart                                  4.56 kB         189 kB
+├   └ css/7a59cf55eb205459.css             1.29 kB
+├ ○ /cart/checkout                         4.81 kB         192 kB
+├   └ css/b4f478fd0dc626ae.css             1.28 kB
+├ ○ /category/[cid]                        4.36 kB         162 kB
+├   └ css/6984964f0529a332.css             2.32 kB
+├ ○ /conditions                            8.71 kB         177 kB
+├ ○ /discover                              1.48 kB         159 kB
+├   └ css/2f324a05ab046c02.css             720 B
+├ ○ /favorites                             3.01 kB         188 kB
+├   └ css/de416ee854312bbc.css             1.48 kB
+├ ○ /location/[lid]                        3.78 kB         194 kB
+├   └ css/71f07a669cc050b6.css             1.9 kB
+├ ○ /location/result                       2.57 kB         160 kB
+├   └ css/7ee927facb67ec09.css             1.33 kB
+├ ○ /login                                 1.68 kB         155 kB
+├ ○ /logup                                 1.97 kB         155 kB
+├ ○ /notification                          426 B           136 kB
+├ ○ /order                                 2.78 kB         161 kB
+├   └ css/f8aa224e4ba18ad2.css             826 B
+├ ○ /personal                              2.07 kB         162 kB
+├   └ css/c000cc2475917677.css             907 B
+├ ○ /policy                                7.51 kB         143 kB
+├ ○ /product/[sku]                         3.36 kB         221 kB
+├   └ css/38e3da446238ffae.css             1.38 kB
+├ ○ /reset                                 2.28 kB         156 kB
+├   └ css/5de61d62415569f9.css             567 B
+├ ○ /search-result/[wrd]                   3.12 kB         161 kB
+├   └ css/4508bc1daceb5790.css             2.23 kB
+├ ○ /store-category/[sid]                  2.48 kB         160 kB
+├   └ css/e8b31576f345d6c4.css             1.05 kB
+└ ○ /sub-category/[sid]                    2.57 kB         160 kB
+    └ css/a6764c319366e524.css             1.33 kB
++ First Load JS shared by all              139 kB
+  ├ chunks/framework-5fbe32b88101578b.js   45.5 kB
+  ├ chunks/main-75ece48c8f8f2255.js        33.5 kB
+  ├ chunks/pages/_app-3de1411ba820d8bc.js  55.7 kB
+  ├ chunks/webpack-59c5c889f52620d6.js     819 B
+  └ css/9dfa1cb8bcf85f6c.css               3.38 kB
+
+○  (Static)  automatically rendered as static HTML (uses no initial props)
+
+Done in 13.53s.

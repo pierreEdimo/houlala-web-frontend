@@ -14,7 +14,7 @@ import { useRecoilState } from "recoil";
 import { UserIdState } from "../../state/user.id.state";
 
 
-const Dashboard = () => {
+const Dashboard = () => { 
     const [userId, setUserId] = useRecoilState(UserIdState);
     const {
         location,
@@ -35,7 +35,7 @@ const Dashboard = () => {
     if (error) {
         return (
             <div>
-                ...Errors
+                ...Error
             </div>
         );
     }

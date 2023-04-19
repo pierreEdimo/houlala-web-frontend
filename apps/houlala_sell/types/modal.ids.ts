@@ -1,4 +1,5 @@
 export enum ModalIsEnum {
     settings = "settings", 
-    help = "help"
+    help = "help",
+    createLocationModal = "create"
 }

@@ -4015,6 +4015,7 @@ hast-util-whitespace@^2.0.0:
     react-dom "18.2.0"
     react-markdown "^8.0.5"
     recoil "^0.7.6"
+    recoil-persist "^4.2.0"
     swr "^2.0.3"
     ui "*"
 

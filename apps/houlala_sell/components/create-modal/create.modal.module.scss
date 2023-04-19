@@ -1,0 +1,10 @@
+@import "../../variables/mixin.scss"; 
+@import "../../variables/variable.scss"; 
+
+.validateButton{
+    @include validateBUtton; 
+}
+
+.validateButton:hover{
+    text-decoration: underline;
+}

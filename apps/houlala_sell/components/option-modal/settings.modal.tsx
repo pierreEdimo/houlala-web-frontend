@@ -1,4 +1,4 @@
-import { BorderedCard, IconImage, Modal, SubmitButton, logOutIcon, OutlinedButton } from "ui"
+import { BorderedCard, IconImage, Modal, SubmitButton, logOutIcon, OutlinedButton, UserAvatar } from "ui"
 import { ModalIsEnum } from "../../types/modal.ids";
 import styles from "./settings.modal.module.scss";
 import building from "../../public/images/outline_store.png";
@@ -14,9 +14,9 @@ import { Address } from "../../types/address";
 import LocationService from "../../service/location.service";
 import { useSWRConfig } from "swr";
 import { UserIdState } from "../../state/user.id.state";
-import { SellerInfo } from "../../types/seller.info";
 import AuthService from "../../service/auth.service";
 import { UserToken } from "../../types/user.token";
+import { useUserInfo } from "../../hooks/user.hooks";
 
 type Props = {
     location?: LocationModel
@@ -26,12 +26,28 @@ const SettingsModal: React.FC<Props> = ({ location }) => {
     const [view, setView] = useState(0);
     const [isLoggedIn, setIsLoggin] = useRecoilState(AuthState);
     const service = new LocationService();
-    const authService = new AuthService();
     const router = useRouter();
     const [userId] = useRecoilState(UserIdState);
     const [editMessage, setEditErrorMessage] = useState<string>()
     const LOCATION_URL = process.env.NEXT_PUBLIC_LOCATION_URL;
     const AUTH_URL = process.env.NEXT_PUBLIC_AUTH_URL;
+    const [email, setUserEmail] = useState<string>();
+    const [token, setToken] = useState<string>();
+
+    React.useEffect(() => {
+        const userToken: UserToken = JSON.parse(localStorage.getItem("userToken")!);
+        if (userToken) {
+            setUserEmail(userToken.email);
+            setToken(userToken.token);
+        }
+    })
+
+    const { userInfo, isLoading, error } = useUserInfo(`${AUTH_URL}/users/${email}`, token!);
+
+    if (isLoading) return <div></div>
+
+    if (error) return <div></div>
+
     const closeModal = () => {
         const modal = document.getElementById(ModalIsEnum.settings);
         modal!.style.display = "none";
@@ -44,38 +60,6 @@ const SettingsModal: React.FC<Props> = ({ location }) => {
             router.push("/");
             setIsLoggin(false);
         }
-    }
-
-    const onEditSellerInfo = async (event: any) => {
-
-        event.preventDefault();
-        const token = localStorage.getItem("userToken");
-        const data: SellerInfo = {
-            email: event.target.email.value,
-            userName: event.target.userName.value
-        }
-
-        const userToken: UserToken = JSON.parse(token!);
-
-        const response = await authService.editInfo(`${AUTH_URL}/users/seller`, data, userToken.token!);
-
-        if (response.status === 200) {
-            const userToken: UserToken = {
-                email: response.data.email,
-                userId: response.data.userId,
-                token: response.data.token
-            };
-
-            localStorage.setItem("userToken", JSON.stringify(userToken));
-            mutate(`${process.env.NEXT_PUBLIC_LOCATION_URL}/users/${userId}`);
-            closeModal();
-
-        } else {
-            setEditErrorMessage("Un probleme est survenu au moment de votre requete. " +
-                "Veuillez reessayer plutard. Si le probleme persiste, vous pouvez remplire notre formulaire de contacte");
-            return;
-        }
-
     }
 
     const onUpdateLocation = async (event: any) => {
@@ -116,20 +100,22 @@ const SettingsModal: React.FC<Props> = ({ location }) => {
                 return (
                     <div className={styles.accountContainer}>
                         <div className={styles.accountContainerContent}>
-                            <form onSubmit={onEditSellerInfo} className={styles.formContainer}>
+                            <div className={styles.formContainer}>
                                 <h3>Mon Compte</h3>
                                 <br />
+                                <p>
+                                    Nous vous remercions de votre confiance. Pour modifier vos donnees personnelles, visiter <a href="https://shop.houlala.store/">shop.houlala.store</a>
+                                </p>
+                                <br />
                                 <div className={styles.inputContainer}>
-                                    <input
-                                        type={"text"}
-                                        name={'userName'}
-                                        placeholder={"Nom d'utilisateur"}
-                                        required />
-                                    <input
-                                        type={"email"}
-                                        name={"email"}
-                                        placeholder={"E-mail"}
-                                        required />
+                                    <div style={{ margin: "auto" }}>
+                                        <UserAvatar firstName={userInfo?.firstName!} lastName={userInfo?.lastName!} />
+                                    </div>
+                                    <br />
+                                    <p>{userInfo?.lastName} {userInfo?.firstName}</p>
+                                    <p>{userInfo?.userName}</p>
+                                    <p>+237 {userInfo?.phoneNumber}</p>
+                                    <p>{userInfo?.email}</p>
                                     <br />
                                     <OutlinedButton onClick={logout} style={{ margin: "auto", gap: "1rem" }}>
                                         <IconImage src={logOutIcon} />
@@ -137,14 +123,11 @@ const SettingsModal: React.FC<Props> = ({ location }) => {
                                     </OutlinedButton>
                                 </div>
                                 <div className={styles.buttonContainer}>
-                                    <OutlinedButton onClick={closeModal}>
-                                        Annuler
-                                    </OutlinedButton>
-                                    <SubmitButton>
-                                        Enregistrer
-                                    </SubmitButton>
+                                    <button className={styles.validatebutton} onClick={closeModal}>
+                                        OK
+                                    </button>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 )

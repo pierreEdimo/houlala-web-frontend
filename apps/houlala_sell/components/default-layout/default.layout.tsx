@@ -1,9 +1,9 @@
 import * as React from "react";
 import { useRecoilState } from "recoil";
 import AuthState from "../../state/auth.state";
-import { UserToken } from "../../types/user.token";
-import Login from "../login";
-import { UserIdState } from "../../state/user.id.state";
+import Login from "../login/login";
+import LoginRenewState from "../../state/home.state";
+import Renew from "../renew/renew";
 
 type Props = {
     children: React.ReactNode
@@ -12,15 +12,10 @@ type Props = {
 const DefaultLayout: React.FC<Props> = ({ children }) => {
     const [isLoggedIn, setIsLoggin] = useRecoilState(AuthState);
     const [loading, setIsLoading] = React.useState(true);
-    const [userId, setUserId] = useRecoilState(UserIdState); 
+    const [loginRenew, setLoginRenew] = useRecoilState(LoginRenewState);
 
     React.useEffect(() => {
         setIsLoading(false);
-        const userToken: UserToken = JSON.parse(localStorage!.getItem('userToken')!); 
-        if(userToken){
-            setUserId(userToken.userId!); 
-            setIsLoggin(true); 
-        }
     }, []);
 
     if (loading) return <div>...Loading</div>
@@ -30,7 +25,7 @@ const DefaultLayout: React.FC<Props> = ({ children }) => {
             {
                 isLoggedIn ?
                     <div>{children}</div> :
-                    <Login />
+                    loginRenew ? <Login /> : <Renew />
             }
         </div>
     );

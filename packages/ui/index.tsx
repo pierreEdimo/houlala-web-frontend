@@ -14,8 +14,9 @@ import Modal from "./components/modal/modal";
 import RoundedButton from "./components/rounded-button/rounded.button";
 import OutlinedButton from "./components/outlined-button/outlined.button";
 import IconImage from "./components/icon-image/icon.image";
-import logOutIcon from "./public/log-out.png"; 
-import closeButton from "./public/close.png"; 
+import logOutIcon from "./public/log-out.png";
+import closeButton from "./public/close.png";
+import UserAvatar from "./components/user-avatar/user.avatar";
 
 export {
     BorderedCard,
@@ -29,11 +30,12 @@ export {
     TabView,
     TabHeader,
     TabBody,
-    TabItem, 
-    Modal, 
-    RoundedButton, 
-    OutlinedButton, 
-    IconImage, 
-    logOutIcon, 
-    closeButton
+    TabItem,
+    Modal,
+    RoundedButton,
+    OutlinedButton,
+    IconImage,
+    logOutIcon,
+    closeButton,
+    UserAvatar
 };
