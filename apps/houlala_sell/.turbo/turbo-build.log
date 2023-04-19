@@ -18,12 +18,12 @@ Route (pages)                              Size     First Load JS
 ├   └ css/3264d06c0a194146.css             752 B
 ├   /_app                                  0 B             121 kB
 ├ ○ /404                                   181 B           121 kB
-├ ○ /dashboard/[uid]                       4.12 kB         136 kB
+├ ○ /dashboard/[uid]                       4.13 kB         136 kB
 ├   └ css/05d4018d21c0e2c1.css             2.03 kB
-├ ○ /notification/[uid]                    946 B           133 kB
+├ ○ /notification/[uid]                    901 B           133 kB
 ├   └ css/cd84b988025477d0.css             1.38 kB
 ├ ○ /order-detail/[uid]                    1.84 kB         134 kB
-├   └ css/11810474908f727a.css             1.52 kB
+├   └ css/9e76e77f987b6a6c.css             1.53 kB
 ├ ○ /orders/[uid]                          2.1 kB          134 kB
 ├   └ css/a12be77c5333e9e8.css             1.51 kB
 ├ ○ /product-detail/[pid]                  33.5 kB         166 kB
@@ -39,4 +39,4 @@ Route (pages)                              Size     First Load JS
 
 ○  (Static)  automatically rendered as static HTML (uses no initial props)
 
-Done in 8.79s.
+Done in 9.30s.
