@@ -3,8 +3,7 @@
 
 .itemsHeader {
     border-bottom: $border-value;
-    padding-bottom: 1rem
-;
+    padding-bottom: 1rem;
 }
 
 .itemImageContainer {
@@ -75,6 +74,10 @@
     width: 270px;
 }
 
+.checkout {
+    width: 255px;
+}
+
 @media screen and (max-width: 600px) {
     .counter {
         width: auto;
@@ -93,6 +96,10 @@
 
 @media screen and (max-width: 767px) {
     .validateButtonContainer {
+        width: 100%;
+    }
+
+    .checkout {
         width: 100%;
     }
 }

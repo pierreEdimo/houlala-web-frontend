@@ -32,6 +32,8 @@ import { UserInformation } from "../../types/user.information";
 import { UnregistedUserOrder } from "../../types/unregisted.user.order";
 import { OfflineOrder } from "../../types/offline.order";
 import { HoulalaSpinner } from "ui/components/loading-spinner/houlala-spinner";
+import HoulalaFilledButton from "ui/components/filled-button/houlala.filled.button";
+import SubmitButton from "ui/components/validate-button/submit.button";
 
 
 const Checkout: NextPage = () => {
@@ -221,8 +223,9 @@ const Checkout: NextPage = () => {
                                               className={styles.imageContainer}>
                                               <Image src={item.imageUrl}
                                                      alt={"product-image"}
-                                                     objectFit={"contain"}
+                                                     objectFit={"cover"}
                                                      layout={"fill"}
+                                                     style={{ borderRadius: "5px" }}
                                               />
                                             </div>
                                             <div>
@@ -252,11 +255,10 @@ const Checkout: NextPage = () => {
                           }
                         </div>
                       </Card>
-                      <button type={"button"} onClick={confirmCommand}
-                              style={{ background: "orange" }}
-                              className={styles.validateButton}>
+                      <HoulalaFilledButton style={{ background: "orange", border: "none", width: "100%" }}
+                                           onClick={confirmCommand}>
                         Commander
-                      </button>
+                      </HoulalaFilledButton>
                     </div>
                   </div> :
                   <div></div>
@@ -410,8 +412,9 @@ const Checkout: NextPage = () => {
                                                     <Image
                                                       src={item.imageUrl}
                                                       alt={"product-image"}
-                                                      objectFit={"contain"}
+                                                      objectFit={"cover"}
                                                       layout="fill"
+                                                      style={{ borderRadius: "5px" }}
                                                     />
                                                   </div>
                                                   <div>
@@ -445,11 +448,9 @@ const Checkout: NextPage = () => {
                               </div>
                             </Card>
                             <br />
-                            <button type={"submit"}
-                                    style={{ background: "orange", width: "100%" }}
-                                    className={styles.validateButton}>
+                            <SubmitButton>
                               Commander
-                            </button>
+                            </SubmitButton>
                           </div>
                         ))
                       }

@@ -14,7 +14,6 @@ import { AddOrder } from "../../types/add.order";
 import { UserIdState } from "../../state/user.id.atoms";
 import OrderService from "../../service/order.service";
 import ModalContainer from "../../components/modal.container";
-import ValidateButton from "../../components/validate.button";
 import close from "../../public/images/close.png";
 import AuthAtomState from "../../state/auth.atoms";
 import ProductService from "../../service/product.service";
@@ -26,6 +25,8 @@ import outlineHeart from "../../public/images/heart (1).png";
 import { FavoriteState } from "../../state/favorite.atoms";
 import shoppingBag from "../../public/images/shopping-bag.png";
 import { HoulalaSpinner } from "ui/components/loading-spinner/houlala-spinner";
+import OutlinedButton from "ui/components/outlined-button/outlined.button";
+import HoulalaFilledButton from "ui/components/filled-button/houlala.filled.button";
 
 const Product: NextPage = () => {
     const router = useRouter();
@@ -163,8 +164,12 @@ const Product: NextPage = () => {
                         </div>
                         <p>{textMessage}</p>
                         <div className={styles.modalButton}>
-                            <ValidateButton onClick={goToCart} title={"Voire panier"} />
-                            <ValidateButton onClick={closeModal} title={"Continuer achat"} />
+                            <OutlinedButton onClick={goToCart}>
+                                Voir Panier
+                            </OutlinedButton>
+                            <OutlinedButton onClick={closeModal}>
+                                Continuer achat
+                            </OutlinedButton>
                         </div>
                     </div>
                 </ModalContainer>
@@ -195,15 +200,16 @@ const Product: NextPage = () => {
                                 <p style={{ margin: "0" }}>Vendeur: <b>{product?.locationName!}</b></p>
                             </div>
                             <div className={styles.buttonContainer}>
-                                <button style={{ background: "orange", border: "none" }} onClick={addToCart}>
+                                <HoulalaFilledButton style={{ background: "orange", border: "none" }}
+                                                     onClick={addToCart}>
                                     <Image src={shoppingBag}
                                            alt={"shopping-bag"}
                                            width={18}
                                            height={18} />
                                     <p>Ajouter au panier</p>
                                     <div></div>
-                                </button>
-                                <button onClick={addToFavorite}>
+                                </HoulalaFilledButton>
+                                <OutlinedButton onClick={addToFavorite}>
                                     {
                                         isFavorite ? <Image src={redHeart}
                                                             alt={"heart-image"}
@@ -217,7 +223,7 @@ const Product: NextPage = () => {
                                     }
                                     <p>Ajouter aux favoris</p>
                                     <div></div>
-                                </button>
+                                </OutlinedButton>
                             </div>
                         </div>
                     </div>
@@ -248,15 +254,15 @@ const Product: NextPage = () => {
                             <p style={{ margin: "0" }}>Vendeur: <b>{product?.locationName!}</b></p>
                         </div>
                         <div className={styles.buttonContainer}>
-                            <button style={{ background: "orange", border: "none" }} onClick={addToCart}>
+                            <HoulalaFilledButton onClick={addToCart}>
                                 <Image src={shoppingBag}
                                        alt={"shopping-bag"}
                                        height={18}
                                        width={18} />
                                 <p>Ajouter au panier</p>
                                 <div></div>
-                            </button>
-                            <button onClick={addToFavorite}>
+                            </HoulalaFilledButton>
+                            <OutlinedButton onClick={addToFavorite}>
                                 {
                                     isFavorite ? <Image src={redHeart}
                                                         alt={"heart-image"}
@@ -270,7 +276,7 @@ const Product: NextPage = () => {
                                 }
                                 <p>Ajouter aux favoris</p>
                                 <div></div>
-                            </button>
+                            </OutlinedButton>
                         </div>
                     </div>
                     <ReactMarkdown>

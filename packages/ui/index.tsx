@@ -20,6 +20,7 @@ import UserAvatar from "./components/user-avatar/user.avatar";
 import HoulalaAppBar from "./components/app-bar/houlala.app.bar";
 import HoulalaThumbnail from "./components/thumb-nail/houlala.thumbnail";
 import HoulalaDefaultLayout from "./components/layout/houlala.default.layout";
+import HoulalaFilledButton from "./components/filled-button/houlala.filled.button";
 
 
 export {
@@ -44,5 +45,6 @@ export {
   UserAvatar,
   HoulalaAppBar,
   HoulalaThumbnail,
-  HoulalaDefaultLayout
+  HoulalaDefaultLayout,
+  HoulalaFilledButton, 
 };
