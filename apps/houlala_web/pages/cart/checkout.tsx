@@ -8,7 +8,6 @@ import { useEffect, useState } from "react";
 import { UserToken } from "../../types/user.token";
 import { CheckdOutState } from "../../state/checked.atoms";
 import { useCartItemList } from "../../swrHooks/order.hooks";
-import Spinner from "../../components/spinner";
 import { useUserInfo } from "../../swrHooks/user.hooks";
 import { useRouter } from "next/router";
 import BackButton from "../../components/back.button";
@@ -32,6 +31,7 @@ import { CartItem } from "../../types/cart.item";
 import { UserInformation } from "../../types/user.information";
 import { UnregistedUserOrder } from "../../types/unregisted.user.order";
 import { OfflineOrder } from "../../types/offline.order";
+import { HoulalaSpinner } from "ui/components/loading-spinner/houlala-spinner";
 
 
 const Checkout: NextPage = () => {
@@ -120,7 +120,9 @@ const Checkout: NextPage = () => {
 
   if (isLoggedIn) {
     if (isLoading) return (
-      <Spinner />
+      <>
+        <HoulalaSpinner />
+      </>
     );
 
     if (isError) return (
@@ -191,68 +193,68 @@ const Checkout: NextPage = () => {
                         }}>
                           {
                             items.map((order) => (
-                              <div style={{
-                                display: "flex",
-                                flexDirection: "column",
-                                gap: "10px"
-                              }} key={order._id}>
-                                <>
-                                  <div style={{
-                                    display: "flex",
-                                    gap: "10px"
-                                  }}>
-                                    <div style={{ height: "25px", width: "25px" }}>
-                                      <Avatar imageUrl={store}
-                                        type={"thumbnail"} />
+                                <div style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  gap: "10px"
+                                }} key={order._id}>
+                                  <>
+                                    <div style={{
+                                      display: "flex",
+                                      gap: "10px"
+                                    }}>
+                                      <div style={{ height: "25px", width: "25px" }}>
+                                        <Avatar imageUrl={store}
+                                                type={"thumbnail"} />
+                                      </div>
+                                      <h4>{order.location.name}</h4>
                                     </div>
-                                    <h4>{order.location.name}</h4>
-                                  </div>
-                                  {
-                                    order.cartItems.map((item) => (
-                                      <>
-                                        <div style={{
-                                          display: "flex",
-                                          gap: "10px"
-                                        }}
-                                          key={item.productSku}>
-                                          <div
-                                            className={styles.imageContainer}>
-                                            <Image src={item.imageUrl}
-                                              alt={"product-image"}
-                                              objectFit={"contain"}
-                                              layout={"fill"}
-                                            />
+                                    {
+                                      order.cartItems.map((item) => (
+                                        <>
+                                          <div style={{
+                                            display: "flex",
+                                            gap: "10px"
+                                          }}
+                                               key={item.productSku}>
+                                            <div
+                                              className={styles.imageContainer}>
+                                              <Image src={item.imageUrl}
+                                                     alt={"product-image"}
+                                                     objectFit={"contain"}
+                                                     layout={"fill"}
+                                              />
+                                            </div>
+                                            <div>
+                                              <h3>{item.product}</h3>
+                                              <p>{item.price}</p>
+                                              <p>{item.quantity}</p>
+                                            </div>
                                           </div>
-                                          <div>
-                                            <h3>{item.product}</h3>
-                                            <p>{item.price}</p>
-                                            <p>{item.quantity}</p>
-                                          </div>
-                                        </div>
-                                      </>
-                                    ))
-                                  }
-                                  <div className={styles.payMentMode}>
-                                    <p><b>Methode de
-                                      paiement: </b> {order.payMentMode}
-                                    </p>
-                                    <FontAwesomeIcon style={{ color: "green" }}
-                                      icon={faMoneyBill} />
+                                        </>
+                                      ))
+                                    }
+                                    <div className={styles.payMentMode}>
+                                      <p><b>Methode de
+                                        paiement: </b> {order.payMentMode}
+                                      </p>
+                                      <FontAwesomeIcon style={{ color: "green" }}
+                                                       icon={faMoneyBill} />
+                                    </div>
+                                  </>
+                                  <div className={styles.infoFooter}>
+                                    <p><b>Quantite:</b>{order.totalQuantity}</p>
+                                    <p><b>Prix:</b> {order.totalPrice} FCFA</p>
                                   </div>
-                                </>
-                                <div className={styles.infoFooter}>
-                                  <p><b>Quantite:</b>{order.totalQuantity}</p>
-                                  <p><b>Prix:</b> {order.totalPrice} FCFA</p>
                                 </div>
-                              </div>
-                            )
+                              )
                             )
                           }
                         </div>
                       </Card>
                       <button type={"button"} onClick={confirmCommand}
-                        style={{ background: "orange" }}
-                        className={styles.validateButton}>
+                              style={{ background: "orange" }}
+                              className={styles.validateButton}>
                         Commander
                       </button>
                     </div>
@@ -288,10 +290,10 @@ const Checkout: NextPage = () => {
                       <Card>
                         <div className={stylesForm.loginForm}>
                           <input type={"email"}
-                            placeholder={"E-mail"}
-                            name={"email"}
-                            value={formData.email}
-                            required
+                                 placeholder={"E-mail"}
+                                 name={"email"}
+                                 value={formData.email}
+                                 required
                           />
                           <div className={stylesForm.logupFlex}>
                             <input
@@ -309,23 +311,23 @@ const Checkout: NextPage = () => {
                             />
                           </div>
                           <input type={"text"}
-                            placeholder={"Nom"}
-                            value={formData.lastName}
-                            required
-                            name={"lastName"}
+                                 placeholder={"Nom"}
+                                 value={formData.lastName}
+                                 required
+                                 name={"lastName"}
                           />
                           <input type={"text"}
-                            placeholder={"Prenom"}
-                            required
-                            value={formData.firstName}
-                            name={"firstName"}
+                                 placeholder={"Prenom"}
+                                 required
+                                 value={formData.firstName}
+                                 name={"firstName"}
                           />
                           <div className={stylesForm.logupFlex}>
                             <input type={"text"}
-                              placeholder={"Quartier"}
-                              className={stylesForm.largeInput}
-                              value={formData.streetName}
-                              name={"streetName"}
+                                   placeholder={"Quartier"}
+                                   className={stylesForm.largeInput}
+                                   value={formData.streetName}
+                                   name={"streetName"}
                             />
                             <input
                               className={stylesForm.smallInput}
@@ -336,25 +338,25 @@ const Checkout: NextPage = () => {
                             />
                           </div>
                           <input type={"text"}
-                            placeholder={"Pays"}
-                            defaultValue={"Cameroun"}
-                            value={formData.country}
-                            name={"country"}
-                            disabled
+                                 placeholder={"Pays"}
+                                 defaultValue={"Cameroun"}
+                                 value={formData.country}
+                                 name={"country"}
+                                 disabled
                           />
                           <div className={stylesForm.logupFlex}>
                             <input type={"text"}
-                              placeholder={"Ville"}
-                              className={stylesForm.largeInput}
-                              required
-                              value={formData.city}
-                              name={"city"}
+                                   placeholder={"Ville"}
+                                   className={stylesForm.largeInput}
+                                   required
+                                   value={formData.city}
+                                   name={"city"}
                             />
                             <input type={"text"}
-                              placeholder={"B.P"}
-                              className={stylesForm.smallInput}
-                              value={formData.poBox}
-                              name={"poBox"}
+                                   placeholder={"B.P"}
+                                   className={stylesForm.smallInput}
+                                   value={formData.poBox}
+                                   name={"poBox"}
                             />
                           </div>
                         </div>
@@ -376,76 +378,76 @@ const Checkout: NextPage = () => {
                               }}>
                                 {
                                   offlineOrders.map((order: OfflineOrder) => (
-                                    <div style={{
-                                      display: "flex",
-                                      flexDirection: "column",
-                                      gap: "1rem"
-                                    }} key={order.id}>
-                                      <>
-                                        <div style={{
-                                          display: "flex",
-                                          gap: "10px"
-                                        }}>
+                                      <div style={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        gap: "1rem"
+                                      }} key={order.id}>
+                                        <>
                                           <div style={{
-                                            height: "25px",
-                                            width: "25px"
+                                            display: "flex",
+                                            gap: "10px"
                                           }}>
-                                            <Avatar imageUrl={store}
-                                              type={"thumbnail"} />
+                                            <div style={{
+                                              height: "25px",
+                                              width: "25px"
+                                            }}>
+                                              <Avatar imageUrl={store}
+                                                      type={"thumbnail"} />
+                                            </div>
+                                            <h4>{order.locationName}</h4>
                                           </div>
-                                          <h4>{order.locationName}</h4>
-                                        </div>
-                                        {
-                                          order.cartItems.map((item: CartItem) => (
-                                            <>
-                                              <div style={{
-                                                display: "flex",
-                                                gap: "10px"
-                                              }}
-                                                key={item.productSku}>
-                                                <div
-                                                  className={styles.imageContainer}>
-                                                  <Image
-                                                    src={item.imageUrl}
-                                                    alt={"product-image"}
-                                                    objectFit={"contain"}
-                                                    layout="fill"
-                                                  />
+                                          {
+                                            order.cartItems.map((item: CartItem) => (
+                                              <>
+                                                <div style={{
+                                                  display: "flex",
+                                                  gap: "10px"
+                                                }}
+                                                     key={item.productSku}>
+                                                  <div
+                                                    className={styles.imageContainer}>
+                                                    <Image
+                                                      src={item.imageUrl}
+                                                      alt={"product-image"}
+                                                      objectFit={"contain"}
+                                                      layout="fill"
+                                                    />
+                                                  </div>
+                                                  <div>
+                                                    <h3>{item.product}</h3>
+                                                    <p>{item.price}</p>
+                                                    <p>{item.quantity}</p>
+                                                  </div>
                                                 </div>
-                                                <div>
-                                                  <h3>{item.product}</h3>
-                                                  <p>{item.price}</p>
-                                                  <p>{item.quantity}</p>
-                                                </div>
-                                              </div>
-                                            </>
-                                          ))
-                                        }
-                                        <div className={styles.payMentMode}>
-                                          <p><b>Methode de
-                                            paiement: </b> {order.payMentMode}
+                                              </>
+                                            ))
+                                          }
+                                          <div className={styles.payMentMode}>
+                                            <p><b>Methode de
+                                              paiement: </b> {order.payMentMode}
+                                            </p>
+                                            <FontAwesomeIcon
+                                              style={{ color: "green" }}
+                                              icon={faMoneyBill} />
+                                          </div>
+                                        </>
+                                        <div className={styles.infoFooter}>
+                                          <p><b>Quantite:</b>{order.totalQuantity}
                                           </p>
-                                          <FontAwesomeIcon
-                                            style={{ color: "green" }}
-                                            icon={faMoneyBill} />
+                                          <p><b>Prix:</b> {order.totalPrice} FCFA
+                                          </p>
                                         </div>
-                                      </>
-                                      <div className={styles.infoFooter}>
-                                        <p><b>Quantite:</b>{order.totalQuantity}
-                                        </p>
-                                        <p><b>Prix:</b> {order.totalPrice} FCFA
-                                        </p>
                                       </div>
-                                    </div>
-                                  )
+                                    )
                                   )
                                 }
                               </div>
                             </Card>
                             <br />
                             <button type={"submit"}
-                              style={{ background: "orange", width: "100%" }}
-                              className={styles.validateButton}>
+                                    style={{ background: "orange", width: "100%" }}
+                                    className={styles.validateButton}>
                               Commander
                             </button>
                           </div>

@@ -1,8 +1,8 @@
 import React from "react";
 import {useProductList} from "../swrHooks/product.hooks";
-import Spinner from "./spinner";
 import styles from "../styles/grid.module.scss";
 import {ProductContainer} from "./product.container";
+import { HoulalaSpinner } from "ui/components/loading-spinner/houlala-spinner";
 
 type SearchProductsProps = {
     url: string
@@ -13,7 +13,7 @@ const SearchProducts: React.FC<SearchProductsProps> = ({url}) => {
 
     if (isLoading) return (
         <>
-            <Spinner/>
+            <HoulalaSpinner/>
         </>
     );
 

@@ -5,13 +5,12 @@ import { useRecoilState } from "recoil";
 import { LoginFormState } from "../../state/login.form.atoms";
 import { Login } from "../../types/login";
 import { useRouter } from "next/router";
-import houlala from "../../public/images/houlala.png";
-import Avatar from "../../components/avatar";
 import AuthService from "../../service/auth.service";
 import { UserToken } from "../../types/user.token";
 import { useEffect, useState } from "react";
 import AuthAtomState from "../../state/auth.atoms";
 import Link from "next/link";
+import { SubmitButton } from "ui";
 
 const LoginPage: NextPage = () => {
   const [formData] = useRecoilState<Login>(LoginFormState);
@@ -87,7 +86,9 @@ const LoginPage: NextPage = () => {
                 Probleme de
                 connexion?</p>
             </Link>
-            <button className={styles.submitButton} type={"submit"}>se connecter</button>
+           <SubmitButton>
+             se connecter
+           </SubmitButton>
           </form>
           <div style={{ marginTop: "30px" }}>
             <p>Vous etes nouveau ? <Link href={"/logup"}

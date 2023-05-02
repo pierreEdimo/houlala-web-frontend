@@ -5,10 +5,12 @@ type Props = {
   children: React.ReactNode
 }
 
-export const AppBar:React.FC<Props> = ({children}) => {
+ const HoulalaAppBar:React.FC<Props> = ({children}) => {
   return (
     <header className={styles.appBar}>
       {children}
     </header>
   )
 }
+
+export default HoulalaAppBar;

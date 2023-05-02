@@ -2,9 +2,9 @@ import {NextPage} from "next";
 import {useRouter} from "next/router";
 import {NestedLayout} from "../../components/nested.layout";
 import {useCategory} from "../../swrHooks/discovery.category.hooks";
-import Spinner from "../../components/spinner";
 import BackButton from "../../components/back.button";
 import LocationList from "../../components/location.list";
+import { HoulalaSpinner } from "ui/components/loading-spinner/houlala-spinner";
 
 const StoreCategory: NextPage = () => {
     const router = useRouter();
@@ -15,7 +15,7 @@ const StoreCategory: NextPage = () => {
 
     if (isLoading) return (
         <>
-            <Spinner/>
+            <HoulalaSpinner/>
         </>
     )
 

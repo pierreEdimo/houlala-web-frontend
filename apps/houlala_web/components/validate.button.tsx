@@ -1,5 +1,6 @@
 import styles from "../styles/button.module.scss";
 import React from "react";
+import { SubmitButton } from "ui";
 
 type ButtonProps = {
     title: string;
@@ -10,9 +11,9 @@ type ButtonProps = {
 
 const ValidateButton: React.FC<ButtonProps> = ({title, onClick, backgroundColor, border}) => {
     return (
-        <button style={{backgroundColor: `${backgroundColor}`, border:`${border}`}} onClick={onClick} className={styles.buttonContainer}>
+        <SubmitButton onClick={onClick}>
             {title}
-        </button>
+        </SubmitButton>
     )
 }
 

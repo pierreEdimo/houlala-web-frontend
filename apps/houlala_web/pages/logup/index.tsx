@@ -11,6 +11,7 @@ import {Register} from "../../types/register";
 import {RegisterFormState} from "../../state/register.atoms";
 import AuthService from "../../service/auth.service";
 import {UserToken} from "../../types/user.token";
+import { SubmitButton } from "ui";
 
 const LogupPage: NextPage = () => {
     const [isLoggedIn, setLoggedIn] = useRecoilState<boolean>(AuthAtomState);
@@ -146,7 +147,9 @@ const LogupPage: NextPage = () => {
                                    name={"poBox"}
                             />
                         </div>
-                        <button className={styles.submitButton} type={"submit"}>Creer un compte</button>
+                        <SubmitButton>
+                            Creer un compte
+                        </SubmitButton>
                     </form>
                     <div style={{marginTop: "30px"}}>
                         <div>Vous avez deja un compte ? <Link href={"/login"}
