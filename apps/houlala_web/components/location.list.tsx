@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "../styles/location.module.scss";
 import {useLocationList} from "../swrHooks/location.hooks";
-import Spinner from "./spinner";
 import VerticalLocationContainer from "./vertical.location.container";
 import NoItems from "./no.items";
 import shop from "../public/images/shop.png";
+import { HoulalaSpinner } from "ui/components/loading-spinner/houlala-spinner";
 
 type LocationListProps = {
     url: string;
@@ -15,7 +15,7 @@ const LocationList: React.FC<LocationListProps> = ({url}) => {
 
     if (isLoading) return (
         <>
-            <Spinner/>
+            <HoulalaSpinner/>
         </>
     )
 

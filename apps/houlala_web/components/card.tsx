@@ -1,14 +1,14 @@
 import React from "react";
-import styles from "../styles/card.module.scss";
+import { BorderedCard } from "ui";
 
 type CardProps = {
     children: React.ReactNode;
 }
 
-export const Card: React.FC<CardProps> = ({children}) => {
+export const Card: React.FC<CardProps> = ({ children }) => {
     return (
-        <div className={styles.cardContainer}>
+        <BorderedCard style={{padding: "1rem"}}>
             {children}
-        </div>
-    )
-}
+        </BorderedCard>
+    );
+};

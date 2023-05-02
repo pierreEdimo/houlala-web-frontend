@@ -1,7 +1,6 @@
 import Link from "next/link";
 import React from "react";
 import styles from "../styles/bottom.bar.module.scss";
-import { NestedLayout } from "./nested.layout";
 import Image from "next/image";
 import house from "../public/images/house.png";
 import category from "../public/images/category.png";

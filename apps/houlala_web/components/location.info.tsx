@@ -1,4 +1,4 @@
-import {Location} from "../types/location";
+import { Location } from "../types/location";
 import React from "react";
 import styles from "../styles/location.module.scss";
 import ReactMarkdown from "react-markdown";
@@ -8,16 +8,15 @@ type LocationInfoProps = {
     location: Location
 }
 
-const LocationInfo: React.FC<LocationInfoProps> = ({location}) => {
+const LocationInfo: React.FC<LocationInfoProps> = ({ location }) => {
     return (
         <>
-            <div style={{height: "10px"}}></div>
             <h2>A Propos</h2>
-            <div style={{height: "10px"}}></div>
+            <div style={{ height: "10px" }}></div>
             <ReactMarkdown>
                 {location?.description!}
             </ReactMarkdown>
-            <div style={{height: "20px"}}></div>
+            <div style={{ height: "20px" }}></div>
             <h2>Contacts</h2>
             <div className={styles.contactInfoContainer}>
                 <div className={styles.contactContainer}>
@@ -51,7 +50,7 @@ const LocationInfo: React.FC<LocationInfoProps> = ({location}) => {
                 </div>
             </div>
         </>
-    )
-}
+    );
+};
 
 export default LocationInfo;

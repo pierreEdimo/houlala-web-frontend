@@ -2,9 +2,9 @@ import React from "react";
 import styles from "../styles/product.module.scss";
 import {useProductList} from "../swrHooks/product.hooks";
 import {ProductContainer} from "./product.container";
-import Spinner from "./spinner";
 import NoItems from "./no.items";
 import stock from "../public/images/stock.png";
+import { HoulalaSpinner } from "ui/components/loading-spinner/houlala-spinner";
 
 type ProductGridProps = {
     url: string;
@@ -16,7 +16,7 @@ const ProductGrid: React.FC<ProductGridProps> = ({url}) => {
     if (isLoading) return (
         <>
             <div>
-                <Spinner/>
+                <HoulalaSpinner/>
             </div>
         </>
     )

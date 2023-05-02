@@ -2,13 +2,13 @@ import { useCartItemList } from "../swrHooks/order.hooks";
 import { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { UserIdState } from "../state/user.id.atoms";
-import Spinner from "./spinner";
 import CartItemContainer from "./cart.item.container";
 import ValidateButton from "./validate.button";
 import noShoppingCart from "../public/images/no-shopping-cart.png";
 import NoItems from "./no.items";
 import { useRouter } from "next/router";
 import styles from "../styles/order.module.scss"
+import { HoulalaSpinner } from "ui/components/loading-spinner/houlala-spinner";
 
 
 const OnlineCart = () => {
@@ -26,7 +26,7 @@ const OnlineCart = () => {
     const { items, isLoading, isError } = useCartItemList(`${CART_URL}/carts?userId=${userId}`);
 
     if (isLoading) return (
-        <Spinner />
+        <HoulalaSpinner />
     );
 
     if (isError) return (

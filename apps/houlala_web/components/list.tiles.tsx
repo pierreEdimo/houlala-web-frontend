@@ -26,7 +26,6 @@ const ListTiles: React.FC<ListTileProps> = ({icon, title, onClick}) => {
                            height={20}/>
                     <p style={{fontSize: "16px"}}>{title}</p>
                 </div>
-                <FontAwesomeIcon icon={faChevronRight}/>
             </div>
         </>
     )

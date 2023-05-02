@@ -1,11 +1,13 @@
-.appBarLayout {
+.layout {
   width: 95%;
   margin: auto;
+  height: auto;
+  padding: 10px 0 90px 0;
 }
 
 @media screen and (min-width: 992px) {
-  .appBarLayout {
+  .layout {
     width: 992px;
+    padding: 10px 0 10px 0;
   }
 }
-

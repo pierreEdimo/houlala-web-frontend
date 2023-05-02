@@ -6,7 +6,7 @@ type Props = {
   style?: CSSProperties
 }
 
-const Avatar:React.FC<Props> = ({children, style}) => {
+const HoulalaAvatar:React.FC<Props> = ({children, style}) => {
   return (
     <div style={style} className={styles.avatarContainer}>
       {children}
@@ -14,4 +14,4 @@ const Avatar:React.FC<Props> = ({children, style}) => {
   )
 }
 
-export default Avatar;
+export default HoulalaAvatar;

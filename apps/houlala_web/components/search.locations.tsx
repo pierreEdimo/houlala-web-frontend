@@ -1,7 +1,7 @@
 import React from "react";
 import {useLocationList} from "../swrHooks/location.hooks";
-import Spinner from "./spinner";
 import VerticalLocationContainer from "./vertical.location.container";
+import { HoulalaSpinner } from "ui/components/loading-spinner/houlala-spinner";
 
 type SearchLocationsProps = {
     url: string;
@@ -12,7 +12,7 @@ const SearchLocations: React.FC<SearchLocationsProps> = ({url}) => {
 
     if (isLoading) return (
         <>
-            <Spinner/>
+            <HoulalaSpinner/>
         </>
     )
 

@@ -1,4 +1,4 @@
-import { Avatar, SideBar } from "ui";
+import { HoulalaAvatar, SideBar } from "ui";
 import Image from "next/image";
 import Link from "next/link";
 import IconImage from "../icon-image/icon.image";
@@ -34,14 +34,14 @@ const SideBarWrapper: React.FC<Props> = ({ location }) => {
                 <div className={styles.sideBarFlex}>
                     <div>
                         <div onClick={() => openModal(ModalIsEnum.settings)} className={styles.companyIntro}>
-                            <Avatar style={{
+                            <HoulalaAvatar style={{
                                 width: "50px",
                                 height: "50px"
                             }}>
                                 <Image fill className={styles.imageContent}
                                     src={location.imageUrl}
                                     alt={"person-image"} />
-                            </Avatar>
+                            </HoulalaAvatar>
                             <h3 className={styles.locationTitle} >
                                 {location.name}
                             </h3>
@@ -92,14 +92,14 @@ const SideBarWrapper: React.FC<Props> = ({ location }) => {
                 <div className={styles.mobileSideFlex}>
                     <div>
                         <div onClick={() => openModal(ModalIsEnum.settings)} className={styles.companyIntro}>
-                            <Avatar style={{
+                            <HoulalaAvatar style={{
                                 width: "50px",
                                 height: "50px"
                             }}>
                                 <Image fill className={styles.imageContent}
                                     src={location.imageUrl}
                                     alt={"person-image"} />
-                            </Avatar>
+                            </HoulalaAvatar>
                         </div>
                         <div className={styles.verticalFlex}>
                             <Link href={"/"}>

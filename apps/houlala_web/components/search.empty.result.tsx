@@ -2,8 +2,8 @@ import React from "react";
 import {useLocationList} from "../swrHooks/location.hooks";
 import {useProductList} from "../swrHooks/product.hooks";
 import {useCategoryList} from "../swrHooks/category.hooks";
-import Spinner from "./spinner";
 import styles from "../styles/search.result.module.scss";
+import { HoulalaSpinner } from "ui/components/loading-spinner/houlala-spinner";
 
 type SearchEmptyResultProps = {
     productUrl: string;
@@ -18,7 +18,7 @@ const SearchEmptyResult: React.FC<SearchEmptyResultProps> = ({productUrl, locati
 
     if (isLoading) return (
         <>
-            <Spinner/>
+            <HoulalaSpinner/>
         </>
     )
 

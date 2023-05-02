@@ -1,9 +1,9 @@
 import React from "react";
 import {useCategoryList} from "../swrHooks/discovery.category.hooks";
-import Spinner from "./spinner";
 import styles from "../styles/category.module.scss";
 import SubCategoryContainer from "./sub.category.container";
 import {useRouter} from "next/router";
+import { HoulalaSpinner } from "ui/components/loading-spinner/houlala-spinner";
 
 type DiscoveryCategoryListProps = {}
 
@@ -15,7 +15,7 @@ const DiscoveryCategoryList: React.FC<DiscoveryCategoryListProps> = () => {
 
     if (isLoading) return (
         <>
-            <Spinner/>
+            <HoulalaSpinner/>
         </>
     )
 

@@ -1,7 +1,7 @@
 import {HorizontalLocationContainer} from "./horizontal.location.container";
 import styles from "../styles/location.module.scss";
 import {useLocationList} from "../swrHooks/location.hooks";
-import Spinner from "./spinner";
+import { HoulalaSpinner } from "ui/components/loading-spinner/houlala-spinner";
 
 export function HomeLocationList() {
     const LOCATION_URL = process.env.NEXT_PUBLIC_LOCATION_URL;
@@ -9,7 +9,7 @@ export function HomeLocationList() {
 
     if (isLoading) return (
         <div>
-            <Spinner/>ö
+            <HoulalaSpinner/>
         </div>
     )
 

@@ -17,7 +17,7 @@ export function ProductContainer({product}: { product: Product }) {
                 }}>
                 <div>
                     <div className={styles.productContainer}>
-                        <Image src={product.imageUrl} alt={"product-image"} layout={"fill"} objectFit={"contain"}/>
+                        <Image src={product.imageUrl} style={{borderRadius: "0.3rem"}} alt={"product-image"} layout={"fill"} objectFit={"cover"}/>
                     </div>
                     <h3>{product.name}</h3>
                     <p>{product.sellingPrice} FCFA</p>

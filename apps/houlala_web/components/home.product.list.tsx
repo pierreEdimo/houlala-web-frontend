@@ -7,7 +7,7 @@ export function HomeProductList() {
   return (
     <div>
       <h2>Quelques Fruits & Legumes</h2>
-      <ProductGrid url={`${PRODUCT_URL}/category/6436fdeabbea9bd0d7924268?size=8`} />
+      <ProductGrid url={`${PRODUCT_URL}/category/6443faff8c04e0c6cc8a4e43?size=8`} />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import styles from "../styles/category.module.scss";
 import {useCategoryList} from "../swrHooks/category.hooks";
-import Spinner from "./spinner";
 import AvatarCategoryContainer from "./avatar.category.container";
+import { HoulalaSpinner } from "ui/components/loading-spinner/houlala-spinner";
 
 export function HomeCategoryList() {
     const CATEGORY_URL = process.env.NEXT_PUBLIC_CATEGORY_URL;
@@ -9,7 +9,7 @@ export function HomeCategoryList() {
 
     if (isLoading) return (
         <>
-            <Spinner/>
+            <HoulalaSpinner/>
         </>
     )
 

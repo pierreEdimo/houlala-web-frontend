@@ -13,7 +13,6 @@ const LocationHome: React.FC<LocationHomeProps> = ({location}) => {
 
     return (
         <>
-            <div style={{height: "1rem"}}></div>
             <h2>A Propos</h2>
             <div style={{height: "1rem"}}></div>
             <ReactMarkdown>

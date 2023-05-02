@@ -1,10 +1,14 @@
 import React from "react";
-import styles from "../styles/layout.module.scss"
+import { HoulalaDefaultLayout } from "ui";
 
-export function NestedLayout({children}: { children: React.ReactNode }) {
-    return (
-        <div className={styles.layoutContainer}>
-            {children}
-        </div>
-    )
+type Props = {
+  children: React.ReactNode
 }
+
+export const NestedLayout: React.FC<Props> = ({ children }) => {
+  return (
+    <HoulalaDefaultLayout>
+      {children}
+    </HoulalaDefaultLayout>
+  );
+};

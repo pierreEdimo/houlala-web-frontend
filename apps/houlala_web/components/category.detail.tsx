@@ -4,8 +4,8 @@ import FruitsLettuces from "./fruits.lettuces";
 import NoItems from "./no.items";
 import BackButton from "./back.button";
 import StoreContainer from "./store.container";
-import Spinner from "./spinner";
 import stock from "../public/images/stock.png";
+import { HoulalaSpinner } from "ui/components/loading-spinner/houlala-spinner";
 
 type CategoryDetailProps = {
     categoryId: string;
@@ -17,7 +17,7 @@ const CategoryDetail: React.FC<CategoryDetailProps> = ({categoryId}: { categoryI
 
     if (isLoading) return (
         <div>
-            <Spinner/>
+            <HoulalaSpinner/>
         </div>
     )
 

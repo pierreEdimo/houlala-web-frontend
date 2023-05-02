@@ -2,19 +2,13 @@ import { NextPage } from "next";
 import NestedLayout from "../../components/nested-layout/nested.layout";
 import InsideHeader from "../../components/inside-header/inside.header";
 import styles from "./order.module.scss";
-import { Avatar, BorderedCard, Row } from "ui";
+import { BorderedCard, HoulalaAvatar, Row } from "ui";
 import { useRouter } from "next/router";
 import { useOrder } from "../../hooks/order.hooks";
 import Image from "next/image";
 import OrderService from "../../service/order.service";
 import { useSWRConfig } from "swr";
-
-
-type Props = {
-    orderStatus: string
-}
-
-
+import React from "react";
 
 const OrderDetail: NextPage = () => {
     const router = useRouter();
@@ -67,7 +61,7 @@ const OrderDetail: NextPage = () => {
                                 order?.cartItems.map((item) => (
                                     <tr className={styles.cartItem} key={item.productSku}>
                                         <td style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-                                            <Avatar style={{
+                                            <HoulalaAvatar style={{
                                                 width: "30px",
                                                 height: "30px",
                                                 borderRadius: "0.3rem"
@@ -77,7 +71,7 @@ const OrderDetail: NextPage = () => {
                                                     alt={"product-image"}
                                                     fill
                                                     style={{ objectFit: "cover" }} />
-                                            </Avatar>
+                                            </HoulalaAvatar>
                                             <p className={styles.ellipsis}>{item.product}</p>
                                         </td>
                                         <td>

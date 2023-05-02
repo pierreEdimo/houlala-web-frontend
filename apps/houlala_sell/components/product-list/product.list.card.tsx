@@ -1,6 +1,6 @@
 import React from "react";
 import { useProductList } from "../../hooks/product.hooks";
-import { Avatar, BorderedCard } from "ui";
+import { BorderedCard, HoulalaAvatar } from "ui";
 import style from "./product.list.module.scss";
 import Image from "next/image";
 import Link from "next/link";
@@ -62,7 +62,7 @@ const ProductListCard: React.FC<Props> = ({ url, title, position, locationId }) 
                                 products?.map((product) => (
                                     <tr onClick={() => router.push(`/product-detail/${product._id}`)} className={style.productRow} key={product._id}>
                                         <td>
-                                            <Avatar style={{
+                                            <HoulalaAvatar style={{
                                                 width: "30px",
                                                 height: "30px",
                                                 borderRadius: "0.3rem"
@@ -71,7 +71,7 @@ const ProductListCard: React.FC<Props> = ({ url, title, position, locationId }) 
                                                     style={{ objectFit: "cover" }}
                                                     src={product.imageUrl}
                                                     alt={"product-image"} />
-                                            </Avatar>
+                                            </HoulalaAvatar>
                                         </td>
                                         <td>
                                             <p className={style.textContent}>{product.name}</p>

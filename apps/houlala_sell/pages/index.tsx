@@ -1,15 +1,13 @@
 import type { NextPage } from "next";
 import { useLocation } from "../hooks/location.hooks";
 import styles from "../styles/Home.module.scss";
-import { Avatar, BorderedCard } from "ui";
+import { HoulalaAvatar, BorderedCard } from "ui";
 import Image from "next/image";
 import logo from "../public/images/houlala1.png"
 import { useRouter } from "next/router";
 import store from "../public/images/outline_store.png";
 import CreateLocationModal from "../components/create-modal/create.modal";
 import { ModalIsEnum } from "../types/modal.ids";
-import { useEffect, useState } from "react";
-import { UserToken } from "../types/user.token";
 import { useRecoilState } from "recoil";
 import { UserIdState } from "../state/user.id.state";
 
@@ -35,13 +33,13 @@ const Home: NextPage = () => {
             <div className={styles.innerheader}>
                 <div className={styles.innerheaderContent}>
                     <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
-                        <Avatar style={{ width: "80px", height: "80px" }}>
+                        <HoulalaAvatar style={{ width: "80px", height: "80px" }}>
                             <Image src={logo}
                                 fill
                                 style={{ objectFit: "cover" }}
                                 alt={"product-image"}
                             />
-                        </Avatar>
+                        </HoulalaAvatar>
                         <h2>Houla la pour vendeur</h2>
                     </div>
                 </div>
@@ -55,9 +53,9 @@ const Home: NextPage = () => {
                             <br />
                             <BorderedCard>
                                 <div onClick={() => router.push(`/dashboard/${location?.uniqueIdentifier}`)} className={styles.locationContainer}>
-                                    <Avatar>
+                                    <HoulalaAvatar>
                                         <Image src={location?.imageUrl!} alt="logo-image" fill style={{ objectFit: "cover", borderRadius: "50%" }} />
-                                    </Avatar>
+                                    </HoulalaAvatar>
                                     <div>
                                         <p><b>{location?.name!}</b></p>
                                         <p style={{ fontSize: "16px", color: "grey" }}>{location?.address.city + ', ' + location?.country.name}</p>

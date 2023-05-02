@@ -194,7 +194,7 @@
   }
 
   .productImage {
-    height: 500px;
+    height: 400px;
   }
 
   .mobileProductCount {
@@ -219,6 +219,7 @@
 
 @media screen and (max-width: 600px) {
   .productGrid {
+    gap: 10px;
     grid-template-columns: 1fr 1fr;
   }
 }

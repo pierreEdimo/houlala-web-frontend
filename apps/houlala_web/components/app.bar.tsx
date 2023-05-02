@@ -16,6 +16,7 @@ import MobileSearchFormState from "../state/mobile.search.atoms";
 import AppBarLayout from "./app.bar.layout";
 import MobileNavSearch from "./mobile.nav.search";
 import Image from "next/image";
+import {HoulalaAppBar} from "ui";
 
 
 const AppBar = ({ title }: { title: string }) => {
@@ -26,7 +27,7 @@ const AppBar = ({ title }: { title: string }) => {
   const openForm = () => setIsOpen(true);
 
   return (
-    <header className={styles.appHeader}>
+    <HoulalaAppBar>
       <AppBarLayout>
         <div>
           {
@@ -64,7 +65,7 @@ const AppBar = ({ title }: { title: string }) => {
           </div>
         </div>
       </AppBarLayout>
-    </header>
+    </HoulalaAppBar>
   );
 };
 
