@@ -3,9 +3,6 @@ import { Order } from "../../types/order";
 import styles from "./order.item.module.scss";
 import successOrder from "../../public/images/sucess_order.png";
 import IconImage from "../icon-image/icon.image";
-import calendar from "../../public/images/calendar.png";
-import moneyBag from "../../public/images/money-bag.png";
-import StatusButton from "./status.button";
 import { useRouter } from "next/router";
 
 type Props = {

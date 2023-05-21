@@ -11,7 +11,7 @@ type NavSearchProps = {}
 const NavSearch: React.FC<NavSearchProps> = () => {
     const router = useRouter();
     const [isOpen, setIsOpen] = useRecoilState(PreviewState);
-    const [formData, setFormData] = useRecoilState(SearchFormState);
+    const [formData] = useRecoilState(SearchFormState);
 
     const showPreview = useCallback((event: React.MouseEvent<HTMLInputElement>) => {
         event.stopPropagation();

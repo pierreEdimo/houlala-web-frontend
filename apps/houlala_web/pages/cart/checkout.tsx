@@ -4,7 +4,7 @@ import { useRecoilState } from "recoil";
 import { UserIdState } from "../../state/user.id.atoms";
 import { UserEmailState } from "../../state/user.email";
 import { UserTokenState } from "../../state/user.token";
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";3
 import { UserToken } from "../../types/user.token";
 import { CheckdOutState } from "../../state/checked.atoms";
 import { useCartItemList } from "../../swrHooks/order.hooks";
@@ -31,9 +31,7 @@ import { CartItem } from "../../types/cart.item";
 import { UserInformation } from "../../types/user.information";
 import { UnregistedUserOrder } from "../../types/unregisted.user.order";
 import { OfflineOrder } from "../../types/offline.order";
-import { HoulalaSpinner } from "ui/components/loading-spinner/houlala-spinner";
-import HoulalaFilledButton from "ui/components/filled-button/houlala.filled.button";
-import SubmitButton from "ui/components/validate-button/submit.button";
+import { HoulalaButton, HoulalaSpinner } from "ui";
 
 
 const Checkout: NextPage = () => {
@@ -255,10 +253,10 @@ const Checkout: NextPage = () => {
                           }
                         </div>
                       </Card>
-                      <HoulalaFilledButton style={{ background: "orange", border: "none", width: "100%" }}
-                                           onClick={confirmCommand}>
+                      <HoulalaButton type={"button"} className={"filled"} style={{ width: "100%" }}
+                                     onClick={confirmCommand}>
                         Commander
-                      </HoulalaFilledButton>
+                      </HoulalaButton>
                     </div>
                   </div> :
                   <div></div>
@@ -448,9 +446,9 @@ const Checkout: NextPage = () => {
                               </div>
                             </Card>
                             <br />
-                            <SubmitButton>
+                            <HoulalaButton className={"filled"} type={"submit"}>
                               Commander
-                            </SubmitButton>
+                            </HoulalaButton>
                           </div>
                         ))
                       }

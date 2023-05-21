@@ -5,7 +5,7 @@ import NoShoppingCart from "../public/images/no-shopping-cart.png";
 import OfflineCartItemContainer from "./offline.cart.item.container";
 import { useRouter } from "next/router";
 import styles from "../styles/order.module.scss";
-import HoulalaFilledButton from "ui/components/filled-button/houlala.filled.button";
+import { HoulalaButton } from "ui";
 
 const OfflineCart = () => {
   const items = useLiveQuery(async () => {
@@ -25,12 +25,12 @@ const OfflineCart = () => {
               ))
             }
             <div style={{ height: "1rem" }}></div>
-            <div style={{display: "flex", justifyContent: "flex-end"}}>
+            <div style={{ display: "flex", justifyContent: "flex-end" }}>
               <div className={styles.checkout}>
-                <HoulalaFilledButton onClick={() => router.push("/cart/checkout").then()}
-                                     style={{ background: "orange", border: "none", width: "100%" }}>
+                <HoulalaButton type={"button"} className={"filled"} onClick={() => router.push("/cart/checkout").then()}
+                               style={{ width: "100%" }}>
                   Caisse
-                </HoulalaFilledButton>
+                </HoulalaButton>
               </div>
             </div>
           </div>

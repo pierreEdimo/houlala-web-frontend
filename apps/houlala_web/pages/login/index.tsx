@@ -10,7 +10,7 @@ import { UserToken } from "../../types/user.token";
 import { useEffect, useState } from "react";
 import AuthAtomState from "../../state/auth.atoms";
 import Link from "next/link";
-import { SubmitButton } from "ui";
+import { HoulalaButton, HoulalaCard } from "ui";
 
 const LoginPage: NextPage = () => {
   const [formData] = useRecoilState<Login>(LoginFormState);
@@ -26,29 +26,32 @@ const LoginPage: NextPage = () => {
     }
   });
 
-
   const login = async (event: any) => {
     event.preventDefault();
     const data: Login = {
       email: event.target.email.value,
-      passWord: event.target.passWord.value
+      passWord: event.target.passWord.value,
     };
 
     const response = await authService.login(`${AUTH_URL}/users/login`, data);
     if (response.status != 202) {
       switch (response.response.status) {
         case 404:
-          setErrorMessage("Vous n'avez pas ete trouve dans notre base de donnee, svp creez un compte.");
+          setErrorMessage(
+            "Vous n'avez pas ete trouve dans notre base de donnee, svp creez un compte."
+          );
           break;
         case 400:
-          setErrorMessage("Votre e-mail ou votre mot de passe est faux, svp reessayez plutard." +
-            "Si le probleme persiste veuillez contacter notre service client.");
+          setErrorMessage(
+            "Votre e-mail ou votre mot de passe est faux, svp reessayez plutard." +
+              "Si le probleme persiste veuillez contacter notre service client."
+          );
       }
     } else {
       const userToken: UserToken = {
         email: response.data.email,
         userId: response.data.userId,
-        token: response.data.token
+        token: response.data.token,
       };
       localStorage.setItem("userToken", JSON.stringify(userToken));
       setLoggedIn(true);
@@ -59,42 +62,53 @@ const LoginPage: NextPage = () => {
   return (
     <NestedLayout>
       <div className={styles.loginContainer}>
-        <div className={styles.loginFormContainer}>
-          <form onSubmit={login} className={styles.loginForm}>
-            {
-              errorMessage ?
-                <div className="error-message">
-                  {errorMessage}
-                </div> :
+        <HoulalaCard>
+          <div className={styles.loginFormContainer}>
+            <form onSubmit={login} className={styles.loginForm}>
+              {errorMessage ? (
+                <div className="error-message">{errorMessage}</div>
+              ) : (
                 <div></div>
-            }
-            <input type={"text"}
-              placeholder={"E-mail"}
-              name={"email"}
-              required
-              value={formData.email}
-            />
-            <input
-              type={"password"}
-              placeholder={"Mot de passe"}
-              required
-              value={formData.passWord}
-              name={"passWord"}
-            />
-            <Link href={"/reset"}>
-              <p style={{ fontWeight: "bold", margin: "20px 0 20px 0", cursor: "pointer" }}>Mot de passe oublie? /
-                Probleme de
-                connexion?</p>
-            </Link>
-           <SubmitButton>
-             se connecter
-           </SubmitButton>
-          </form>
-          <div style={{ marginTop: "30px" }}>
-            <p>Vous etes nouveau ? <Link href={"/logup"}
-              style={{ cursor: "pointer" }}>Enregistrer</Link></p>
+              )}
+              <input
+                type={"text"}
+                placeholder={"E-mail"}
+                name={"email"}
+                required
+                value={formData.email}
+              />
+              <input
+                type={"password"}
+                placeholder={"Mot de passe"}
+                required
+                value={formData.passWord}
+                name={"passWord"}
+              />
+              <Link href={"/reset"}>
+                <p
+                  style={{
+                    fontWeight: "bold",
+                    margin: "20px 0 20px 0",
+                    cursor: "pointer",
+                  }}
+                >
+                  Mot de passe oublie? / Probleme de connexion?
+                </p>
+              </Link>
+              <HoulalaButton className={"filled"} type={"submit"}>
+                se connecter
+              </HoulalaButton>
+            </form>
+            <div style={{ marginTop: "30px" }}>
+              <p>
+                Vous etes nouveau ?{" "}
+                <Link href={"/logup"} style={{ cursor: "pointer" }}>
+                  Enregistrer
+                </Link>
+              </p>
+            </div>
           </div>
-        </div>
+        </HoulalaCard>
       </div>
     </NestedLayout>
   );

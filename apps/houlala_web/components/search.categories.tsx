@@ -2,7 +2,7 @@ import React from "react";
 import {useCategoryList} from "../swrHooks/category.hooks";
 import styles from "../styles/category.module.scss";
 import GridCategoryContainer from "./grid.category.container";
-import { HoulalaSpinner } from "ui/components/loading-spinner/houlala-spinner";
+import { HoulalaSpinner } from "ui";
 
 type SearchCategoriesProps = {
     url: string;

@@ -1,48 +1,55 @@
 @import "../variables/variables";
 @import "../variables/mixins";
 
-.textSearch {
-  padding: $input-padding;
-  width: 90%;
-  font-family: 'Poppins', sans-serif;
-  border-top-left-radius: 25px;
-  border-bottom-left-radius: 25px;
-  @include borderStyle;
-  border-right-style: none;
-  background: $white;
+.textSearch, .searchButton {
+    background: transparent;
+    border: none;
 }
-
 
 .searchButton {
-  width: 10%;
-  padding: $input-padding;
-  @include searchButtonStyle;
-  border-top-right-radius: 25px;
-  border-bottom-right-radius: 25px;
+    display: flex;
+    border-radius: 50%;
+    background: #f3f3f3;
+    height: 35px;
+    width: 35px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }
 
+.textSearch {
+    flex: 1;
+}
+
+
 .searchContainer {
-  width: 100%;
-  display: flex;
+    width: 400px;
+    display: flex;
+    background: white;
+    border-radius: 25px;
 }
 
 .appBarForm {
-  width: 85%;
+    flex: 1;
+    background: white;
+    border-radius: 25px;
 }
 
 .appBarForm input {
-  width: 80%;
-  padding: $input-padding;
-  @include borderStyle;
-  border-right-style: none;
+    flex: 1;
 }
 
 .textSearch, .appBarForm input:focus {
-  outline: none;
+    outline: none;
 }
 
-.appBarForm button {
-  width: 20%;
-  padding: $input-padding;
-  @include searchButtonStyle
+.appBarForm input, .appBarForm button{
+    border: none;
+    background: transparent;
+}
+
+@media screen and (max-width: 767px) {
+    .searchContainer {
+        width: 100%;
+    }
 }

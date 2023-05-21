@@ -1,7 +1,5 @@
 import React from "react";
 import styles from "../styles/list.tile.module.scss";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faChevronRight} from "@fortawesome/free-solid-svg-icons";
 import Image, {StaticImageData} from "next/image";
 
 type ListTileProps = {

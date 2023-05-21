@@ -1,5 +1,5 @@
 import React from "react";
-import { BorderedCard } from "ui";
+import { HoulalaCard } from "ui";
 
 type CardProps = {
     children: React.ReactNode;
@@ -7,8 +7,8 @@ type CardProps = {
 
 export const Card: React.FC<CardProps> = ({ children }) => {
     return (
-        <BorderedCard style={{padding: "1rem"}}>
+        <HoulalaCard style={{padding: "1rem"}}>
             {children}
-        </BorderedCard>
+        </HoulalaCard>
     );
 };

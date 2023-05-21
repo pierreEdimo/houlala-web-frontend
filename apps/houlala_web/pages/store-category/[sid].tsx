@@ -4,7 +4,7 @@ import {NestedLayout} from "../../components/nested.layout";
 import {useCategory} from "../../swrHooks/discovery.category.hooks";
 import BackButton from "../../components/back.button";
 import LocationList from "../../components/location.list";
-import { HoulalaSpinner } from "ui/components/loading-spinner/houlala-spinner";
+import { HoulalaSpinner } from "ui";
 
 const StoreCategory: NextPage = () => {
     const router = useRouter();

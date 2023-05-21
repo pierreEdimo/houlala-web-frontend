@@ -14,7 +14,7 @@ const AboutTiles = () => {
                        if (isOpen) {
                            setIsOpen(false);
                        }
-                       router.push("/about")
+                       router.push("/about").then()
                    }}
                    title={"A propos"}/>
     )

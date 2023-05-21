@@ -7,8 +7,7 @@ import noShoppingCart from "../public/images/no-shopping-cart.png";
 import NoItems from "./no.items";
 import { useRouter } from "next/router";
 import styles from "../styles/order.module.scss";
-import { HoulalaSpinner } from "ui/components/loading-spinner/houlala-spinner";
-import HoulalaFilledButton from "ui/components/filled-button/houlala.filled.button";
+import { HoulalaButton, HoulalaSpinner } from "ui";
 
 
 const OnlineCart = () => {
@@ -49,10 +48,10 @@ const OnlineCart = () => {
             <div style={{ height: "1rem" }}></div>
             <div style={{ display: "flex", justifyContent: "flex-end" }}>
               <div className={styles.checkout}>
-                <HoulalaFilledButton onClick={() => router.push("/cart/checkout").then()}
-                                     style={{ background: "orange", border: "none", width: "100%" }}>
+                <HoulalaButton type={"button"} className={"filled"} onClick={() => router.push("/cart/checkout").then()}
+                               style={{ width: "100%" }}>
                   Caisse
-                </HoulalaFilledButton>
+                </HoulalaButton>
               </div>
             </div>
           </div>

@@ -16,11 +16,9 @@ import MobileSearchFormState from "../state/mobile.search.atoms";
 import AppBarLayout from "./app.bar.layout";
 import MobileNavSearch from "./mobile.nav.search";
 import Image from "next/image";
-import {HoulalaAppBar} from "ui";
-
+import { HoulalaAppBar } from "ui";
 
 const AppBar = ({ title }: { title: string }) => {
-
   const router = useRouter();
   const [isOpen, setIsOpen] = useRecoilState(MobileSearchFormState);
   const closeForm = () => setIsOpen(false);
@@ -30,36 +28,60 @@ const AppBar = ({ title }: { title: string }) => {
     <HoulalaAppBar>
       <AppBarLayout>
         <div>
-          {
-            !isOpen ?
-              <div className={styles.appHeaderContent}>
-                <Link title={"Accueil"} href={"/"}>
-                  <div className={styles.titleContainer}>
-                    <Image src={houlala} objectFit="cover" width={90} height={90} />
-                    <h2>{title}</h2>
-                  </div>
-                </Link>
-                <ButtonContainer onClick={openForm} imageSrc={search} />
-              </div> :
-              <div className={styles.searchboxContainer} >
-                <ButtonContainer onClick={closeForm} imageSrc={leftArrow} />
-                <MobileNavSearch />
-              </div>
-          }
+          {!isOpen ? (
+            <div className={styles.appHeaderContent}>
+              <Link title={"Accueil"} href={"/"}>
+                <div className={styles.titleContainer}>
+                  <Image
+                    src={houlala}
+                    objectFit="cover"
+                    width={90}
+                    height={90}
+                  />
+                  <h2>{title}</h2>
+                </div>
+              </Link>
+              <ButtonContainer onClick={openForm} imageSrc={search} />
+            </div>
+          ) : (
+            <div className={styles.searchboxContainer}>
+              <ButtonContainer onClick={closeForm} imageSrc={leftArrow} />
+              <MobileNavSearch />
+            </div>
+          )}
         </div>
-        <div className={styles.desktopAppHeaderContent}>
+        <div
+          style={{ display: isOpen ? "none" : "" }}
+          className={styles.desktopAppHeaderContent}
+        >
           <div>
             <Link href={"/"}>
               <div title={"Accueil"} className={styles.titleContainer}>
-                <Image src={houlala} objectFit="cover" alt="Image-icon" width={95} height={95} />
+                <Image
+                  src={houlala}
+                  objectFit="cover"
+                  alt="Image-icon"
+                  width={95}
+                  height={95}
+                />
                 <h2>{title}</h2>
               </div>
             </Link>
           </div>
           <NavSearch />
           <div style={{ display: "flex", gap: "1rem" }}>
-            <ButtonContainer url={"/discover"} title={"Decouvrir"} onClick={() => router.push("/discover")} imageSrc={category} />
-            <ButtonContainer url={"/cart"} title={"Panier"} onClick={() => router.push("/cart")} imageSrc={cart} />
+            <ButtonContainer
+              url={"/discover"}
+              title={"Decouvrir"}
+              onClick={() => router.push("/discover")}
+              imageSrc={category}
+            />
+            <ButtonContainer
+              url={"/cart"}
+              title={"Panier"}
+              onClick={() => router.push("/cart")}
+              imageSrc={cart}
+            />
             <NotificationDropdown />
             <OptionsDropdown />
           </div>

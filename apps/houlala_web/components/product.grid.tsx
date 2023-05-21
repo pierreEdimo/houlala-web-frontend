@@ -4,7 +4,7 @@ import {useProductList} from "../swrHooks/product.hooks";
 import {ProductContainer} from "./product.container";
 import NoItems from "./no.items";
 import stock from "../public/images/stock.png";
-import { HoulalaSpinner } from "ui/components/loading-spinner/houlala-spinner";
+import { HoulalaSpinner } from "ui";
 
 type ProductGridProps = {
     url: string;

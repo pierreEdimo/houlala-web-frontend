@@ -1,4 +1,4 @@
-import { HoulalaAvatar, SideBar } from "ui";
+import { HoulalaAvatar, HoulalaCard, SideBar } from "ui";
 import Image from "next/image";
 import Link from "next/link";
 import IconImage from "../icon-image/icon.image";
@@ -16,134 +16,127 @@ import HelpModal from "../help-modal/help.modal";
 import { ModalIsEnum } from "../../types/modal.ids";
 
 type Props = {
-    location: LocationModel
-}
-
+  location: LocationModel;
+};
 
 const SideBarWrapper: React.FC<Props> = ({ location }) => {
-    const router = useRouter();
-    const openModal = (id: string) => {
-        const modal = document.getElementById(id);
-        modal!.style.display = "block";
-    }
-    return (
-        <>
-            <SettingsModal location={location} />
-            <HelpModal />
-            <SideBar>
-                <div className={styles.sideBarFlex}>
-                    <div>
-                        <div onClick={() => openModal(ModalIsEnum.settings)} className={styles.companyIntro}>
-                            <HoulalaAvatar style={{
-                                width: "50px",
-                                height: "50px"
-                            }}>
-                                <Image fill className={styles.imageContent}
-                                    src={location.imageUrl}
-                                    alt={"person-image"} />
-                            </HoulalaAvatar>
-                            <h3 className={styles.locationTitle} >
-                                {location.name}
-                            </h3>
-                        </div>
-                        <Link href={`/dashboard/${location.uniqueIdentifier}`}>
-                            <div className={styles.listTile}>
-                                <IconImage icon={dashboard}
-                                    width={20}
-                                    height={20} />
-                                <p>Dashboard</p>
-                            </div>
-                        </Link>
-                        <Link href={`/orders/${location.uniqueIdentifier}`}>
-                            <div className={styles.listTile}>
-                                <IconImage icon={order}
-                                    width={20}
-                                    height={20} />
-                                <p>Commandes</p>
-                            </div>
-                        </Link>
-                        <Link href={`/stock/${location.uniqueIdentifier}`}>
-                            <div className={styles.listTile}>
-                                <IconImage icon={boxes}
-                                    width={20}
-                                    height={20} />
-                                <p>Stock</p>
-                            </div>
-                        </Link>
-                        <Link href={`/notification/${location.uniqueIdentifier}`}>
-                            <div className={styles.listTile}>
-                                <IconImage icon={notification}
-                                    width={20}
-                                    height={20} />
-                                <p>Notifications</p>
-                            </div>
-                        </Link>
-                        <div onClick={() => openModal(ModalIsEnum.help)}>
-                            <div className={styles.listTile}>
-                                <IconImage icon={question}
-                                    width={20}
-                                    height={20} />
-                                <p>Aide</p>
-                            </div>
-                        </div>
-
-                    </div>
+  const router = useRouter();
+  const openModal = (id: string) => {
+    const modal = document.getElementById(id);
+    modal!.style.display = "block";
+  };
+  return (
+    <>
+      <SettingsModal location={location} />
+      <HelpModal />
+      <SideBar>
+        <div className={styles.sideBarFlex}>
+          <HoulalaCard style={{ height: "100%", border: "none" }}>
+            <div
+              onClick={() => openModal(ModalIsEnum.settings)}
+              className={styles.companyIntro}
+            >
+              <HoulalaAvatar
+                style={{
+                  width: "50px",
+                  height: "50px",
+                }}
+              >
+                <Image
+                  fill
+                  className={styles.imageContent}
+                  src={location.imageUrl}
+                  alt={"person-image"}
+                />
+              </HoulalaAvatar>
+              <h3 className={styles.locationTitle}>{location.name}</h3>
+            </div>
+            <Link href={`/dashboard/${location.uniqueIdentifier}`}>
+              <div className={styles.listTile}>
+                <IconImage icon={dashboard} width={20} height={20} />
+                <p>Dashboard</p>
+              </div>
+            </Link>
+            <Link href={`/orders/${location.uniqueIdentifier}`}>
+              <div className={styles.listTile}>
+                <IconImage icon={order} width={20} height={20} />
+                <p>Commandes</p>
+              </div>
+            </Link>
+            <Link href={`/stock/${location.uniqueIdentifier}`}>
+              <div className={styles.listTile}>
+                <IconImage icon={boxes} width={20} height={20} />
+                <p>Stock</p>
+              </div>
+            </Link>
+            <Link href={`/notification/${location.uniqueIdentifier}`}>
+              <div className={styles.listTile}>
+                <IconImage icon={notification} width={20} height={20} />
+                <p>Notifications</p>
+              </div>
+            </Link>
+            <div onClick={() => openModal(ModalIsEnum.help)}>
+              <div className={styles.listTile}>
+                <IconImage icon={question} width={20} height={20} />
+                <p>Aide</p>
+              </div>
+            </div>
+          </HoulalaCard>
+        </div>
+        <HoulalaCard style={{ height: "100%", border: "none" }}>
+          <div className={styles.mobileSideFlex}>
+            <div>
+              <div
+                onClick={() => openModal(ModalIsEnum.settings)}
+                className={styles.companyIntro}
+              >
+                <HoulalaAvatar
+                  style={{
+                    width: "50px",
+                    height: "50px",
+                  }}
+                >
+                  <Image
+                    fill
+                    className={styles.imageContent}
+                    src={location.imageUrl}
+                    alt={"person-image"}
+                  />
+                </HoulalaAvatar>
+              </div>
+              <div className={styles.verticalFlex}>
+                <Link href={"/"}>
+                  <div className={styles.listTile}>
+                    <IconImage icon={dashboard} width={20} height={20} />
+                  </div>
+                </Link>
+                <Link href={`/orders/${location.uniqueIdentifier}`}>
+                  <div className={styles.listTile}>
+                    <IconImage icon={order} width={20} height={20} />
+                  </div>
+                </Link>
+                <Link href={`/stock/${location.uniqueIdentifier}`}>
+                  <div className={styles.listTile}>
+                    <IconImage icon={boxes} width={20} height={20} />
+                  </div>
+                </Link>
+                <Link href={`/notification/${location.uniqueIdentifier}`}>
+                  <div className={styles.listTile}>
+                    <IconImage icon={notification} width={20} height={20} />
+                  </div>
+                </Link>
+                <div onClick={() => openModal(ModalIsEnum.help)}>
+                  <div className={styles.listTile}>
+                    <IconImage icon={question} width={20} height={20} />
+                  </div>
                 </div>
-                <div className={styles.mobileSideFlex}>
-                    <div>
-                        <div onClick={() => openModal(ModalIsEnum.settings)} className={styles.companyIntro}>
-                            <HoulalaAvatar style={{
-                                width: "50px",
-                                height: "50px"
-                            }}>
-                                <Image fill className={styles.imageContent}
-                                    src={location.imageUrl}
-                                    alt={"person-image"} />
-                            </HoulalaAvatar>
-                        </div>
-                        <div className={styles.verticalFlex}>
-                            <Link href={"/"}>
-                                <div className={styles.listTile}>
-                                    <IconImage icon={dashboard}
-                                        width={20}
-                                        height={20} />
-                                </div>
-                            </Link>
-                            <Link href={`/orders/${location.uniqueIdentifier}`}>
-                                <div className={styles.listTile}>
-                                    <IconImage icon={order}
-                                        width={20}
-                                        height={20} />
-                                </div>
-                            </Link>
-                            <Link href={`/stock/${location.uniqueIdentifier}`}>
-                                <div className={styles.listTile}>
-                                    <IconImage icon={boxes}
-                                        width={20}
-                                        height={20} />
-                                </div>
-                            </Link>
-                            <Link href={`/notification/${location.uniqueIdentifier}`}>
-                                <div className={styles.listTile}>
-                                    <IconImage icon={notification}
-                                        width={20}
-                                        height={20} />
-                                </div>
-                            </Link>
-                            <div onClick={() => openModal(ModalIsEnum.help)}>
-                                <div className={styles.listTile}>
-                                    <IconImage icon={question}
-                                        width={20}
-                                        height={20} />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </SideBar>
-        </>
-
-    );
+              </div>
+            </div>
+          </div>
+        </HoulalaCard>
+      </SideBar>
+    </>
+  );
 };
 
 export default SideBarWrapper;

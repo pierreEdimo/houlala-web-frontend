@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import { BorderedCard, Container, Row } from "ui";
+import { HoulalaCard, Container, Row } from "ui";
 import style from "../../styles/Home.module.scss";
 import ProductListCard from "../../components/product-list/product.list.card";
 import { useRouter } from "next/router";

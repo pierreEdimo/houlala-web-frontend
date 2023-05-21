@@ -12,8 +12,7 @@ import SearchBox from "../../components/search.box";
 import { useRecoilState } from "recoil";
 import SearchFormState from "../../state/search.atoms";
 import { SearchForm } from "../../types/search.form";
-import { HoulalaSpinner } from "ui/components/loading-spinner/houlala-spinner";
-import { TabBody, TabHeader, TabItem, TabView } from "ui";
+import { HoulalaCard, HoulalaSpinner, TabBody, TabHeader, TabItem, TabView } from "ui";
 import { useState } from "react";
 
 const Location: NextPage = () => {
@@ -50,18 +49,20 @@ const Location: NextPage = () => {
     <>
       <NestedLayout>
         <BackButton title={`${location?.name}`} />
-        <div className={styles.locationHeaderContainer}>
-          <div className={styles.imageContainer}>
-            <Avatar imageUrl={location?.imageUrl!} type={"avatar"} />
-          </div>
-          <div>
-            <h2 className={styles.locationTitle}>{location?.name}</h2>
-            <div className={styles.keyFigures}>
-              <p>{`${location?.productTotalCount} produits disponibles`}</p>
-              <p>{`${location?.orderSoldCount} produits vendus`}</p>
-            </div>
-          </div>
-        </div>
+       <HoulalaCard style={{margin: "10px 0 15px 0"}}>
+         <div className={styles.locationHeaderContainer}>
+           <div className={styles.imageContainer}>
+             <Avatar imageUrl={location?.imageUrl!} type={"avatar"} />
+           </div>
+           <div>
+             <h2 className={styles.locationTitle}>{location?.name}</h2>
+             <div className={styles.keyFigures}>
+               <p>{`${location?.productTotalCount} produits disponibles`}</p>
+               <p>{`${location?.orderSoldCount} produits vendus`}</p>
+             </div>
+           </div>
+         </div>
+       </HoulalaCard>
         <TabView>
           <div className={styles.tabHeaderContainer}>
             <TabHeader>

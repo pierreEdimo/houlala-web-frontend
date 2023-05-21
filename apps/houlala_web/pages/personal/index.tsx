@@ -14,7 +14,7 @@ import { Card } from "../../components/card";
 import EditInfosButton from "../../components/edit.infos.button";
 import EditAddressButton from "../../components/edit.address.button";
 import EditEmailButton from "../../components/edit.email.button";
-import { HoulalaSpinner } from "ui/components/loading-spinner/houlala-spinner";
+import { HoulalaSpinner } from "ui";
 
 const Personal: NextPage = () => {
 

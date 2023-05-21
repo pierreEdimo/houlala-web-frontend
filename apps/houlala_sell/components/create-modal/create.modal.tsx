@@ -1,5 +1,5 @@
 import * as React from "react";
-import { BorderedCard, Modal } from "ui";
+import { HoulalaCard, Modal } from "ui";
 import { ModalIsEnum } from "../../types/modal.ids";
 import styles from "./create.modal.module.scss";
 
@@ -9,7 +9,7 @@ const CreateLocationModal = () => {
     }
     return (
         <Modal modalId={ModalIsEnum.createLocationModal}>
-            <BorderedCard style={{ width: "400px", background: "white", padding: "1rem" }}>
+            <HoulalaCard style={{ width: "400px", background: "white", padding: "1rem" }}>
                 <div>
                     <h2>Bienvenu sur houla la</h2>
                     <br />
@@ -35,7 +35,7 @@ const CreateLocationModal = () => {
                         Ok
                     </button>
                 </div>
-            </BorderedCard>
+            </HoulalaCard>
         </Modal>
     )
 }

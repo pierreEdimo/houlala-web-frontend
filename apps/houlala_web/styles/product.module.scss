@@ -2,251 +2,241 @@
 @import "../variables/variables";
 
 .modalButton {
-  width: 400px;
-  display: flex;
-  margin: 20px 0 20px 0;
-  gap: $space;
+    width: 400px;
+    display: flex;
+    margin: 20px 0 20px 0;
+    gap: $space;
 }
 
 .productGrid {
-  padding: 10px 0 10px 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  row-gap: $space;
-  column-gap: $space;
+    padding: 10px 0 10px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    row-gap: $space;
+    column-gap: $space;
 }
 
 .priceAndQuantity {
-  display: flex;
-  align-items: center;
-  width: 65%;
-  justify-content: space-between;
+    display: flex;
+    align-items: center;
+    width: 65%;
+    justify-content: space-between;
 }
 
 .imageContainer {
-  height: 190px;
-  position: relative;
-  background-color: $backgroundrey;
-  border-radius: $standard-radius;
+    height: 190px;
+    position: relative;
+    background-color: $backgroundrey;
+    border-radius: $standard-radius;
 }
 
 .productContainer {
-  cursor: pointer;
-  background-color: $backgroundrey;
-  position: relative;
-  height: 210px;
-  border-radius: $standard-radius;
+    cursor: pointer;
+    background-color: $backgroundrey;
+    position: relative;
+    height: 210px;
+    border-radius: $standard-radius;
 }
 
 .faInfoContainer {
-  padding: 20px;
+    padding: 20px;
 }
 
 .faImageContainer {
-  position: relative;
-  height: 250px;
-  width: 22%;
-  background: $backgroundrey;
+    position: relative;
+    height: 250px;
+    width: 22%;
+    background: $backgroundrey;
 }
 
 .favoriteProductContainer {
-  @include borderStyle;
-  display: flex;
-  cursor: pointer;
+    border: 1px solid #f1f1f1;
+    display: flex;
+    cursor: pointer;
 }
 
 .favoriteProductContainer:hover {
-  background-color: $lightgrey;
+    background-color: $lightgrey;
 }
 
 .faButtonContainer {
-  margin-top: 20px;
+    margin-top: 20px;
 }
 
 
 .homeProductListContainer {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: $gap;
-  padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $gap;
+    padding: 10px;
 }
 
 .productPage {
-  display: flex;
-  width: 100%;
-  gap: $space;
+    display: flex;
+    width: 100%;
+    gap: $space;
 }
 
 .sellingPrice {
-  font-weight: bold;
-  font-size: 22px;
+    font-weight: bold;
+    font-size: 22px;
 }
 
 .infoProductContainer {
-  @include standardFlexDirectionColumn;
-  gap: $space;
+    @include standardFlexDirectionColumn;
+    gap: $space;
 }
 
 .buttonContainer {
-  display: flex;
-  flex-direction: column;
-  width: 65%;
-  gap: $space;
-}
-
-.buttonContainer button {
-  @include buttonStyle;
-  @include standardFlexSpaceBetween;
-}
-
-.buttonContainer button:hover {
-  @include buttonHover;
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    gap: $space;
 }
 
 .productCount {
-  width: 120px;
-  @include standardFlexSpaceBetween;
+    width: 120px;
+    @include standardFlexSpaceBetween;
 }
 
 .productCount p {
-  font-size: 22px;
+    font-size: 22px;
 }
 
 .productCount span {
-  font-size: 32px;
-
+    font-size: 32px;
 }
 
 .productPageContainer {
-  display: flex;
-  flex-direction: column;
-  gap: $space;
+    display: flex;
+    flex-direction: column;
+    gap: $space;
 }
 
 .productImageContainer {
-  width: 60%;
-  background-color: $backgroundrey;
-  border-radius: $standard-radius;
+    width: 60%;
+    background-color: $backgroundrey;
+    border-radius: $standard-radius;
 }
 
 .productImage {
-  width: 100%;
-  height: 600px;
-  position: relative;
+    width: 100%;
+    height: 600px;
+    position: relative;
 }
 
 .infoProductContainer {
-  width: 40%;
+    width: 40%;
 }
 
 .mobileProductPageContainer {
-  display: flex;
-  flex-direction: column;
-  gap: $gap;
+    display: flex;
+    flex-direction: column;
+    gap: $gap;
 }
 
 .Icon {
-  font-size: 22px;
+    font-size: 22px;
 }
 
 .spinnerBody {
-  height: 70vh;
+    height: 70vh;
 }
 
 @media screen and (min-width: 991px) {
-  .productContainer {
-    height: 260px;
-  }
+    .productContainer {
+        height: 260px;
+    }
 
-  .homeProductListContainer {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
+    .homeProductListContainer {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
 }
 
 @media screen and (min-width: 420px) and (max-width: 599px) {
-  .imageContainer {
-    height: 225px;
-  }
+    .imageContainer {
+        height: 225px;
+    }
 }
 
 @media screen and (min-width: 600px) and (max-width: 990px) {
-  .imageContainer {
-    width: 220px;
-    height: 260px;
-  }
+    .imageContainer {
+        width: 220px;
+        height: 260px;
+    }
 
-  .homeProductListContainer {
-    display: flex;
-    gap: $space;
-    padding: 10px;
-    overflow: auto;
-    white-space: nowrap;
-  }
+    .homeProductListContainer {
+        display: flex;
+        gap: $space;
+        padding: 10px;
+        overflow: auto;
+        white-space: nowrap;
+    }
 }
 
 @media screen and (max-width: 767px) {
-  .productPageContainer {
-    display: none;
-  }
+    .productPageContainer {
+        display: none;
+    }
 
-  .productImageContainer {
-    width: 100%;
-  }
+    .productImageContainer {
+        width: 100%;
+    }
 
-  .productImage {
-    height: 400px;
-  }
+    .productImage {
+        height: 400px;
+    }
 
-  .mobileProductCount {
-    @include standardFlexSpaceBetween;
-  }
+    .mobileProductCount {
+        @include standardFlexSpaceBetween;
+    }
 
-  .mobileInfoProductContainer {
-    @include standardFlexDirectionColumn;
-    gap: $space;
-  }
+    .mobileInfoProductContainer {
+        @include standardFlexDirectionColumn;
+        gap: $space;
+    }
 
-  .buttonContainer {
-    width: 100%;
-  }
+    .buttonContainer {
+        width: 100%;
+    }
 }
 
 @media screen and (min-width: 768px) {
-  .mobileProductPageContainer {
-    display: none;
-  }
+    .mobileProductPageContainer {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 600px) {
-  .productGrid {
-    gap: 10px;
-    grid-template-columns: 1fr 1fr;
-  }
+    .productGrid {
+        gap: 10px;
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 @media screen and (max-width: 767px) {
-  .faImageContainer {
-    width: 200px;
-  }
+    .faImageContainer {
+        width: 200px;
+    }
 }
 
 @media screen and (max-width: 467px) {
-  .faInfoContainer {
-    padding: 10px;
-  }
+    .faInfoContainer {
+        padding: 10px;
+    }
 
-  .faImageContainer {
-    height: 190px;
-    width: 160px;
-  }
+    .faImageContainer {
+        height: 190px;
+        width: 160px;
+    }
 
-  .faInfoContainer button {
-    padding: 10px;
-    font-size: 14px;
-  }
+    .faInfoContainer button {
+        padding: 10px;
+        font-size: 14px;
+    }
 
-  .modalButton {
-    flex-direction: column;
-    width: auto;
-  }
+    .modalButton {
+        flex-direction: column;
+        width: auto;
+    }
 }

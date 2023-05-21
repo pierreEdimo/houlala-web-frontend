@@ -9,8 +9,12 @@
   @include absoluteCenter; 
 }
 
+.logupContainer{
+  display: flex;
+}
+
 .loginFormContainer {
-  @include borderStyle;
+  border: 1px solid #f1f1f1;
   padding: 30px;
   width: 400px;
 }
