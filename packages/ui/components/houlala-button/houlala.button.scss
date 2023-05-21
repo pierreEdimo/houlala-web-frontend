@@ -1,3 +1,35 @@
-.submit{
+@import "../../variables/mixins.scss";
+@import "../../variables/variables.scss";
+
+.filled {
   background-color: orange;
+  border: none;
+  font-size: 16px;
+  padding: 13px;
+  font-family: 'Poppins', sans-serif;
+  border-radius: $standard-radius;
+  @include absolute-flex-cent;
+  gap: $standard-value;
+  cursor: pointer;
+}
+
+.filled:hover {
+  text-decoration: underline;
+}
+
+.outlined {
+  background-color: white;
+  font-size: 16px;
+  padding: 13px;
+  font-family: 'Poppins', sans-serif;
+  border-radius: $standard-radius;
+  @include absolute-flex-cent;
+  gap: $standard-value;
+  cursor: pointer;
+  border: 1px solid #d3d3d3;
+}
+
+.outlined:hover {
+  background-color: orange;
+  text-decoration: underline;
 }
