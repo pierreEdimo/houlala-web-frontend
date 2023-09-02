@@ -9,6 +9,7 @@ import { UserInformation } from "../types/user.information";
 import { mutate } from "swr";
 import { HoulalaButton } from "ui";
 import { UserTokenState } from "../state/user.token.atoms";
+import { UserEmailState } from "../state/user.email";
 
 type EditEmailButtonProps = {
   user: UserInformation;
@@ -18,6 +19,7 @@ const EditEmailButton: React.FC<EditEmailButtonProps> = ({ user }) => {
   let id = "emailModal";
   const [formData] = useRecoilState(EditEmailAtoms);
   const [token, setToken] = useRecoilState(UserTokenState);
+  const [email, setEmail] = useRecoilState(UserEmailState);
   const AUTH_URL = process.env.NEXT_PUBLIC_AUTH_URL;
   const authService = new AuthService();
 
@@ -45,6 +47,7 @@ const EditEmailButton: React.FC<EditEmailButtonProps> = ({ user }) => {
         token: response.data.token,
       };
       setToken(userToken.token);
+      setEmail(userToken.email);
       mutate(`${AUTH_URL}/users/${user.email}`).then();
       document.getElementById(`${id}`)!.style.display = "none";
     } else {
