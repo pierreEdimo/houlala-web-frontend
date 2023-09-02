@@ -11,7 +11,7 @@ const LocationProduct: React.FC<LocationProductProps> = ({ location }) => {
 
     return (
         <>
-            <ProductGrid url={`${PRODUCT_URL}/location/${location?.uniqueIdentifier}?limit=0`} />
+            <ProductGrid url={`${PRODUCT_URL}/locations/${location?.uniqueIdentifier}/size/0`} />
         </>
     );
 };
