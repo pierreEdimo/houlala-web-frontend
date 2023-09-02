@@ -1,8 +1,7 @@
 type SubCategory = {
     label: string;
-    thumbNailUrl: string;
-    _id: string;
-    categoryId: string;
+    imageUrl: string;
+    id: number;
 }
 
 export default SubCategory; 
