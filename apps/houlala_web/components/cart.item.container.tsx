@@ -23,17 +23,17 @@ const CartItemContainer: React.FC<CartItemProps> = ({ order, userId }) => {
 
     const increaseQuantity = async (orderId: string, productSku: string) => {
         await orderService.updateQuantity(`${CART_URL}/cartItems/increase/${orderId}/sku/${productSku}`);
-        mutate(`${CART_URL}/carts?userId=${userId}`).then();
+        mutate(`${CART_URL}/carts/${userId}`).then();
     };
 
     const decreaseQuantity = async (orderId: string, productSku: string) => {
         await orderService.updateQuantity(`${CART_URL}/cartItems/decrease/${orderId}/sku/${productSku}`);
-        mutate(`${CART_URL}/carts?userId=${userId}`).then();
+        mutate(`${CART_URL}/carts/${userId}`).then();
     };
 
     const deleteItemFromCart = async (orderId: string, productSku: string) => {
         await orderService.deleteItemFromCart(`${CART_URL}/cartItems/${orderId}/sku/${productSku}`);
-        mutate(`${CART_URL}/carts?userId=${userId}`).then();
+        mutate(`${CART_URL}/carts/${userId}`).then();
     };
 
     return (
@@ -65,20 +65,20 @@ const CartItemContainer: React.FC<CartItemProps> = ({ order, userId }) => {
                                         <span onClick={async (event) => {
                                             event.stopPropagation();
                                             if (cartItem.quantity > 1) {
-                                                await decreaseQuantity(order._id, cartItem.productSku);
+                                                await decreaseQuantity(order.id, cartItem.productSku);
                                             } else {
-                                                await deleteItemFromCart(order._id, cartItem.productSku);
+                                                await deleteItemFromCart(order.id, cartItem.productSku);
                                             }
                                         }}>-</span>
                                         <p>{cartItem.quantity}</p>
                                         <span onClick={(event) => {
                                             event.stopPropagation();
-                                            increaseQuantity(order._id, cartItem.productSku).then();
+                                            increaseQuantity(order.id, cartItem.productSku).then();
                                         }}>+</span>
                                     </div>
                                     <div onClick={(event) => {
                                         event.stopPropagation();
-                                        deleteItemFromCart(order._id, cartItem.productSku).then();
+                                        deleteItemFromCart(order.id, cartItem.productSku).then();
                                     }}
                                          style={{ cursor: "pointer" }}>
                                         <Image src={bin} width={20} height={20} alt={"trash image"} />
