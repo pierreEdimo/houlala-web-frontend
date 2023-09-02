@@ -20,7 +20,7 @@ export function HomeCategoryList() {
       <h2>Categories</h2>
       <div className={styles.homeCategoryContainer}>
         {categories?.map((category) => (
-          <AvatarCategoryContainer key={category._id} category={category} />
+          <AvatarCategoryContainer key={category.id} category={category} />
         ))}
       </div>
     </div>
