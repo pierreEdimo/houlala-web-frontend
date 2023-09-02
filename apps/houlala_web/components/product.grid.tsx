@@ -36,7 +36,7 @@ const ProductGrid: React.FC<ProductGridProps> = ({url}) => {
                     <div className={styles.productGrid}>
                         {
                             products?.map((product) => (
-                                <ProductContainer key={product._id} product={product}/>
+                                <ProductContainer key={product.id} product={product}/>
                             ))
                         }
                     </div>
