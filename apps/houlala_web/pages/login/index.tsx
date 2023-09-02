@@ -11,6 +11,9 @@ import { useEffect, useState } from "react";
 import AuthAtomState from "../../state/auth.atoms";
 import Link from "next/link";
 import { HoulalaButton, HoulalaCard } from "ui";
+import { UserTokenState } from "../../state/user.token.atoms";
+import { UserIdState } from "../../state/user.id.state";
+import { UserEmailState } from "../../state/user.email";
 
 const LoginPage: NextPage = () => {
   const [formData] = useRecoilState<Login>(LoginFormState);
@@ -19,6 +22,9 @@ const LoginPage: NextPage = () => {
   const router = useRouter();
   const authService = new AuthService();
   const [errorMessage, setErrorMessage] = useState<string>("");
+  const [userToken, setUserToken] = useRecoilState(UserTokenState);
+  const [userId, setUserId] = useRecoilState(UserIdState);
+  const [email, setEmail] = useRecoilState(UserEmailState);
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -53,7 +59,10 @@ const LoginPage: NextPage = () => {
         userId: response.data.userId,
         token: response.data.token,
       };
-      localStorage.setItem("userToken", JSON.stringify(userToken));
+
+      setUserToken(userToken.token);
+      setUserId(userToken.userId);
+      setEmail(userToken.email);
       setLoggedIn(true);
       router.push("/").then();
     }
