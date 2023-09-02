@@ -46,22 +46,22 @@ const OfflineCartItemContainer: React.FC<Props> = ({ order }) => {
                                             onClick={(event) => {
                                                 event.stopPropagation();
                                                 if (cartItem.quantity > 1) {
-                                                    orderService.decreaseQuantity(order.locationId, cartItem.productSku).then();
+                                                    orderService.decreaseQuantity(order.locationUniqueId, cartItem.productSku).then();
                                                 } else {
-                                                    orderService.deleteItemFromOrder(order.locationId, cartItem.productSku).then();
+                                                    orderService.deleteItemFromOrder(order.locationUniqueId, cartItem.productSku).then();
                                                 }
                                             }}>-</span>
                                         <p>{cartItem.quantity}</p>
                                         <span
                                             onClick={(event) => {
                                                 event.stopPropagation();
-                                                orderService.increaseQuantity(order.locationId, cartItem.productSku).then();
+                                                orderService.increaseQuantity(order.locationUniqueId, cartItem.productSku).then();
                                             }}>+</span>
                                     </div>
                                     <div
                                         onClick={(event) => {
                                             event.stopPropagation();
-                                            orderService.deleteItemFromOrder(order.locationId, cartItem.productSku).then();
+                                            orderService.deleteItemFromOrder(order.locationUniqueId, cartItem.productSku).then();
                                         }}
                                         style={{ cursor: "pointer" }}>
                                         <Image src={bin} width={20} height={20} alt={"trash image"} />
