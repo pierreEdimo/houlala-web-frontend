@@ -2,7 +2,7 @@ import {CartItem} from "./cart.item";
 import {SimpleLocation} from "./simple.location";
 
 export type Order = {
-    _id: string;
+    id: string;
     status: string;
     confirmed: boolean;
     payMentMode: string;
