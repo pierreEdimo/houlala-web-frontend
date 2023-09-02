@@ -3,8 +3,13 @@ import styles from "../styles/product.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 import { HoulalaCard } from "ui";
+import * as React from "react";
 
-export function ProductContainer({ product }: { product: Product }) {
+type ProductProps = {
+  product: Product;
+};
+
+export const ProductContainer: React.FC<ProductProps> = ({ product }) => {
   return (
     <>
       <Link
@@ -34,4 +39,4 @@ export function ProductContainer({ product }: { product: Product }) {
       </Link>
     </>
   );
-}
+};
