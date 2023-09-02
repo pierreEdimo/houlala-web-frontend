@@ -1,6 +1,5 @@
 import { Category } from "../types/category";
 import React from "react";
-import Link from "next/link";
 import Container from "./container";
 import styles from "../styles/category.module.scss";
 import { useRouter } from "next/router";
@@ -18,7 +17,7 @@ const AvatarCategoryContainer: React.FC<AvatarCategoryContainerProps> = ({
     <>
       <Container>
         <button
-          onClick={() => router.push(`/category/${category._id}`)}
+          onClick={() => router.push(`/category/${category.id}`)}
           style={{
             background: "transparent",
             border: "none",
