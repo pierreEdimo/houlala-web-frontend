@@ -7,15 +7,15 @@ import BackButton from "./back.button";
 import {useRouter} from "next/router";
 
 type FruitsLettucesProps = {
-    categoryId: string,
+    categoryId: number,
     name: string,
 }
 
-const FruitsLettuces: React.FC<FruitsLettucesProps> = ({categoryId, name}: { categoryId: string, name: string }) => {
+const FruitsLettuces: React.FC<FruitsLettucesProps> = ({categoryId, name}) => {
 
     const CATEGORY_URL = process.env.NEXT_PUBLIC_SUBCATEGORY_URL;
     const PRODUCT_URL = process.env.NEXT_PUBLIC_PRODUCT_URL;
-    const {categories, isLoading, isError} = useSubCategoryList(`${CATEGORY_URL}/category/${categoryId}`);
+    const {categories, isLoading, isError} = useSubCategoryList(`${CATEGORY_URL}/categories/${categoryId}`);
     const router = useRouter();
 
 
@@ -30,10 +30,10 @@ const FruitsLettuces: React.FC<FruitsLettucesProps> = ({categoryId, name}: { cat
                 <div className={styles.subCategoryList}>
                     {categories?.map((category) => (
                         <SubCategoryContainer
-                            onClick={() => router.push(`/sub-category/${category._id}`)}
-                            key={category._id}
+                            onClick={() => router.push(`/sub-category/${category.id}`)}
+                            key={category.id}
                             label={category.label}
-                            thumbNailUrl={category.thumbNailUrl}/>
+                            thumbNailUrl={category.imageUrl}/>
                     ))}
                 </div>
                 <div style={{height: "20px"}}></div>
