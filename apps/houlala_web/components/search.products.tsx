@@ -35,7 +35,7 @@ const SearchProducts: React.FC<SearchProductsProps> = ({ url }) => {
                 {
                   products?.map(
                     (product) =>
-                      <ProductContainer key={product._id} product={product} />)
+                      <ProductContainer key={product.id} product={product} />)
                 }
               </div>
             </div>
