@@ -4,7 +4,6 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { useRecoilState } from "recoil";
 import AuthAtomState from "../../state/auth.atoms";
-import { UserTokenState } from "../../state/user.token";
 import { UserEmailState } from "../../state/user.email";
 import { UserToken } from "../../types/user.token";
 import { useUserInfo } from "../../swrHooks/user.hooks";
@@ -15,23 +14,18 @@ import EditInfosButton from "../../components/edit.infos.button";
 import EditAddressButton from "../../components/edit.address.button";
 import EditEmailButton from "../../components/edit.email.button";
 import { HoulalaSpinner } from "ui";
+import { UserTokenState } from "../../state/user.token.atoms";
 
 const Personal: NextPage = () => {
 
   const [isLoggedIn] = useRecoilState(AuthAtomState);
-  const [userToken, setUserToken] = useRecoilState(UserTokenState);
-  const [userEmail, setUserEmail] = useRecoilState(UserEmailState);
+  const [userToken] = useRecoilState(UserTokenState);
+  const [userEmail] = useRecoilState(UserEmailState);
   const router = useRouter();
 
   useEffect(() => {
     if (!isLoggedIn) {
       router.push("/login").then();
-    }
-
-    const userToken: UserToken = JSON.parse(localStorage.getItem("userToken")!);
-    if (userToken) {
-      setUserEmail(userToken.email!);
-      setUserToken(userToken.token!);
     }
   });
 
