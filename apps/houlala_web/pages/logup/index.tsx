@@ -12,6 +12,9 @@ import { RegisterFormState } from "../../state/register.atoms";
 import AuthService from "../../service/auth.service";
 import { UserToken } from "../../types/user.token";
 import { HoulalaButton, HoulalaCard } from "ui";
+import { UserIdState } from "../../state/user.id.state";
+import { UserTokenState } from "../../state/user.token.atoms";
+import { UserEmailState } from "../../state/user.email";
 
 const LogupPage: NextPage = () => {
   const [isLoggedIn, setLoggedIn] = useRecoilState<boolean>(AuthAtomState);
@@ -19,6 +22,9 @@ const LogupPage: NextPage = () => {
   const [formData] = useRecoilState<Register>(RegisterFormState);
   const AUTH_URL = process.env.NEXT_PUBLIC_AUTH_URL;
   const authService = new AuthService();
+  const [userId, setUserId] = useRecoilState(UserIdState);
+  const [userToken, setUserToken] = useRecoilState(UserTokenState);
+  const [email, setEmail] = useRecoilState(UserEmailState);
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -53,11 +59,11 @@ const LogupPage: NextPage = () => {
         userId: response.data.userId,
         token: response.data.token,
       };
-      localStorage.setItem("userToken", JSON.stringify(userToken));
+      setUserToken(userToken.token!);
+      setUserId(userToken.userId);
+      setEmail(userToken.email); 
       setLoggedIn(true);
       router.push("/").then();
-    } else {
-      console.log(response);
     }
   };
 
@@ -66,7 +72,7 @@ const LogupPage: NextPage = () => {
       <BackButton title={"Nouveau compte"} />
       <div style={{ height: "1rem" }}></div>
       <div className={styles.logupContainer}>
-        <HoulalaCard style={{margin: "auto"}}>
+        <HoulalaCard style={{ margin: "auto" }}>
           <div style={{ margin: "auto" }} className={styles.loginFormContainer}>
             <form onSubmit={register} className={styles.loginForm}>
               <input
