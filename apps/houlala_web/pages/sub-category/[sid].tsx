@@ -11,7 +11,7 @@ const SubCategory: NextPage = () => {
     return (
         <>
             <NestedLayout>
-                <SubCategoryDetail categoryId={`${sid}`}/>
+                <SubCategoryDetail categoryId={Number(sid)}/>
             </NestedLayout>
         </>
 
