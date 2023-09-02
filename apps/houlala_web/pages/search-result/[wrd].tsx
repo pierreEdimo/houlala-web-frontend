@@ -21,14 +21,14 @@ const SearchResult: NextPage = () => {
                 <div style={{height: "10px"}}></div>
                 <p>Resultats et suggestions pour la recherche <b>{wrd}</b></p>
                 <div style={{height: "10px"}}></div>
-                <SearchProducts url={`${PRODUCT_URL}/search?searchWord=${wrd}`}/>
+                <SearchProducts url={`${PRODUCT_URL}/search?word=${wrd}`}/>
                 <div style={{height: "20px"}}></div>
-                <SearchCategories url={`${CATEGORY_URL}/search?searchword=${wrd}`}/>
+                <SearchCategories url={`${CATEGORY_URL}/search?searchWord=${wrd}`}/>
                 <div style={{height: "20px"}}></div>
                 <SearchLocations url={`${LOCATION_URL}/search?word=${wrd}`}/>
-                <SearchEmptyResult productUrl={`${PRODUCT_URL}/search?searchWord=${wrd}`}
+                <SearchEmptyResult productUrl={`${PRODUCT_URL}/search?word=${wrd}`}
                                    locationUrl={`${LOCATION_URL}/search?word=${wrd}`}
-                                   categoryUrl={`${CATEGORY_URL}/search?searchword=${wrd}`}/>
+                                   categoryUrl={`${CATEGORY_URL}/search?searchWord=${wrd}`}/>
             </NestedLayout>
         </>
     )
