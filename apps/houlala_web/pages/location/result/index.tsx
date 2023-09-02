@@ -53,8 +53,8 @@ const Index: NextPage = () => {
           />
         ) : (
           <div className={styles.productGrid}>
-            {filteredProducts()?.map((x) => (
-              <ProductContainer key={x._id} product={x} />
+            {filteredProducts()?.map((product) => (
+              <ProductContainer key={product.id} product={product} />
             ))}
           </div>
         )}
