@@ -2,13 +2,13 @@ import styles from "../styles/edit.module.scss";
 import EditModalContainer from "./edit.modal";
 import { useRecoilState } from "recoil";
 import { EditEmailAtoms } from "../state/edit.email.atoms";
-import { UserTokenState } from "../state/user.token";
 import AuthService from "../service/auth.service";
 import React, { useEffect } from "react";
 import { UserToken } from "../types/user.token";
 import { UserInformation } from "../types/user.information";
 import { mutate } from "swr";
 import { HoulalaButton } from "ui";
+import { UserTokenState } from "../state/user.token.atoms";
 
 type EditEmailButtonProps = {
   user: UserInformation;
@@ -24,13 +24,6 @@ const EditEmailButton: React.FC<EditEmailButtonProps> = ({ user }) => {
   const openModal = () => {
     document.getElementById(`${id}`)!.style.display = "block";
   };
-
-  useEffect(() => {
-    const userToken: UserToken = JSON.parse(localStorage.getItem("userToken")!);
-    if (userToken) {
-      setToken(userToken.token!);
-    }
-  });
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
@@ -51,7 +44,7 @@ const EditEmailButton: React.FC<EditEmailButtonProps> = ({ user }) => {
         userId: response.data.userId,
         token: response.data.token,
       };
-      localStorage.setItem("userToken", JSON.stringify(userToken));
+      setToken(userToken.token);
       mutate(`${AUTH_URL}/users/${user.email}`).then();
       document.getElementById(`${id}`)!.style.display = "none";
     } else {
