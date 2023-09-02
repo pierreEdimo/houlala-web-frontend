@@ -1,13 +1,13 @@
 import {Creator} from "./creator";
 
 export type Product = {
-    _id: string,
+    id: number,
     name: string,
     description: string,
     weight: number,
     imageUrl: string,
     sellingPrice: number,
-    locationId: string,
+    locationUniqueId: string,
     bookMarked: boolean,
     quantity: number,
     arrivalDate?: Date,

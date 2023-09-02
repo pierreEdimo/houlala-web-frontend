@@ -2,7 +2,7 @@ import {CartItem} from "./cart.item";
 
 export type OfflineOrder = {
     id?: number
-    locationId: string;
+    locationUniqueId: string;
     locationName: string;
     totalQuantity: number;
     totalPrice: number;
