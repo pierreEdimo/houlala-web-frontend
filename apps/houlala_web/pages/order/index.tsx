@@ -5,8 +5,6 @@ import { useRouter } from "next/router";
 import { useRecoilState } from "recoil";
 import AuthAtomState from "../../state/auth.atoms";
 import BackButton from "../../components/back.button";
-import { UserIdState } from "../../state/user.id.atoms";
-import { UserToken } from "../../types/user.token";
 import { useCartItemList } from "../../swrHooks/order.hooks";
 import NoItems from "../../components/no.items";
 import noCart from "../../public/images/no-shopping-cart.png";
@@ -16,6 +14,7 @@ import Avatar from "../../components/avatar";
 import styles from "../../styles/order.module.scss";
 import Image from "next/image";
 import { HoulalaSpinner } from "ui";
+import { UserIdState } from "../../state/user.id.state";
 
 const Order: NextPage = () => {
   const [isLoggedIn] = useRecoilState(AuthAtomState);
@@ -24,17 +23,12 @@ const Order: NextPage = () => {
   const ORDER_URL = process.env.NEXT_PUBLIC_ORDER_URL;
 
   const { items, isLoading, isError } = useCartItemList(
-    `${ORDER_URL}/confirmed?userId=${userId}`
+    `${ORDER_URL}/confirmed/users/${userId}`
   );
 
   useEffect(() => {
     if (!isLoggedIn) {
       router.push("/login").then();
-    }
-
-    const userToken: UserToken = JSON.parse(localStorage.getItem("userToken")!);
-    if (userToken) {
-      setUserId(userToken.userId!);
     }
   });
 
@@ -60,7 +54,7 @@ const Order: NextPage = () => {
           }}
         >
           {items?.map((order) => (
-            <Card key={order._id}>
+            <Card key={order.id}>
               <div className={styles.itemsHeader}>
                 <div
                   style={{
