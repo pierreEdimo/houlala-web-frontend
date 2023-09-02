@@ -5,17 +5,17 @@ import { useRouter } from "next/router";
 import { useRecoilState } from "recoil";
 import AuthAtomState from "../../state/auth.atoms";
 import { useProductList } from "../../swrHooks/product.hooks";
-import { UserIdState } from "../../state/user.id.atoms";
 import BackButton from "../../components/back.button";
 import FavoriteProductContainer from "../../components/favorite.product.container";
 import NoItems from "../../components/no.items";
 import stock from "../../public/images/stock.png";
 import { HoulalaSpinner } from "ui";
+import { UserIdState } from "../../state/user.id.state";
 
 const Favorites: NextPage = () => {
 
   const [isLoggedIn] = useRecoilState(AuthAtomState);
-  const [userIdState, setUserIdState] = useRecoilState(UserIdState);
+  const [userId] = useRecoilState(UserIdState);
   const router = useRouter();
   const PRODUCT_URL = process.env.NEXT_PUBLIC_PRODUCT_URL;
 
@@ -23,15 +23,9 @@ const Favorites: NextPage = () => {
     if (!isLoggedIn) {
       router.push("/login").then();
     }
-
-    const userToken = JSON.parse(localStorage.getItem("userToken")!);
-
-    if (userToken) {
-      setUserIdState(userToken.userId);
-    }
   });
 
-  const { products, isLoading, isError } = useProductList(`${PRODUCT_URL}/favorites?userId=${userIdState}`);
+  const { products, isLoading, isError } = useProductList(`${PRODUCT_URL}/favorites/${userId}`);
 
   if (isLoading) return (
     <>
@@ -59,8 +53,8 @@ const Favorites: NextPage = () => {
             {
               products?.map((product) => (
                 <FavoriteProductContainer
-                  key={product._id}
-                  userId={userIdState}
+                  key={product.id}
+                  userId={userId}
                   product={product} />
               ))
             }
