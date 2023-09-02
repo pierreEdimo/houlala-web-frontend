@@ -21,7 +21,7 @@ const OfflineCart = () => {
           <div>
             {
               items?.map((item) => (
-                <OfflineCartItemContainer key={item.locationId} order={item} />
+                <OfflineCartItemContainer key={item.locationUniqueId} order={item} />
               ))
             }
             <div style={{ height: "1rem" }}></div>
