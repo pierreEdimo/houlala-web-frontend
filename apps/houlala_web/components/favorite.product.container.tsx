@@ -41,7 +41,7 @@ const FavoriteProductContainer: React.FC<FavoriteProductContainerProps> = ({
     items.push(item);
     const order: AddOrder = {
       userId: userId,
-      locationId: product.locationId,
+      locationUniqueId: product.locationUniqueId,
       cartItems: items,
     };
     const response = await orderService.onlineOrder(`${ORDER_URL}`, order);
