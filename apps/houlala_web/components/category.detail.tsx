@@ -27,13 +27,13 @@ const CategoryDetail: React.FC<CategoryDetailProps> = ({ categoryId }: { categor
     case "fruits & legumes":
       return (
         <>
-          <FruitsLettuces categoryId={category?._id} name={category?.name} />
+          <FruitsLettuces categoryId={category?.id} name={category?.name} />
         </>
       );
     case "boutique":
       return (
         <>
-          <StoreContainer categoryId={`${category?._id}`} categoryName={`${category?.name}`} />
+          <StoreContainer categoryId={`${category?.id}`} categoryName={`${category?.name}`} />
         </>
       );
     default:
