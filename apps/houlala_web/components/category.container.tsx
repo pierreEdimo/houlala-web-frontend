@@ -13,7 +13,7 @@ const CategoryContainer: React.FC<CategoryContainerProps> = ({category}: { categ
     return (
         <>
             <Container>
-                <Link href={`/category/${category._id}`}>
+                <Link href={`/category/${category.id}`}>
                     <div style={{cursor: "pointer"}}>
                         <div className={styles.avatarContainer}>
                             <Avatar imageUrl={category.imageUrl} type={"thumbnail"}/>
