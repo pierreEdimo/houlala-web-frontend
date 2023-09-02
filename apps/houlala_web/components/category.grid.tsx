@@ -12,7 +12,7 @@ export function CategoryGrid() {
     return (
         <div className={styles.gridContainer}>
             {categories?.map((category) => (
-                <GridCategoryContainer key={category._id} category={category}/>
+                <GridCategoryContainer key={category.id} category={category}/>
             ))}
         </div>
     );
