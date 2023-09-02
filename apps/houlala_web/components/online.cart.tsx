@@ -1,28 +1,21 @@
 import { useCartItemList } from "../swrHooks/order.hooks";
 import { useEffect } from "react";
 import { useRecoilState } from "recoil";
-import { UserIdState } from "../state/user.id.atoms";
 import CartItemContainer from "./cart.item.container";
 import noShoppingCart from "../public/images/no-shopping-cart.png";
 import NoItems from "./no.items";
 import { useRouter } from "next/router";
 import styles from "../styles/order.module.scss";
 import { HoulalaButton, HoulalaSpinner } from "ui";
+import { UserIdState } from "../state/user.id.state";
 
 
 const OnlineCart = () => {
   const CART_URL = process.env.NEXT_PUBLIC_ORDER_URL;
-  const [userId, setUserId] = useRecoilState(UserIdState);
+  const [userId] = useRecoilState(UserIdState);
   const router = useRouter();
 
-  useEffect(() => {
-    const userToken = JSON.parse(localStorage.getItem("userToken")!);
-    if (userToken) {
-      setUserId(userToken.userId);
-    }
-  });
-
-  const { items, isLoading, isError } = useCartItemList(`${CART_URL}/carts?userId=${userId}`);
+  const { items, isLoading, isError } = useCartItemList(`${CART_URL}/carts/${userId}`);
 
   if (isLoading) return (
     <HoulalaSpinner />
@@ -41,7 +34,7 @@ const OnlineCart = () => {
             items?.map((item) => (
               <CartItemContainer
                 userId={userId}
-                key={item._id}
+                key={item.id}
                 order={item} />
             ))
           }
