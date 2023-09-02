@@ -10,7 +10,7 @@ class OrderService {
     onlineOrder = async (url: string, order: AddOrder) => {
         return await axios.post(url, {
             userId: order.userId,
-            locationId: order.locationId,
+            locationUniqueId: order.locationUniqueId,
             cartItems: order.cartItems
         })
             .then((res) => res)
@@ -39,7 +39,7 @@ class OrderService {
     addOfflineOrder = async (order: OfflineOrder) => {
         let totalQuantity = 0;
         let totalPrice = 0;
-        const existingOrder = await OfflineOrderTable.get({locationId: order.locationId});
+        const existingOrder = await OfflineOrderTable.get({locationUniqueId: order.locationUniqueId});
         if (!existingOrder) {
             await OfflineOrderTable.add(order);
         } else {
@@ -71,11 +71,11 @@ class OrderService {
         return true;
     }
 
-    deleteItemFromOrder = async (locationId: string, productSku: string) => {
+    deleteItemFromOrder = async (locationUniqueId: string, productSku: string) => {
         let totalQuantity = 0;
         let totalPrice = 0;
 
-        const existingOrder = await OfflineOrderTable.get({locationId: locationId});
+        const existingOrder = await OfflineOrderTable.get({locationUniqueId: locationUniqueId});
 
         existingOrder.cartItems.forEach((value: CartItem, index: number) => {
             if (value.productSku === productSku) {
@@ -99,11 +99,11 @@ class OrderService {
         }
     }
 
-    increaseQuantity = async (locationId: string, productSku: string) => {
+    increaseQuantity = async (locationUniqueId: string, productSku: string) => {
         let totalQuantity = 0;
         let totalPrice = 0;
 
-        const existingOrder = await OfflineOrderTable.get({locationId: locationId});
+        const existingOrder = await OfflineOrderTable.get({locationUniqueId: locationUniqueId});
 
         let quantity = existingOrder.cartItems
             .filter((x: CartItem) => x.productSku === productSku)[0].quantity;
@@ -131,11 +131,11 @@ class OrderService {
         await OfflineOrderTable.update(existingOrder.id, existingOrder);
     }
 
-    decreaseQuantity = async (locationId: string, productSku: string) => {
+    decreaseQuantity = async (locationUniqueId: string, productSku: string) => {
         let totalQuantity = 0;
         let totalPrice = 0;
 
-        const existingOrder = await OfflineOrderTable.get({locationId: locationId});
+        const existingOrder = await OfflineOrderTable.get({locationUniqueId: locationUniqueId});
 
         let quantity = existingOrder.cartItems
             .filter((x: CartItem) => x.productSku === productSku)[0].quantity;
