@@ -3,12 +3,12 @@ import EditModalContainer from "./edit.modal";
 import React, { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { EditInfoState } from "../state/edit.infos.form";
-import { UserTokenState } from "../state/user.token";
 import { UserToken } from "../types/user.token";
 import AuthService from "../service/auth.service";
 import { UserInformation } from "../types/user.information";
 import { mutate } from "swr";
 import { HoulalaButton } from "ui";
+import { UserTokenState } from "../state/user.token.atoms";
 
 type EditInfoButtonProps = {
   user: UserInformation;
@@ -24,13 +24,6 @@ const EditInfosButton: React.FC<EditInfoButtonProps> = ({ user }) => {
   const openModal = () => {
     document.getElementById(`${id}`)!.style.display = "block";
   };
-
-  useEffect(() => {
-    const userToken: UserToken = JSON.parse(localStorage.getItem("userToken")!);
-    if (userToken) {
-      setToken(userToken.token!);
-    }
-  });
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
@@ -54,7 +47,7 @@ const EditInfosButton: React.FC<EditInfoButtonProps> = ({ user }) => {
         userId: response.data.userId,
         token: response.data.token,
       };
-      localStorage.setItem("userToken", JSON.stringify(userToken));
+      setToken(userToken.token);
       mutate(`${AUTH_URL}/users/${user.email}`).then();
       document.getElementById(`${id}`)!.style.display = "none";
     } else {
