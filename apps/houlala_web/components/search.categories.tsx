@@ -33,7 +33,7 @@ const SearchCategories: React.FC<SearchCategoriesProps> = ({url}) => {
                         <div className={styles.gridContainer}>
                             {
                                 categories?.map((category) =>
-                                    <GridCategoryContainer key={category._id} category={category}/>)
+                                    <GridCategoryContainer key={category.id} category={category}/>)
                             }
                         </div>
                     </div>

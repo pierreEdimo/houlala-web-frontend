@@ -1,8 +1,6 @@
 import { NextPage } from "next";
 import { NestedLayout } from "../../components/nested.layout";
 import styles from "../../styles/login.module.scss";
-import Avatar from "../../components/avatar";
-import houlala from "../../public/images/houlala.png";
 import BackButton from "../../components/back.button";
 import { useRecoilState } from "recoil";
 import AuthAtomState from "../../state/auth.atoms";
@@ -11,9 +9,10 @@ import { useRouter } from "next/router";
 import AuthService from "../../service/auth.service";
 import { Login } from "../../types/login";
 import { HttpStatusCode } from "axios";
+import {HoulalaCard} from "ui";
 
 const Reset: NextPage = () => {
-  const [isLoggin, setLoggin] = useRecoilState(AuthAtomState);
+  const [isLoggin] = useRecoilState(AuthAtomState);
   const router = useRouter();
   const authService = new AuthService();
   const AUTH_URL = process.env.NEXT_PUBLIC_AUTH_URL;
@@ -48,29 +47,28 @@ const Reset: NextPage = () => {
     <NestedLayout>
       <BackButton title={"Nouveau mot de passe"} />
       <div className={styles.loginContainer}>
-        <div className={styles.imageContainer}>
-          <Avatar imageUrl={houlala} type={"avatar"} />
-        </div>
-        <div className={styles.loginFormContainer}>
-          <form onSubmit={reset} className={styles.loginForm}>
-            {
+       <HoulalaCard style={{margin: "auto", width: "100%"}}>
+         <div style={{margin: "auto"}} className={styles.loginFormContainer}>
+           <form onSubmit={reset} className={styles.loginForm}>
+             {
               errorMessage ?
                 <div className="error-message">
                   {errorMessage}
                 </div> :
                 <div></div>
             }
-            <input type={"email"}
-              placeholder={"E-mail"}
-              name={"email"}
-              required />
-            <input type={"password"}
-              placeholder={"Nouveau mot de passe"}
-              name={"passWord"}
-              required />
-            <button className={styles.submitButton} type={"submit"}>Valider</button>
-          </form>
-        </div>
+             <input type={"email"}
+               placeholder={"E-mail"}
+               name={"email"}
+               required />
+             <input type={"password"}
+               placeholder={"Nouveau mot de passe"}
+               name={"passWord"}
+               required />
+             <button className={styles.submitButton} type={"submit"}>Enregistrer</button>
+           </form>
+         </div>
+       </HoulalaCard>
       </div>
     </NestedLayout>
   );

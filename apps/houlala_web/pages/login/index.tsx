@@ -71,8 +71,8 @@ const LoginPage: NextPage = () => {
   return (
     <NestedLayout>
       <div className={styles.loginContainer}>
-        <HoulalaCard>
-          <div className={styles.loginFormContainer}>
+        <HoulalaCard style={{margin: "auto"}}>
+          <div style={{margin: "auto"}} className={styles.loginFormContainer}>
             <form onSubmit={login} className={styles.loginForm}>
               {errorMessage ? (
                 <div className="error-message">{errorMessage}</div>
