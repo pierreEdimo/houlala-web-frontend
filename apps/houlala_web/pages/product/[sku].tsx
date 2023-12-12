@@ -1,19 +1,19 @@
 import { NextPage } from "next";
 import styles from "../../styles/product.module.scss";
 import { useRouter } from "next/router";
-import { NestedLayout } from "../../components/nested.layout";
+import { NestedLayout } from "../../components/layout/mainlayout/nested.layout";
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import { useProduct } from "../../swrHooks/product.hooks";
-import BackButton from "../../components/back.button";
-import QuantityCounter from "../../components/quantity.counter";
+import BackButton from "../../components/back-button/back.button";
+import QuantityCounter from "../../components/counter/quantity.counter";
 import { useRecoilState } from "recoil";
 import { useEffect, useState } from "react";
 import { AddItem } from "../../types/add.item";
 import { AddOrder } from "../../types/add.order";
 import { UserTokenState } from "../../state/user.token.atoms";
 import OrderService from "../../service/order.service";
-import ModalContainer from "../../components/modal.container";
+import ModalContainer from "../../components/ui-container/modal/modal.container";
 import close from "../../public/images/close.png";
 import AuthAtomState from "../../state/auth.atoms";
 import ProductService from "../../service/product.service";
@@ -22,7 +22,6 @@ import { CartItem } from "../../types/cart.item";
 import { OfflineOrder } from "../../types/offline.order";
 import redHeart from "../../public/images/heart.png";
 import outlineHeart from "../../public/images/heart (1).png";
-import { FavoriteState } from "../../state/favorite.atoms";
 import shoppingBag from "../../public/images/shopping-bag.png";
 import { HoulalaButton, HoulalaSpinner } from "ui";
 import { UserIdState } from "../../state/user.id.state";
@@ -89,7 +88,7 @@ const Product: NextPage = () => {
         cartItems: items,
       };
       const response = await orderService.onlineOrder(`${ORDER_URL}`, order);
-      if (response.status === 201) {
+      if (response.status === 200) {
         setTextMessage(
           "Un nouvel article a ete ajoute dans votre panier. Vous avez  1 ou plusieurs articles dans votre panier."
         );

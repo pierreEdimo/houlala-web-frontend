@@ -1,7 +1,7 @@
 import {NextPage} from "next";
 import {useRouter} from "next/router";
-import {NestedLayout} from "../../components/nested.layout";
-import SubCategoryDetail from "../../components/sub.category.detail";
+import {NestedLayout} from "../../components/layout/mainlayout/nested.layout";
+import SubCategoryDetail from "../../components/detail/sub-category/sub.category.detail";
 
 const SubCategory: NextPage = () => {
     const router = useRouter();

@@ -1,6 +1,5 @@
 import styles from "./app.bar.module.scss";
 import * as React from "react";
-import { HoulalaCard } from "../../index";
 
 type Props = {
   children: React.ReactNode;
@@ -8,9 +7,9 @@ type Props = {
 
 const HoulalaAppBar: React.FC<Props> = ({ children }) => {
   return (
-    <HoulalaCard style={{ border: "none" }}>
-      <header className={styles.appBar}>{children}</header>
-    </HoulalaCard>
+    <header className={styles.appBar}>
+      {children}
+    </header>
   );
 };
 

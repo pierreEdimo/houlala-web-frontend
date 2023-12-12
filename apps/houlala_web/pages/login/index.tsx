@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import { NestedLayout } from "../../components/nested.layout";
+import { NestedLayout } from "../../components/layout/mainlayout/nested.layout";
 import styles from "../../styles/login.module.scss";
 import { useRecoilState } from "recoil";
 import { LoginFormState } from "../../state/login.form.atoms";
@@ -71,7 +71,7 @@ const LoginPage: NextPage = () => {
   return (
     <NestedLayout>
       <div className={styles.loginContainer}>
-        <HoulalaCard style={{margin: "auto"}}>
+        <HoulalaCard style={{margin: "auto", background: "white"}}>
           <div style={{margin: "auto"}} className={styles.loginFormContainer}>
             <form onSubmit={login} className={styles.loginForm}>
               {errorMessage ? (

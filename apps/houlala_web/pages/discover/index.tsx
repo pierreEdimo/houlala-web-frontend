@@ -1,8 +1,8 @@
 import {NextPage} from "next"
-import {NestedLayout} from "../../components/nested.layout";
-import {CategoryGrid} from "../../components/category.grid";
+import {NestedLayout} from "../../components/layout/mainlayout/nested.layout";
+import {CategoryGrid} from "../../components/grid/category.grid";
 import styles from "../../styles/category.module.scss";
-import BackButton from "../../components/back.button";
+import BackButton from "../../components/back-button/back.button";
 
 const Index: NextPage = () => {
     return (

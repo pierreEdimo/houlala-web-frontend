@@ -1,18 +1,17 @@
 import { NextPage } from "next";
-import { NestedLayout } from "../../components/nested.layout";
+import { NestedLayout } from "../../components/layout/mainlayout/nested.layout";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { useRecoilState } from "recoil";
 import AuthAtomState from "../../state/auth.atoms";
 import { UserEmailState } from "../../state/user.email";
-import { UserToken } from "../../types/user.token";
 import { useUserInfo } from "../../swrHooks/user.hooks";
-import BackButton from "../../components/back.button";
+import BackButton from "../../components/back-button/back.button";
 import styles from "../../styles/account.module.scss";
-import { Card } from "../../components/card";
-import EditInfosButton from "../../components/edit.infos.button";
-import EditAddressButton from "../../components/edit.address.button";
-import EditEmailButton from "../../components/edit.email.button";
+import { Card } from "../../components/card/card";
+import EditInfosButton from "../../components/edit-button/edit.infos.button";
+import EditAddressButton from "../../components/edit-button/edit.address.button";
+import EditEmailButton from "../../components/edit-button/edit.email.button";
 import { HoulalaSpinner } from "ui";
 import { UserTokenState } from "../../state/user.token.atoms";
 

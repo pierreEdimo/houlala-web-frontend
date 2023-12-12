@@ -1,10 +1,10 @@
 import { NextPage } from "next";
-import { NestedLayout } from "../../components/nested.layout";
+import { NestedLayout } from "../../components/layout/mainlayout/nested.layout";
 import { useRecoilState } from "recoil";
 import AuthAtomState from "../../state/auth.atoms";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import BackButton from "../../components/back.button";
+import BackButton from "../../components/back-button/back.button";
 import styles from "../../styles/login.module.scss";
 import Link from "next/link";
 import { Register } from "../../types/register";
@@ -72,7 +72,7 @@ const LogupPage: NextPage = () => {
       <BackButton title={"Nouveau compte"} />
       <div style={{ height: "1rem" }}></div>
       <div className={styles.logupContainer}>
-        <HoulalaCard style={{ margin: "auto" }}>
+        <HoulalaCard style={{ margin: "auto", background: "white" }}>
           <div style={{ margin: "auto" }} className={styles.loginFormContainer}>
             <form onSubmit={register} className={styles.loginForm}>
               <input

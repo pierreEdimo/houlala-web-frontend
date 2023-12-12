@@ -1,6 +1,6 @@
-import {NestedLayout} from "../../components/nested.layout";
+import {NestedLayout} from "../../components/layout/mainlayout/nested.layout";
 import {NextPage} from "next";
-import BackButton from "../../components/back.button";
+import BackButton from "../../components/back-button/back.button";
 import Link from "next/link";
 
 

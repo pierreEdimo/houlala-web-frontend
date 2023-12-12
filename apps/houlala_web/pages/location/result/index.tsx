@@ -1,13 +1,13 @@
 import { NextPage } from "next";
 import { useRouter } from "next/router";
-import { NestedLayout } from "../../../components/nested.layout";
+import { NestedLayout } from "../../../components/layout/mainlayout/nested.layout";
 import { useLocation } from "../../../swrHooks/location.hooks";
-import BackButton from "../../../components/back.button";
+import BackButton from "../../../components/back-button/back.button";
 import { useProductList } from "../../../swrHooks/product.hooks";
-import NoItems from "../../../components/no.items";
+import NoItems from "../../../components/no-item/no.items";
 import NoProducts from "../../../public/images/stock.png";
 import styles from "../../../styles/product.module.scss";
-import { ProductContainer } from "../../../components/product.container";
+import { ProductContainer } from "../../../components/ui-container/product/product.container";
 import { HoulalaSpinner } from "ui";
 
 const Index: NextPage = () => {

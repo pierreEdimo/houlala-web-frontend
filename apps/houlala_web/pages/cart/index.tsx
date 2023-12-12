@@ -1,10 +1,10 @@
 import {NextPage} from "next";
-import {NestedLayout} from "../../components/nested.layout";
+import {NestedLayout} from "../../components/layout/mainlayout/nested.layout";
 import {useRecoilState} from "recoil";
 import AuthAtomState from "../../state/auth.atoms";
-import OnlineCart from "../../components/online.cart";
-import OfflineCart from "../../components/offline.cart";
-import BackButton from "../../components/back.button";
+import OnlineCart from "../../components/ cart/online.cart";
+import OfflineCart from "../../components/ cart/offline.cart";
+import BackButton from "../../components/back-button/back.button";
 import {useEffect, useState} from "react";
 import styles from "../../styles/category.module.scss";
 

@@ -1,13 +1,13 @@
 import { NextPage } from "next";
-import { NestedLayout } from "../../components/nested.layout";
+import { NestedLayout } from "../../components/layout/mainlayout/nested.layout";
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import { useRecoilState } from "recoil";
 import AuthAtomState from "../../state/auth.atoms";
 import { useProductList } from "../../swrHooks/product.hooks";
-import BackButton from "../../components/back.button";
-import FavoriteProductContainer from "../../components/favorite.product.container";
-import NoItems from "../../components/no.items";
+import BackButton from "../../components/back-button/back.button";
+import FavoriteProductContainer from "../../components/ui-container/favorite-product/favorite.product.container";
+import NoItems from "../../components/no-item/no.items";
 import stock from "../../public/images/stock.png";
 import { HoulalaSpinner } from "ui";
 import { UserIdState } from "../../state/user.id.state";

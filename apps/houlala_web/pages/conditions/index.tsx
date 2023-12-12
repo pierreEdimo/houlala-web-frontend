@@ -1,6 +1,6 @@
 import {NextPage} from "next";
-import {NestedLayout} from "../../components/nested.layout";
-import BackButton from "../../components/back.button";
+import {NestedLayout} from "../../components/layout/mainlayout/nested.layout";
+import BackButton from "../../components/back-button/back.button";
 import ReactMarkdown from "react-markdown";
 
 const Conditions: NextPage = () => {

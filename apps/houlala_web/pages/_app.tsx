@@ -4,9 +4,9 @@ import {RecoilRoot} from "recoil";
 import React from "react";
 import Head from "next/head";
 import '@fortawesome/fontawesome-svg-core/styles.css'
-import AppBar from '../components/app.bar';
-import BottomBar from "../components/bottom.bar";
-import MobileUserPage from "../components/mobile.user.page";
+import AppBar from '../components/app-bar/app.bar';
+import BottomBar from "../components/bottom-bar/bottom.bar";
+import MobileUserPage from "../components/user-page/mobile.user.page";
 
 function MyApp({Component, pageProps}: AppProps) {
 

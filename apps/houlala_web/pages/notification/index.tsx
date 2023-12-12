@@ -2,7 +2,7 @@ import {NextPage} from "next";
 import styles from "../../styles/notification.module.scss";
 import notification from "../../public/images/sound-off.png";
 import Image from "next/image";
-import {NestedLayout} from "../../components/nested.layout";
+import {NestedLayout} from "../../components/layout/mainlayout/nested.layout";
 
 
 const Index: NextPage = () => {

@@ -14,8 +14,11 @@
     "start": "turbo run start"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.16",
     "eslint-config-custom": "*",
+    "postcss": "^8.4.31",
     "prettier": "latest",
+    "tailwindcss": "^3.3.3",
     "turbo": "latest"
   },
   "engines": {

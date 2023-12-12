@@ -1,11 +1,11 @@
 import {NextPage} from "next";
-import {NestedLayout} from "../../components/nested.layout";
-import BackButton from "../../components/back.button";
+import {NestedLayout} from "../../components/layout/mainlayout/nested.layout";
+import BackButton from "../../components/back-button/back.button";
 import {useRouter} from "next/router";
-import SearchProducts from "../../components/search.products";
-import SearchLocations from "../../components/search.locations";
-import SearchCategories from "../../components/search.categories";
-import SearchEmptyResult from "../../components/search.empty.result";
+import SearchProducts from "../../components/search/product/search.products";
+import SearchLocations from "../../components/search/location/search.locations";
+import SearchCategories from "../../components/search/category/search.categories";
+import SearchEmptyResult from "../../components/search/result/search.empty.result";
 
 const SearchResult: NextPage = () => {
     const router = useRouter();

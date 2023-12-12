@@ -1,6 +1,5 @@
 import styles from "./bottom.bar.module.scss";
 import * as React from "react";
-import HoulalaCard from "../houlala-card/houlala.card";
 
 type Props = {
     children: React.ReactNode[]

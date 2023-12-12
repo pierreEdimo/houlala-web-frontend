@@ -1,7 +1,7 @@
 import { NextPage } from "next";
-import { NestedLayout } from "../../components/nested.layout";
+import { NestedLayout } from "../../components/layout/mainlayout/nested.layout";
 import styles from "../../styles/login.module.scss";
-import BackButton from "../../components/back.button";
+import BackButton from "../../components/back-button/back.button";
 import { useRecoilState } from "recoil";
 import AuthAtomState from "../../state/auth.atoms";
 import { useEffect, useState } from "react";
@@ -47,7 +47,7 @@ const Reset: NextPage = () => {
     <NestedLayout>
       <BackButton title={"Nouveau mot de passe"} />
       <div className={styles.loginContainer}>
-       <HoulalaCard style={{margin: "auto", width: "100%"}}>
+       <HoulalaCard style={{margin: "auto", width: "100%", background: "white"}}>
          <div style={{margin: "auto"}} className={styles.loginFormContainer}>
            <form onSubmit={reset} className={styles.loginForm}>
              {
