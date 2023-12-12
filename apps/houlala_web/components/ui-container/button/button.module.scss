@@ -1,0 +1,28 @@
+@import "../variables/mixins";
+@import "../variables/variables";
+
+
+.buttonContainer {
+  @include buttonStyle;
+  width: 100%;
+  font-family: $fontfamily;
+}
+
+.buttonContainer:hover {
+  @include buttonHover;
+}
+
+.roundedButtonContainer{
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50% ;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.roundedButtonContainer:hover{
+  background-color: orange;
+}

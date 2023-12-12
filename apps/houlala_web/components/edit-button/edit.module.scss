@@ -1,0 +1,54 @@
+@import "../variables/mixins";
+@import "../variables/variables";
+
+.editButton {
+  @include buttonStyle;
+  width: 100%;
+}
+
+.editButton:hover {
+  @include buttonHover;
+}
+
+.editFormHeader {
+  border-bottom: $border-value;
+  padding-bottom: $space;
+}
+
+.editForm {
+  width: 450px;
+}
+
+.editFormbody {
+  display: flex;
+  flex-direction: column;
+  gap: $space;
+}
+
+.editFormFooter button {
+  width: 120px;
+}
+
+.editForm input {
+  padding: 15px 10px;
+  @include borderStyle;
+  border-radius: $standard-radius;
+  font-size: 18px;
+  font-family: $fontfamily;
+}
+
+.editForm input:focus {
+  outline: none;
+}
+
+.editFormFooter {
+  display: flex;
+  gap: $space;
+  justify-content: flex-end;
+}
+
+@media screen and (max-width: 991px) {
+  .editForm {
+    width: 100%;
+  }
+}

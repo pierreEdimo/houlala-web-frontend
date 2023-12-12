@@ -1,0 +1,20 @@
+@import "../variables/mixins.scss"; 
+@import "../variables/variables.scss";
+
+.optionContainer {
+  position: relative;
+  display: inline-block;
+
+}
+
+.optionsDropdownContent {
+  position: absolute;
+  margin-top: 10px;
+  width: 400px;
+  background-color: #ffffff;
+  z-index: 100;
+  border: $border-value;
+  border-radius: $standard-radius; 
+  display: none;
+  right: 0;
+}

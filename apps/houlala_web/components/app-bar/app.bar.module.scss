@@ -1,0 +1,58 @@
+@import "../variables/mixins";
+@import "../variables/variables";
+
+.appHeader {
+  height: 90px;
+  width: 100%;
+  background-color: white;
+}
+
+.appHeaderContent {
+  @include standardHeaderContent;
+  height: inherit;
+}
+
+.searchboxContainer{
+  height: 90px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  width: 98%;
+}
+
+.titleContainer {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.desktopAppHeaderContent {
+  @include standardHeaderContent;
+  height: 90px;
+}
+
+.searchPreview {
+  background: #ffffff;
+  margin-top: 10px;
+  border: 2px solid #f9f9f9;
+  border-radius: 10px;
+  height: 320px;
+  z-index: 1;
+  position: absolute;
+  width: 330px;
+  padding: 10px;
+  display: none;
+}
+
+@media screen and (min-width: 992px) {
+  .appHeaderContent {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .desktopAppHeaderContent {
+    display: none;
+  }
+}
